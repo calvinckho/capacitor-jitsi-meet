@@ -14,10 +14,9 @@ This plugin uses the Jitsi SDK for iOS.
 
 5. Deploy it to your device
 
-## API
+### Optional: API Documentations and Modifying the Plugin
 
-JitsiMeet is an iOS framework which embodies the whole Jitsi Meet experience and
-makes it reusable by third-party apps.
+This is a rough outline of how to write the Swift code to comsume the Jitsi Meet SDK for mobile. Notice this documentation was written in Objective C++, but the author implemented in Swift.
 
 To get started:
 
@@ -140,22 +139,6 @@ And also one of the following:
                             options: options];
 }
 ```
-or
-```objc
-// See https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-  return [JitsiMeetView application:application
-                            openURL:url
-                  sourceApplication:sourceApplication
-                         annotation:annotation];
-}
-```
-
-NOTE: The latter is deprecated.
 
 ### JitsiMeetViewDelegate
 
