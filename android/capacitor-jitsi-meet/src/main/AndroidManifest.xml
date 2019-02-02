@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.capacitor.jitsi.plugin.capacitorjitsimeet">
+  <application>
+    <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity">
+    </activity>
+  </application>
+</manifest>
