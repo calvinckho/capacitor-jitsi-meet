@@ -46,11 +46,12 @@ extension JitsiMeetViewController: JitsiMeetViewDelegate {
     
     @objc func conferenceLeft(_ data: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference left");
-        self.dismiss(animated: true, completion: nil); // e.g. user ends the call
+        self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
 
+    // TODO: not yet being called when user cancel the password prompt
     @objc func conferenceFailed(_ data: [AnyHashable : Any]!) {
-            print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference failed");
-            self.dismiss(animated: true, completion: nil); // e.g. user cancels at the password prompt
-        }
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference failed");
+        self.dismiss(animated: true, completion: nil); // e.g. user cancels at the password prompt.
+    }
 }
