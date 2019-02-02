@@ -16,30 +16,9 @@ This plugin uses the Jitsi SDK for iOS.
 
 ### Optional: API Documentations and Modifying the Plugin
 
-This is a rough outline of how to write the Swift code to comsume the Jitsi Meet SDK for mobile. Notice this documentation was written in Objective C++, but the author implemented in Swift.
-
-To get started:
-
-1. Add a `JitsiMeetView` to your app using a Storyboard or Interface Builder,
-   for example.
-
-2. Then, once the view has loaded, set the delegate in your controller and load
-   the desired URL:
-
-```objc
-- (void)viewDidLoad {
-  [super viewDidLoad];
-
-  JitsiMeetView *jitsiMeetView = (JitsiMeetView *) self.view;
-
-  jitsiMeetView.delegate = self;
-  [jitsiMeetView loadURL:nil];
-}
-```
-
 ### JitsiMeetView class
 
-The `JitsiMeetView` class is the entry point to the SDK. It a subclass of
+The `JitsiMeetView` class is the entry point to the Jitsi Meet SDK. It a subclass of
 `UIView` which renders a full conference in the designated area.
 
 #### delegate
@@ -75,7 +54,7 @@ effect.
 #### loadURL:NSURL
 
 ```objc
-[jitsiMeetView loadURL:[NSURL URLWithString:@"https://meet.jit.si/test123"]];
+jitsiMeetView?.loadURL("url": this.url);
 ```
 
 Loads a specific URL which may identify a conference to join. If the specified
@@ -85,13 +64,13 @@ instead.
 #### loadURLObject:NSDictionary
 
 ```objc
-[jitsiMeetView loadURLObject:@{
-    @"config": @{
-        @"startWithAudioMuted": @YES,
-        @"startWithVideoMuted": @NO
-    },
-    @"url": @"https://meet.jit.si/test123"
-}];
+jitsiMeetView?.loadURLObject([
+            "config": [
+                "startWithAudioMuted": NSNumber(value: false),
+                "startWithVideoMuted": NSNumber(value: false)
+            ],
+            "url": "https://meet.jit.si/test123"
+            ]);
 ```
 
 Loads a specific URL which may identify a conference to join. The URL is
@@ -103,7 +82,7 @@ of constructing the URL away from API clients/consumers. If the specified URL is
 #### loadURLString:NSString
 
 ```objc
-[jitsiMeetView loadURLString:@"https://meet.jit.si/test123"];
+jitsiMeetView?.loadURLString("url": "https://meet.jit.si/test123");
 ```
 
 Loads a specific URL which may identify a conference to join. If the specified
