@@ -11,8 +11,8 @@ import { Plugins } from '@capacitor/core';
 
 const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
-   roomName: 'room1',
-   url: 'https://meet.jit.si'
+   roomName: 'room1', // room identifier for the conference
+   url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
 });
 
 window.addEventListener('onConferenceJoined', () => {
@@ -23,10 +23,6 @@ window.addEventListener('onConferenceLeft', () => {
 });
 
 ```
-
-roomName (String): Room name for the conference
-
-url: the endpoint of the Jitsi Meet video bridge
 
 2. npx cap sync
 
