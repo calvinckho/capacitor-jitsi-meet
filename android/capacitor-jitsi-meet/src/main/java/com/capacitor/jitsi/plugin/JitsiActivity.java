@@ -1,18 +1,18 @@
 package com.capacitor.jitsi.plugin;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+//import java.net.MalformedURLException;
+//import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.facebook.react.bridge.UiThreadUtil;
-import com.facebook.react.modules.core.PermissionListener;
+//import com.facebook.react.modules.core.PermissionListener;
 
 import org.jitsi.meet.sdk.JitsiMeetView;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
@@ -42,44 +42,45 @@ public class JitsiActivity extends JitsiMeetActivity {
                         JitsiMeetViewListener.class.getSimpleName() + " "
                                 + name + " "
                                 + data);
+                Intent intent = new Intent(name);
+                intent.putExtra("eventName", name);
+                sendBroadcast(intent);
             }
 
             @Override
             public void onConferenceFailed(Map<String, Object> data) {
-                // e.g. user cancels at the password prompt
                 view.dispose();
                 view = null;
                 finish();
-                on("CONFERENCE_FAILED", data);
+                on("onConferenceFailed", data);
             }
 
             @Override
             public void onConferenceJoined(Map<String, Object> data) {
-                on("CONFERENCE_JOINED", data);
+                on("onConferenceJoined", data);
             }
 
             @Override
             public void onConferenceLeft(Map<String, Object> data) {
-                // e.g. the user ends the call
                 view.dispose();
                 view = null;
                 finish();
-                on("CONFERENCE_LEFT", data);
+                on("onConferenceLeft", data);
             }
 
             @Override
             public void onConferenceWillJoin(Map<String, Object> data) {
-                on("CONFERENCE_WILL_JOIN", data);
+                on("onConferenceWillJoin", data);
             }
 
             @Override
             public void onConferenceWillLeave(Map<String, Object> data) {
-                on("CONFERENCE_WILL_LEAVE", data);
+                on("onConferenceWillLeave", data);
             }
 
             @Override
             public void onLoadConfigError(Map<String, Object> data) {
-                on("LOAD_CONFIG_ERROR", data);
+                on("onLoadConfigError", data);
             }
         });
         // inviteController

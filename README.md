@@ -6,9 +6,32 @@ This plugin is used to make video calls using Jitsi video platform (https://meet
 
 1. npm install capacitor-jitsi-meet
 
-2. npx cap sync
+2. use it as a Capacitor Plugin
 
-3. Follow the deployment instructions for [Android](android/README.md) and [iOS](ios/README.md).
+```
+import { Plugins } from '@capacitor/core';
+
+const { Jitsi } = Plugins;
+const result = await Jitsi.joinConference({
+    roomName: 'room1',
+    url: 'https://meet.jit.si'
+});
+
+window.addEventListener('onConferenceJoined', () => {
+    // do things here
+});
+window.addEventListener('onConferenceLeft', () => {
+    // do things here
+});
+
+```
+roomName (String): Room name for the conference
+url: the endpoint of the Jitsi Meet video bridge
+
+
+3. Build the project
+
+4. Follow the deployment instructions for [Android](android/README.md) and [iOS](ios/README.md).
 
 ## Acknowledgements
 

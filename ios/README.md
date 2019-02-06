@@ -4,13 +4,33 @@ This plugin uses the Jitsi SDK for iOS.
 
 ### Usage
 
-1. npm install capacitor-jitsi-meet
+1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
+
+```
+import { Plugins } from '@capacitor/core';
+
+const { Jitsi } = Plugins;
+const result = await Jitsi.joinConference({
+    roomName: 'room1',
+    url: 'https://meet.jit.si'
+});
+
+window.addEventListener('onConferenceJoined', () => {
+    // do things here
+});
+window.addEventListener('onConferenceLeft', () => {
+    // do things here
+});
+
+```
+roomName (String): Room name for the conference
+url: the endpoint of the Jitsi Meet video bridge
 
 2. npx cap sync
 
 3. In xcode, turn off Bitcode in the app target as well as the pod targets. Choose the Project -> Targets -> Build Settings -> Enable Bitcode -> No
 
-4. You need xcode 10+ and use Swift 4.2 for the Capacitor target. In xcode, click on Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> 4.2
+4. Some users may need to use Swift 4.2 for the Capacitor target. In xcode, click on Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> 4.2
 
 5. Deploy it to your device
 

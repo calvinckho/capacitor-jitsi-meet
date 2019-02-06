@@ -14,6 +14,7 @@ public class JitsiMeetViewController: UIViewController {
     
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
+    weak var delegate: JitsiMeetViewControllerDelegate?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +39,22 @@ public class JitsiMeetViewController: UIViewController {
     }
 }
 
+protocol JitsiMeetViewControllerDelegate: AnyObject {
+    func onConferenceJoined()
+
+    func onConferenceLeft()
+}
+
 // MARK: JitsiMeetViewDelegate
 extension JitsiMeetViewController: JitsiMeetViewDelegate {
     @objc func conferenceJoined(_ data: [AnyHashable : Any]!) {
+        delegate?.onConferenceJoined()
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined");
     }
-    
+
     @objc func conferenceLeft(_ data: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference left");
+        delegate?.onConferenceLeft()
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
 

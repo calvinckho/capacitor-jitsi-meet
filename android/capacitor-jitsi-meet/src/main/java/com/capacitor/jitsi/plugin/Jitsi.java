@@ -6,7 +6,7 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 
-import android.content.Context;
+import android.content.IntentFilter;
 import android.util.Log;
 import android.content.Intent;
 import android.Manifest;
@@ -25,6 +25,17 @@ public class Jitsi extends Plugin {
         String url = call.getString("url");
         String roomName = call.getString("roomName");
 
+        JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
+        receiver.setModule(this);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("onConferenceFailed");
+        filter.addAction("onConferenceWillJoin");
+        filter.addAction("onConferenceJoined");
+        filter.addAction("onConferenceWillLeave");
+        filter.addAction("onConferenceLeft");
+        filter.addAction("onLoadConfigError");
+        getContext().registerReceiver(receiver, filter);
+
         if(url == null) {
             call.reject("Must provide an url");
             return;
@@ -33,7 +44,7 @@ public class Jitsi extends Plugin {
                     call.reject("Must provide an conference room name");
                     return;
                 }
-        Log.v(TAG,"display url: "+url);
+        Log.v(TAG, "display url: " + url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
         intent.putExtra("url", url);
@@ -42,7 +53,11 @@ public class Jitsi extends Plugin {
         getActivity().startActivity(intent);
 
         JSObject ret = new JSObject();
-        ret.put("result", true);
+        ret.put("success", true);
         call.success(ret);
+    }
+
+    public void onEventReceived(String eventName) {
+        bridge.triggerWindowJSEvent(eventName);
     }
 }

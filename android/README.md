@@ -4,7 +4,27 @@ This plugin uses the Jitsi SDK for android.
 
 ### Usage
 
-1. npm install capacitor-jitsi-meet
+1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
+
+```
+import { Plugins } from '@capacitor/core';
+
+const { Jitsi } = Plugins;
+const result = await Jitsi.joinConference({
+   roomName: 'room1',
+   url: 'https://meet.jit.si'
+});
+
+window.addEventListener('onConferenceJoined', () => {
+    // do things here
+});
+window.addEventListener('onConferenceLeft', () => {
+    // do things here
+});
+
+```
+roomName (String): Room name for the conference
+url: the endpoint of the Jitsi Meet video bridge
 
 2. npx cap sync
 
