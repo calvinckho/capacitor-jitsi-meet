@@ -26,6 +26,7 @@ window.addEventListener('onConferenceLeft', () => {
 
 ```
 roomName (String): Room name for the conference
+
 url: the endpoint of the Jitsi Meet video bridge
 
 
