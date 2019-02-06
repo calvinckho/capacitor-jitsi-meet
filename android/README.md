@@ -23,7 +23,9 @@ window.addEventListener('onConferenceLeft', () => {
 });
 
 ```
+
 roomName (String): Room name for the conference
+
 url: the endpoint of the Jitsi Meet video bridge
 
 2. npx cap sync
