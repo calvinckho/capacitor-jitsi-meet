@@ -10,6 +10,7 @@ This plugin is used to make video calls using Jitsi video platform (https://meet
 
 ```
 import { Plugins } from '@capacitor/core';
+import 'capacitor-jitsi-meet';
 
 const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
