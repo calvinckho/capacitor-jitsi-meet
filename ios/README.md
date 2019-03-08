@@ -8,6 +8,7 @@ This plugin uses the Jitsi SDK for iOS.
 
 ```
 import { Plugins } from '@capacitor/core';
+import 'capacitor-jitsi-meet';
 
 const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
