@@ -137,15 +137,15 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Capacitor/Capacitor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CapacitorCordova/Cordova.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework"
-  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/JitsiMeet.framework"
-  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/WebRTC.framework"
+  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/JitsiMeet.framework"
+  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/WebRTC.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Capacitor/Capacitor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CapacitorCordova/Cordova.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework"
-  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/JitsiMeet.framework"
-  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/WebRTC.framework"
+  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/JitsiMeet.framework"
+  install_framework "${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/WebRTC.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

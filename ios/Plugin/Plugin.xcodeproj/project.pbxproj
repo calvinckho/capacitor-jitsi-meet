@@ -323,8 +323,8 @@
 				"${BUILT_PRODUCTS_DIR}/Capacitor/Capacitor.framework",
 				"${BUILT_PRODUCTS_DIR}/CapacitorCordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
-				"${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/JitsiMeet.framework",
-				"${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/WebRTC.framework",
+				"${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/JitsiMeet.framework",
+				"${PODS_ROOT}/JitsiMeetSDK/jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/WebRTC.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

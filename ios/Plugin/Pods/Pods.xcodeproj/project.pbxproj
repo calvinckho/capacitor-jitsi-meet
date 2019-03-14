@@ -228,6 +228,7 @@
 		47070F63883FB3003C69104FDCEABBE0 /* GCDWebServer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GCDWebServer.modulemap; sourceTree = "<group>"; };
 		4A143E83CC510BAE0B0AA08A39BCD528 /* GCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerURLEncodedFormRequest.h; path = GCDWebServer/Requests/GCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
 		4A2BECB3D71518FA0FB199670364BF99 /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerMultiPartFormRequest.m; path = GCDWebServer/Requests/GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
+		4A984C5E4DDB812DE10BE1ABE292EE90 /* JitsiMeet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JitsiMeet.framework; path = "jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/JitsiMeet.framework"; sourceTree = "<group>"; };
 		4B2DC862064D9F6D728109CEA12B3383 /* CAPPluginCall.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPluginCall.h; path = ios/Capacitor/Capacitor/CAPPluginCall.h; sourceTree = "<group>"; };
 		4C033272AA2288C3E70DE6C234669D79 /* GCDWebServer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GCDWebServer-prefix.pch"; sourceTree = "<group>"; };
 		4C532017B1BC3BEA597607B4F4B6439D /* GCDWebServerHTTPStatusCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerHTTPStatusCodes.h; path = GCDWebServer/Core/GCDWebServerHTTPStatusCodes.h; sourceTree = "<group>"; };
@@ -258,7 +259,6 @@
 		73B153BF5C8C314DA23883647A349A81 /* CDVUIWebViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDVUIWebViewDelegate.m; path = ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVUIWebViewDelegate.m; sourceTree = "<group>"; };
 		747808E068A1E514F1494D98DE09BACD /* DefaultPlugins.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DefaultPlugins.m; path = ios/Capacitor/Capacitor/Plugins/DefaultPlugins.m; sourceTree = "<group>"; };
 		7551AABE0415ABE48D284FED4BB72FE5 /* CDVPluginManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CDVPluginManager.m; path = ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVPluginManager.m; sourceTree = "<group>"; };
-		7754F6F47CAB4D6F08C42E319309BB1C /* JitsiMeet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JitsiMeet.framework; path = "jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/JitsiMeet.framework"; sourceTree = "<group>"; };
 		79828E3EE11A4C78208E9CCCD649C641 /* CapacitorCordova.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CapacitorCordova.h; path = ios/CapacitorCordova/CapacitorCordova/CapacitorCordova.h; sourceTree = "<group>"; };
 		7D42DDF74C6DC607FBF6095BF3900279 /* Pods-Plugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Plugin-dummy.m"; sourceTree = "<group>"; };
 		7EAC83F55C4E1E507EA05E2B235CDE6C /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ios/Capacitor/Capacitor/Plugins/Network/Reachability.swift; sourceTree = "<group>"; };
@@ -332,10 +332,10 @@
 		F7BB828C993E11BC53D74371A9DDE3CD /* CAPBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridge.swift; path = ios/Capacitor/Capacitor/CAPBridge.swift; sourceTree = "<group>"; };
 		FA3C48284555F47EDA702CC06DC71A8A /* GCDWebServer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GCDWebServer.xcconfig; sourceTree = "<group>"; };
 		FAADC53959C773CBD73D65D23C6797FB /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FB6EB7F0DF41AAD6A9CE5774E25262EA /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = "jitsi-meet-ios-sdk-releases-1.21.1/Frameworks/WebRTC.framework"; sourceTree = "<group>"; };
 		FDD938A389AAB6048E85C7F7330A0B9A /* GCDWebServerFileRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerFileRequest.m; path = GCDWebServer/Requests/GCDWebServerFileRequest.m; sourceTree = "<group>"; };
 		FEF2CA75150F8A36850D513880F2D9B6 /* DocLinks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocLinks.swift; path = ios/Capacitor/Capacitor/DocLinks.swift; sourceTree = "<group>"; };
 		FFA934BBE4F908F8AAD2BB97C6AF57EE /* Cordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFE165A4FC74E3BECF2C633DFE50B90A /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = "jitsi-meet-ios-sdk-releases-1.21.2/Frameworks/WebRTC.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,7 +413,7 @@
 		23F943F01DD543743C41FCB2878F6D2C /* JitsiMeetSDK */ = {
 			isa = PBXGroup;
 			children = (
-				CBD2508D8C41232789784385C5705E4D /* Frameworks */,
+				B69961B6B5B9FB2EEBFF47948DC85123 /* Frameworks */,
 			);
 			name = JitsiMeetSDK;
 			path = JitsiMeetSDK;
@@ -596,6 +596,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B69961B6B5B9FB2EEBFF47948DC85123 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A984C5E4DDB812DE10BE1ABE292EE90 /* JitsiMeet.framework */,
+				FFE165A4FC74E3BECF2C633DFE50B90A /* WebRTC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE490364C6F0D8E6A840A27A2D3683AB /* GCDWebServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,15 +613,6 @@
 			);
 			name = GCDWebServer;
 			path = GCDWebServer;
-			sourceTree = "<group>";
-		};
-		CBD2508D8C41232789784385C5705E4D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7754F6F47CAB4D6F08C42E319309BB1C /* JitsiMeet.framework */,
-				FB6EB7F0DF41AAD6A9CE5774E25262EA /* WebRTC.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D916C5850C97E9FB9B32DAD33811A072 /* Core */ = {

@@ -83,22 +83,6 @@ public class JitsiActivity extends JitsiMeetActivity {
                 on("onLoadConfigError", data);
             }
         });
-        // inviteController
-        final InviteController inviteController
-                = view.getInviteController();
-
-        inviteController.setListener(new InviteControllerListener() {
-            public void beginAddPeople(
-                    AddPeopleController addPeopleController) {
-                onInviteControllerBeginAddPeople(
-                        inviteController,
-                        addPeopleController);
-            }
-        });
-        inviteController.setAddPeopleEnabled(
-                ADD_PEOPLE_CONTROLLER_QUERY != null);
-        inviteController.setDialOutEnabled(
-                inviteController.isAddPeopleEnabled());
 
         view.setWelcomePageEnabled(false);
         String url = getIntent().getStringExtra("url");
@@ -125,94 +109,5 @@ public class JitsiActivity extends JitsiMeetActivity {
      * rendered.
      */
     private static final String ADD_PEOPLE_CONTROLLER_QUERY = null;
-
-    private void onAddPeopleControllerInviteSettled(
-            AddPeopleController addPeopleController,
-            List<Map<String, Object>> failedInvitees) {
-        UiThreadUtil.assertOnUiThread();
-
-        // XXX Explicitly invoke endAddPeople on addPeopleController; otherwise,
-        // it is going to be memory-leaked in the associated InviteController
-        // and no subsequent InviteButton clicks/taps will be delivered.
-        // Technically, endAddPeople will automatically be invoked if there are
-        // no failedInviteees i.e. the invite succeeeded for all specified
-        // invitees.
-        addPeopleController.endAddPeople();
-    }
-
-    private void onAddPeopleControllerReceivedResults(
-            AddPeopleController addPeopleController,
-            List<Map<String, Object>> results,
-            String query) {
-        UiThreadUtil.assertOnUiThread();
-
-        int size = results.size();
-
-        if (size > 0) {
-            // Exercise AddPeopleController's inviteById implementation.
-            List<String> ids = new ArrayList<>(size);
-
-            for (Map<String, Object> result : results) {
-                Object id = result.get("id");
-
-                if (id != null) {
-                    ids.add(id.toString());
-                }
-            }
-
-            addPeopleController.inviteById(ids);
-
-            return;
-        }
-
-        // XXX Explicitly invoke endAddPeople on addPeopleController; otherwise,
-        // it is going to be memory-leaked in the associated InviteController
-        // and no subsequent InviteButton clicks/taps will be delivered.
-        addPeopleController.endAddPeople();
-    }
-
-    private void onInviteControllerBeginAddPeople(
-            InviteController inviteController,
-            AddPeopleController addPeopleController) {
-        UiThreadUtil.assertOnUiThread();
-
-        // Log with the tag "ReactNative" in order to have the log visible in
-        // react-native log-android as well.
-        Log.d(
-                "ReactNative",
-                InviteControllerListener.class.getSimpleName() + ".beginAddPeople");
-
-        String query = ADD_PEOPLE_CONTROLLER_QUERY;
-
-        if (query != null
-                && (inviteController.isAddPeopleEnabled()
-                || inviteController.isDialOutEnabled())) {
-            addPeopleController.setListener(new AddPeopleControllerListener() {
-                public void onInviteSettled(
-                        AddPeopleController addPeopleController,
-                        List<Map<String, Object>> failedInvitees) {
-                    onAddPeopleControllerInviteSettled(
-                            addPeopleController,
-                            failedInvitees);
-                }
-
-                public void onReceivedResults(
-                        AddPeopleController addPeopleController,
-                        List<Map<String, Object>> results,
-                        String query) {
-                    onAddPeopleControllerReceivedResults(
-                            addPeopleController,
-                            results, query);
-                }
-            });
-            addPeopleController.performQuery(query);
-        } else {
-            // XXX Explicitly invoke endAddPeople on addPeopleController;
-            // otherwise, it is going to be memory-leaked in the associated
-            // InviteController and no subsequent InviteButton clicks/taps will
-            // be delivered.
-            addPeopleController.endAddPeople();
-        }
-    }
 }
 
