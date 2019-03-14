@@ -17,10 +17,6 @@ import com.facebook.react.bridge.UiThreadUtil;
 import org.jitsi.meet.sdk.JitsiMeetView;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetViewListener;
-import org.jitsi.meet.sdk.invite.AddPeopleController;
-import org.jitsi.meet.sdk.invite.AddPeopleControllerListener;
-import org.jitsi.meet.sdk.invite.InviteController;
-import org.jitsi.meet.sdk.invite.InviteControllerListener;
 
 public class JitsiActivity extends JitsiMeetActivity {
     private JitsiMeetView view;
