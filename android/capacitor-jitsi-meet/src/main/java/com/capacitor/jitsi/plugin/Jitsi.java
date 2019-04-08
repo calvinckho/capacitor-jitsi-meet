@@ -24,6 +24,7 @@ public class Jitsi extends Plugin {
     public void joinConference(PluginCall call) {
         String url = call.getString("url");
         String roomName = call.getString("roomName");
+        String channelLastN = call.getString("channelLastN");
 
         JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -41,9 +42,12 @@ public class Jitsi extends Plugin {
             return;
         }
         if(roomName == null) {
-                    call.reject("Must provide an conference room name");
-                    return;
-                }
+            call.reject("Must provide an conference room name");
+            return;
+        }
+        if(channelLastN == null) {
+            channelLastN = "-1";
+        }
         Log.v(TAG, "display url: " + url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);

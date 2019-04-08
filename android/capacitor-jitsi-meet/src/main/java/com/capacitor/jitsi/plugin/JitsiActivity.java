@@ -92,7 +92,7 @@ public class JitsiActivity extends JitsiMeetActivity {
         config.putBoolean("startWithAudioMuted", false);
         config.putBoolean("startWithVideoMuted", false);
         config.putString("googleApiApplicationClientID", "896030655830-pveqh7f6cj8af3p10qh2rhokoqnsapcj.apps.googleusercontent.com");
-        config.putInt('channelLastN', channelLastN);
+        config.putInt("channelLastN", channelLastN);
         config.putString("callDisplayName", " ");
         Bundle urlObject = new Bundle();
         urlObject.putBundle("config", config);
