@@ -49,6 +49,7 @@ public class Jitsi extends Plugin {
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
         intent.putExtra("url", url);
         intent.putExtra("roomName",roomName);
+        intent.putExtra("channelLastN", channelLastN);
 
         getActivity().startActivity(intent);
 

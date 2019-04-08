@@ -84,6 +84,7 @@ public class JitsiActivity extends JitsiMeetActivity {
         String url = getIntent().getStringExtra("url");
         String roomName = getIntent().getStringExtra("roomName");
         String fullurl = url + '/' + roomName;
+        Integer channelLastN = Integer.parseInt(getIntent().getStringExtra("channelLastN"));
         Log.d("DEBUG", fullurl);
 
         //view.loadURLString(fullurl);
@@ -91,6 +92,8 @@ public class JitsiActivity extends JitsiMeetActivity {
         config.putBoolean("startWithAudioMuted", false);
         config.putBoolean("startWithVideoMuted", false);
         config.putString("googleApiApplicationClientID", "896030655830-pveqh7f6cj8af3p10qh2rhokoqnsapcj.apps.googleusercontent.com");
+        config.putInt('channelLastN', channelLastN);
+        config.putString("callDisplayName", " ");
         Bundle urlObject = new Bundle();
         urlObject.putBundle("config", config);
         urlObject.putString("url", fullurl);
