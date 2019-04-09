@@ -14,25 +14,27 @@ public class JitsiMeetViewController: UIViewController {
     
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
+    var channelLastN: String = "-1"
     weak var delegate: JitsiMeetViewControllerDelegate?
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewDidLoad");
     }
-    
+
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        
+
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewDidAppear");
-        
+
         jitsiMeetView = view as? JitsiMeetView;
         jitsiMeetView?.delegate = self
-        
+
         jitsiMeetView?.loadURLObject([
             "config": [
                 "startWithAudioMuted": NSNumber(value: false),
-                "startWithVideoMuted": NSNumber(value: false)
+                "startWithVideoMuted": NSNumber(value: false),
+                "channelLastN": self.channelLastN
             ],
             "url": self.url
             ]);
