@@ -89,7 +89,6 @@ public class JitsiActivity extends JitsiMeetActivity {
         Boolean startWithVideoMuted = getIntent().getBooleanExtra("startWithVideoMuted", false);
         Log.d("DEBUG", fullurl);
 
-        //view.loadURLString(fullurl);
         Bundle config = new Bundle();
         config.putBoolean("startWithAudioMuted", startWithAudioMuted);
         config.putBoolean("startWithVideoMuted", startWithVideoMuted);
