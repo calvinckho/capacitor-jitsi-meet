@@ -15,7 +15,10 @@ import 'capacitor-jitsi-meet';
 const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
-   url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
+   url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge,
+   channelLastN: '-1', // default -1. see config.js for more info on the last n feature
+   startWithAudioMuted: true, // start with audio muted
+   startWithVideoMuted: false // start with video muted
 });
 
 window.addEventListener('onConferenceJoined', () => {
