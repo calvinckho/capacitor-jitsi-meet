@@ -9,7 +9,17 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
     });
   }
 
-  async joinConference(options: { roomName: string, url: string }): Promise<{roomName: string, url: string}> {
+  async joinConference(options: {
+      roomName: string, url: string,
+      channelLastN: string;
+      startWithAudioMuted: boolean;
+      startWithVideoMuted: boolean; }): Promise<{
+      roomName: string,
+      url: string,
+      channelLastN: string;
+      startWithAudioMuted: boolean;
+      startWithVideoMuted: boolean;
+  }> {
       console.log('join conference', options);
       return options;
   }
