@@ -19,8 +19,6 @@ public class Jitsi: CAPPlugin {
             call.reject("Must provide a roomName")
             return
         }
-        let fullurl = url + "/" + roomName;
-        let channelLastN = call.options["channelLastN"] as? String ?? "-1";
 
         let podBundle = Bundle(for: JitsiMeetViewController.self)
         let bundleURL = podBundle.url(forResource: "Plugin", withExtension: "bundle")
@@ -29,8 +27,11 @@ public class Jitsi: CAPPlugin {
         let storyboard = UIStoryboard(name: "JitsiMeet", bundle: bundle)
         self.jitsiMeetViewController = storyboard.instantiateViewController(withIdentifier: "jitsiMeetStoryBoardID") as? JitsiMeetViewController
 
-        self.jitsiMeetViewController.url = fullurl;
-        self.jitsiMeetViewController.channelLastN = channelLastN;
+        self.jitsiMeetViewController.url = url + "/" + roomName;
+        self.jitsiMeetViewController.channelLastN = call.options["channelLastN"] as? String ?? "-1";
+        self.jitsiMeetViewController.startWithAudioMuted = call.options["startWithAudioMuted"] as? Bool ?? false;
+        self.jitsiMeetViewController.startWithVideoMuted = call.options["startWithVideoMuted"] as? Bool ?? false;
+
         self.jitsiMeetViewController.delegate = self;
         
         DispatchQueue.main.async {

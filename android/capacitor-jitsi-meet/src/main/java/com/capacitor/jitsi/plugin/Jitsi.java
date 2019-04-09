@@ -25,6 +25,8 @@ public class Jitsi extends Plugin {
         String url = call.getString("url");
         String roomName = call.getString("roomName");
         String channelLastN = call.getString("channelLastN");
+        Boolean startWithAudioMuted = call.getBoolean("startWithAudioMuted");
+        Boolean startWithVideoMuted = call.getBoolean("startWithVideoMuted");
 
         JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -48,12 +50,20 @@ public class Jitsi extends Plugin {
         if(channelLastN == null) {
             channelLastN = "-1";
         }
+        if(startWithAudioMuted == null) {
+            startWithAudioMuted = false;
+        }
+        if(startWithVideoMuted == null) {
+            startWithVideoMuted = false;
+        }
         Log.v(TAG, "display url: " + url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
         intent.putExtra("url", url);
         intent.putExtra("roomName",roomName);
         intent.putExtra("channelLastN", channelLastN);
+        intent.putExtra("startWithAudioMuted", startWithAudioMuted);
+        intent.putExtra("startWithVideoMuted", startWithVideoMuted);
 
         getActivity().startActivity(intent);
 

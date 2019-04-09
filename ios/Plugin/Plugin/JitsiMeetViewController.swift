@@ -15,6 +15,8 @@ public class JitsiMeetViewController: UIViewController {
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
     var channelLastN: String = "-1"
+    var startWithAudioMuted: Bool = false
+    var startWithVideoMuted: Bool = false
     weak var delegate: JitsiMeetViewControllerDelegate?
 
     public override func viewDidLoad() {
@@ -32,8 +34,8 @@ public class JitsiMeetViewController: UIViewController {
 
         jitsiMeetView?.loadURLObject([
             "config": [
-                "startWithAudioMuted": NSNumber(value: false),
-                "startWithVideoMuted": NSNumber(value: false),
+                "startWithAudioMuted": NSNumber(value: self.startWithAudioMuted),
+                "startWithVideoMuted": NSNumber(value: self.startWithVideoMuted),
                 "channelLastN": self.channelLastN
             ],
             "url": self.url

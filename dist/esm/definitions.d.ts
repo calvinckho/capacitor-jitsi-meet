@@ -7,10 +7,8 @@ export interface JitsiPlugin {
     joinConference(options: {
         roomName: string;
         url: string;
-        channelLastN: string;
     }): Promise<{
         roomName: string;
         url: string;
-        channelLastN: string;
     }>;
 }
