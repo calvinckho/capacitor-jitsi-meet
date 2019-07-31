@@ -31,12 +31,9 @@ public class Jitsi extends Plugin {
         JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
         IntentFilter filter = new IntentFilter();
-        filter.addAction("onConferenceFailed");
         filter.addAction("onConferenceWillJoin");
         filter.addAction("onConferenceJoined");
-        filter.addAction("onConferenceWillLeave");
-        filter.addAction("onConferenceLeft");
-        filter.addAction("onLoadConfigError");
+        filter.addAction("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         getContext().registerReceiver(receiver, filter);
 
         if(url == null) {

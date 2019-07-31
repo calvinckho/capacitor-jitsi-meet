@@ -1,7 +1,7 @@
 package com.capacitor.jitsi.plugin;
 
-//import java.net.MalformedURLException;
-//import java.net.URL;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,9 +17,12 @@ import com.facebook.react.bridge.UiThreadUtil;
 import org.jitsi.meet.sdk.JitsiMeetView;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetViewListener;
+import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
+import org.jitsi.meet.sdk.JitsiMeetUserInfo;
 
 public class JitsiActivity extends JitsiMeetActivity {
     private JitsiMeetView view;
+    private JitsiMeetUserInfo info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,25 +46,10 @@ public class JitsiActivity extends JitsiMeetActivity {
                 sendBroadcast(intent);
             }
 
-            @Override
-            public void onConferenceFailed(Map<String, Object> data) {
-                view.dispose();
-                view = null;
-                finish();
-                on("onConferenceFailed", data);
-            }
 
             @Override
             public void onConferenceJoined(Map<String, Object> data) {
                 on("onConferenceJoined", data);
-            }
-
-            @Override
-            public void onConferenceLeft(Map<String, Object> data) {
-                view.dispose();
-                view = null;
-                finish();
-                on("onConferenceLeft", data);
             }
 
             @Override
@@ -70,26 +58,31 @@ public class JitsiActivity extends JitsiMeetActivity {
             }
 
             @Override
-            public void onConferenceWillLeave(Map<String, Object> data) {
-                on("onConferenceWillLeave", data);
-            }
-
-            @Override
-            public void onLoadConfigError(Map<String, Object> data) {
-                on("onLoadConfigError", data);
+            public void onConferenceTerminated(Map<String, Object> data) {
+                view.dispose();
+                view = null;
+                finish();
+                on("onConferenceLeft", data); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
             }
         });
 
-        view.setWelcomePageEnabled(false);
-        String url = getIntent().getStringExtra("url");
+        // Initialize default options for Jitsi Meet conferences.
+        URL serverURL;
+        try {
+            serverURL = new URL(getIntent().getStringExtra("url"));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Invalid server URL!");
+        }
+
         String roomName = getIntent().getStringExtra("roomName");
-        String fullurl = url + '/' + roomName;
-        Integer channelLastN = Integer.parseInt(getIntent().getStringExtra("channelLastN"));
+        //Integer channelLastN = Integer.parseInt(getIntent().getStringExtra("channelLastN"));
         Boolean startWithAudioMuted = getIntent().getBooleanExtra("startWithAudioMuted", false);
         Boolean startWithVideoMuted = getIntent().getBooleanExtra("startWithVideoMuted", false);
-        Log.d("DEBUG", fullurl);
 
-        Bundle config = new Bundle();
+        Log.d("DEBUG", roomName);
+
+        /*Bundle config = new Bundle();
         config.putBoolean("startWithAudioMuted", startWithAudioMuted);
         config.putBoolean("startWithVideoMuted", startWithVideoMuted);
         config.putString("googleApiApplicationClientID", "896030655830-pveqh7f6cj8af3p10qh2rhokoqnsapcj.apps.googleusercontent.com");
@@ -97,8 +90,19 @@ public class JitsiActivity extends JitsiMeetActivity {
         config.putString("callDisplayName", " ");
         Bundle urlObject = new Bundle();
         urlObject.putBundle("config", config);
-        urlObject.putString("url", fullurl);
-        view.loadURLObject(urlObject);
+        urlObject.putString("url", fullurl);*/
+        //view.loadURLObject(urlObject);
+
+        JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
+                .setServerURL(serverURL)
+                .setRoom(roomName)
+                .setSubject(" ")
+                .setAudioMuted(startWithAudioMuted)
+                .setVideoMuted(startWithVideoMuted)
+                //.setAudioOnly(false)
+                .setWelcomePageEnabled(false)
+                .build();
+        view.join(options);
         setContentView(view);
     }
 
