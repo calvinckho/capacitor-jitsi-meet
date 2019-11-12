@@ -150,35 +150,21 @@ fail?
 
 All methods in this delegate are optional.
 
-##### conferenceFailed
-
-Called when a joining a conference was unsuccessful or when there was an error
-while in a conference.
-
-The `data` dictionary contains an "error" key describing the error and a "url"
-key with the conference URL.
-
 #### conferenceJoined
 
 Called when a conference was joined.
 
 The `data` dictionary contains a "url" key with the conference URL.
 
-#### conferenceLeft
+#### conferenceTerminated
 
 Called when a conference was left.
 
-The `data` dictionary contains a "url" key with the conference URL.
+The `data` dictionary contains an "error" key with the error and a "url" key with the conference URL. If the conference finished gracefully no error key will be present.
 
 #### conferenceWillJoin
 
 Called before a conference is joined.
-
-The `data` dictionary contains a "url" key with the conference URL.
-
-#### conferenceWillLeave
-
-Called before a conference is left.
 
 The `data` dictionary contains a "url" key with the conference URL.
 
