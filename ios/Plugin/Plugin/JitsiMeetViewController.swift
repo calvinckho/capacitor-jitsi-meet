@@ -14,6 +14,7 @@ public class JitsiMeetViewController: UIViewController {
     
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
+    var roomName: String = ""
     var startWithAudioMuted: Bool = false
     var startWithVideoMuted: Bool = false
     weak var delegate: JitsiMeetViewControllerDelegate?
