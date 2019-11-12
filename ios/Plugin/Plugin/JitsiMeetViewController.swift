@@ -35,9 +35,10 @@ public class JitsiMeetViewController: UIViewController {
         let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
             builder.serverURL = URL(string: self.url)
             builder.room = self.roomName
+            builder.subject = " "
             builder.audioMuted = self.startWithAudioMuted
             builder.videoMuted = self.startWithVideoMuted
-        }
+        })
         jitsiMeetView.join(options)
     }
 }
