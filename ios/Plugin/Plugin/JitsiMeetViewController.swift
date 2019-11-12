@@ -32,11 +32,11 @@ public class JitsiMeetViewController: UIViewController {
         jitsiMeetView = view as? JitsiMeetView;
         jitsiMeetView?.delegate = self
 
-        let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
-            builder.serverUrl = self.url,
-            builder.room = self.roomName,
-            builder.audioMuted = self.startWithAudioMuted,
-            builder.videoMuted = self.startWithVideoMuted,
+        let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
+            builder.serverURL = URL(string: self.url)
+            builder.room = self.roomName
+            builder.audioMuted = self.startWithAudioMuted
+            builder.videoMuted = self.startWithVideoMuted
         }
         jitsiMeetView.join(options)
     }
@@ -50,12 +50,12 @@ protocol JitsiMeetViewControllerDelegate: AnyObject {
 
 // MARK: JitsiMeetViewDelegate
 extension JitsiMeetViewController: JitsiMeetViewDelegate {
-    @objc func conferenceJoined(_ data: [AnyHashable : Any]!) {
+    @objc public func conferenceJoined(_ data: [AnyHashable : Any]!) {
         delegate?.onConferenceJoined()
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined");
     }
 
-    @objc func conferenceTerminated(_ data: [AnyHashable : Any]!) {
+    @objc public func conferenceTerminated(_ data: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference left");
         delegate?.onConferenceLeft()
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
