@@ -14,7 +14,6 @@ public class JitsiMeetViewController: UIViewController {
     
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
-    var channelLastN: String = "-1"
     var startWithAudioMuted: Bool = false
     var startWithVideoMuted: Bool = false
     weak var delegate: JitsiMeetViewControllerDelegate?
@@ -32,14 +31,13 @@ public class JitsiMeetViewController: UIViewController {
         jitsiMeetView = view as? JitsiMeetView;
         jitsiMeetView?.delegate = self
 
-        jitsiMeetView?.loadURLObject([
-            "config": [
-                "startWithAudioMuted": NSNumber(value: self.startWithAudioMuted),
-                "startWithVideoMuted": NSNumber(value: self.startWithVideoMuted),
-                "channelLastN": self.channelLastN
-            ],
-            "url": self.url
-            ]);
+        let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
+            builder.serverUrl = self.url,
+            builder.room = self.roomName,
+            builder.audioMuted = self.startWithAudioMuted,
+            builder.videoMuted = self.startWithVideoMuted,
+        }
+        jitsiMeetView.join(options)
     }
 }
 
@@ -56,15 +54,9 @@ extension JitsiMeetViewController: JitsiMeetViewDelegate {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined");
     }
 
-    @objc func conferenceLeft(_ data: [AnyHashable : Any]!) {
+    @objc func conferenceTerminated(_ data: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference left");
         delegate?.onConferenceLeft()
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
-    }
-
-    // TODO: not yet being called when user cancel the password prompt
-    @objc func conferenceFailed(_ data: [AnyHashable : Any]!) {
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference failed");
-        self.dismiss(animated: true, completion: nil); // e.g. user cancels at the password prompt.
     }
 }

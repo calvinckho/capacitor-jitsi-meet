@@ -24,7 +24,6 @@ public class Jitsi extends Plugin {
     public void joinConference(PluginCall call) {
         String url = call.getString("url");
         String roomName = call.getString("roomName");
-        String channelLastN = call.getString("channelLastN");
         Boolean startWithAudioMuted = call.getBoolean("startWithAudioMuted");
         Boolean startWithVideoMuted = call.getBoolean("startWithVideoMuted");
 
@@ -44,9 +43,6 @@ public class Jitsi extends Plugin {
             call.reject("Must provide an conference room name");
             return;
         }
-        if(channelLastN == null) {
-            channelLastN = "-1";
-        }
         if(startWithAudioMuted == null) {
             startWithAudioMuted = false;
         }
@@ -58,7 +54,6 @@ public class Jitsi extends Plugin {
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
         intent.putExtra("url", url);
         intent.putExtra("roomName",roomName);
-        intent.putExtra("channelLastN", channelLastN);
         intent.putExtra("startWithAudioMuted", startWithAudioMuted);
         intent.putExtra("startWithVideoMuted", startWithVideoMuted);
 

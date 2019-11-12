@@ -1,6 +1,6 @@
 # Jitsi Meet Plugin for Android
 
-This plugin uses the Jitsi SDK 1.21.0 for android.
+This plugin uses the Jitsi SDK 2.2.2 for android.
 
 ### Usage
 
@@ -14,7 +14,6 @@ const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
-   channelLastN: '-1', // default -1. see config.js for more info on the last n feature
    startWithAudioMuted: true, // start with audio muted
    startWithVideoMuted: false // start with video muted
    });

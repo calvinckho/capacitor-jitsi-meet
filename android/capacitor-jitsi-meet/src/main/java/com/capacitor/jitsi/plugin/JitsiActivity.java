@@ -5,14 +5,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-//import java.util.HashMap;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.facebook.react.bridge.UiThreadUtil;
-//import com.facebook.react.modules.core.PermissionListener;
 
 import org.jitsi.meet.sdk.JitsiMeetView;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
@@ -76,22 +74,10 @@ public class JitsiActivity extends JitsiMeetActivity {
         }
 
         String roomName = getIntent().getStringExtra("roomName");
-        //Integer channelLastN = Integer.parseInt(getIntent().getStringExtra("channelLastN"));
         Boolean startWithAudioMuted = getIntent().getBooleanExtra("startWithAudioMuted", false);
         Boolean startWithVideoMuted = getIntent().getBooleanExtra("startWithVideoMuted", false);
 
         Log.d("DEBUG", roomName);
-
-        /*Bundle config = new Bundle();
-        config.putBoolean("startWithAudioMuted", startWithAudioMuted);
-        config.putBoolean("startWithVideoMuted", startWithVideoMuted);
-        config.putString("googleApiApplicationClientID", "896030655830-pveqh7f6cj8af3p10qh2rhokoqnsapcj.apps.googleusercontent.com");
-        config.putInt("channelLastN", channelLastN);
-        config.putString("callDisplayName", " ");
-        Bundle urlObject = new Bundle();
-        urlObject.putBundle("config", config);
-        urlObject.putString("url", fullurl);*/
-        //view.loadURLObject(urlObject);
 
         JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
                 .setServerURL(serverURL)

@@ -27,8 +27,8 @@ public class Jitsi: CAPPlugin {
         let storyboard = UIStoryboard(name: "JitsiMeet", bundle: bundle)
         self.jitsiMeetViewController = storyboard.instantiateViewController(withIdentifier: "jitsiMeetStoryBoardID") as? JitsiMeetViewController
 
-        self.jitsiMeetViewController.url = url + "/" + roomName;
-        self.jitsiMeetViewController.channelLastN = call.options["channelLastN"] as? String ?? "-1";
+        self.jitsiMeetViewController.url = url;
+        self.jitsiMeetViewController.roomName = roomName;
         self.jitsiMeetViewController.startWithAudioMuted = call.options["startWithAudioMuted"] as? Bool ?? false;
         self.jitsiMeetViewController.startWithVideoMuted = call.options["startWithVideoMuted"] as? Bool ?? false;
 
