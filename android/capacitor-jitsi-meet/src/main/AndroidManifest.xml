@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.capacitor.jitsi.plugin.capacitorjitsimeet">
   <application>
-    <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity">
+    <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity"
+              android:configChanges="orientation|screenSize|keyboardHidden">
     </activity>
   </application>
 </manifest>
