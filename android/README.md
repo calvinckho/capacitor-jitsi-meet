@@ -31,8 +31,6 @@ window.addEventListener('onConferenceLeft', () => {
 
 3. In your android/build.gradle, add the Maven repository
 
-The repository typically goes into the `build.gradle` file in the root of your project:
-
 ```gradle
 allprojects {
     repositories {
@@ -45,16 +43,11 @@ allprojects {
 }
 ```
 
-4. In your android/app/build.gradle file, add Java 1.8 compatibility support, and also enable 32bit mode for react-native, since react-native only supports 32bit apps. (If you have a 64bit device, it will not run unless this setting it set)
+4. In your android/app/build.gradle file, add Java 1.8 compatibility support
 
 ```gradle
 android {
     ...
-    defaultConfig {
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
