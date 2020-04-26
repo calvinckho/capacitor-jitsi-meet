@@ -5,7 +5,7 @@ This plugin is used to make video calls using Jitsi video platform (https://meet
 ## Compatible Versions
 
 Capacitor 1.x:
-At this time this plugin only supports Capacitor 1.x, and Capacitor 2 utilizes Android X which also require template changes.
+At this time this plugin only supports Capacitor 1.x. Capacitor 2 utilizes Android X which require updating our Android template files. If anyone wants to contribute to this update, please contact me.
 
 Xcode 1.3.1:
 Some users report issue with Xcode 1.4. For now, this works great with Xcode 1.3.1
