@@ -10,6 +10,10 @@ At this time this plugin only supports Capacitor 1.x. Capacitor 2 utilizes Andro
 Xcode 1.3.1:
 Some users report issue with Xcode 1.4. For now, this works great with Xcode 1.3.1
 
+## Embedding in external applications
+   
+For web implementation, see the Jitsi Meet API doc (https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md)
+
 ## Usage
 
 1. npm install capacitor-jitsi-meet
