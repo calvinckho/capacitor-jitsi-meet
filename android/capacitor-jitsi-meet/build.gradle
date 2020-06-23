@@ -4,20 +4,20 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath 'com.android.tools.build:gradle:3.6.1'
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -47,24 +47,13 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.2.2') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.9.0') { transitive = true }
 
     // Firebase
-    //  - Crashlytics
-    //  - Dynamic Links
     implementation 'com.google.firebase:firebase-core:16.0.6'
-    //implementation 'com.crashlytics.sdk.android:crashlytics:2.9.8'
     implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    // Glide
-/*    implementation("com.github.bumptech.glide:glide:4.7.1") {
-        exclude group: "com.android.support", module: "glide"
-    }
-    implementation("com.github.bumptech.glide:annotations:4.7.1") {
-        exclude group: "com.android.support", module: "annotations"
-    }
-    annotationProcessor "com.github.bumptech.glide:compiler:4.7.1"*/
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
 }

@@ -1,16 +1,25 @@
 # Jitsi Meet Capacitor Plugin for Ionic Apps
 
-This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor. Since the current implementation of Ionic/PWA apps on iOS run on top of WKWebView, and as of today (24/01/2019), Apple does not support WebRTC on WKWebView, the only way to work with Jitsi Video on this platform is to build it natively.
+This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor.
 
 ## Compatible Versions
 
 Capacitor 1.x:
-At this time this plugin only supports Capacitor 1.x. Capacitor 2 utilizes Android X which require updating our Android template files. If anyone wants to contribute to this update, please contact me.
+npm install capacitor-jitsi-meet@1.3.6
+
+Capacitor 2.0+:
+npm install capacitor-jitsi-meet@latest
 
 Xcode 1.3.1:
 Some users report issue with Xcode 1.4. For now, this works great with Xcode 1.3.1
 
-## Embedding in external applications
+## Upgrade to Capacitor 2.0
+
+Follow the [official Capacitor doc to upgrade to 2.0+](https://ionicframework.com/blog/announcing-capacitor-2-0/?utm_campaign=capacitor&utm_source=hs_email&utm_medium=email&utm_content=86094990&_hsenc=p2ANqtz-894lhie-saMpN3lq1GaI2aQiC9cBv-bvtZK-a9UyN5obOCgqkOxIb7yk1IRuJeK-LEsyKKqkZ3uxmmfV8nxqWzZZXInQ&_hsmi=86094990). 
+
+For android deployment, ensure you follow step 6 in [README](android/README.md).
+
+## Embedding in web applications
    
 For web implementation, see the Jitsi Meet API doc (https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md)
 

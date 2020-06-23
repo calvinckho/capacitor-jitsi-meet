@@ -1,6 +1,6 @@
 # Jitsi Meet Plugin for Android
 
-This plugin uses the Jitsi SDK 2.2.2 for android.
+This plugin uses the Jitsi SDK 2.9.0 for android.
 
 ### Usage
 
@@ -89,7 +89,30 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-6. Build it in Android Studio
+6. For 2.0+, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
+
+ Create a android/variables.gradle file with this content
+ ```
+ ext {
+   minSdkVersion = 21
+   compileSdkVersion = 29
+   targetSdkVersion = 29
+   androidxAppCompatVersion = '1.1.0'
+   androidxCoreVersion =  '1.2.0'
+   androidxMaterialVersion =  '1.1.0-rc02'
+   androidxBrowserVersion =  '1.2.0'
+   androidxLocalbroadcastmanagerVersion =  '1.0.0'
+   firebaseMessagingVersion =  '20.1.2'
+   playServicesLocationVersion =  '17.0.0'
+   junitVersion =  '4.12'
+   androidxJunitVersion =  '1.1.1'
+   androidxEspressoCoreVersion =  '3.2.0'
+   cordovaAndroidVersion =  '7.0.0'
+ }
+```
+ In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
+
+7. Build it in Android Studio
 
 ### Optional: Adding Glide Support
 

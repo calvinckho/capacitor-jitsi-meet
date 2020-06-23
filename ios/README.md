@@ -1,6 +1,6 @@
 # Jitsi Meet Plugin for iOS
 
-This plugin uses the Jitsi SDK 2.4.2 for iOS.
+This plugin uses the Jitsi SDK 2.9.0 for iOS.
 
 ### Usage
 
