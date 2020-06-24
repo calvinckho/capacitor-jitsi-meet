@@ -2,8 +2,6 @@
 
 This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor.
 
-## Version History
-
 ## Compatible Versions
 
 1.4.0: requires Capacitor 2.0+, Xcode 1.4.1+
