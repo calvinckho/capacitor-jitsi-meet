@@ -11,7 +11,10 @@ Capacitor 2.0+:
 npm install capacitor-jitsi-meet@latest
 
 Xcode 1.3.1:
-Some users report issue with Xcode 1.4. For now, this works great with Xcode 1.3.1
+1.3.9 is the last supported version for Xcode 1.3.1.
+
+Xcode 1.4.1+:
+2.0.0+ provides support for Xcode 1.4.1+.
 
 ## Upgrade to Capacitor 2.0
 

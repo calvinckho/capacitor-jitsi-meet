@@ -29,15 +29,17 @@ window.addEventListener('onConferenceLeft', () => {
 
 2. npx cap sync
 
-3. In xcode, turn off Bitcode in the app target as well as the pod targets: 
+3. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
 
 
-   i. Choose the Project -> Targets -> Build Settings -> Enable Bitcode -> No
+   i. Pods -> Project -> Pods -> Build Settings -> Enable Bitcode -> No
    
-   ii Choose Pods -> Targets -> CapacitorJitsiMeet -> Build Settings -> Enable Bitcode -> No
+   ii Pods -> Targets -> CapacitorJitsiMeet -> Build Settings -> Enable Bitcode -> No
    
 
-4. Some users may need to use Swift 5 for the Capacitor target. In xcode, click on Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> 5
+4. Use Swift 5 for the Capacitor target. In Xcode Project Navigator,
+
+    i. Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> Swift 5
 
 5. Deploy it to your device
 
