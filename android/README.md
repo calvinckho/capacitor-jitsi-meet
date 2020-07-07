@@ -114,6 +114,20 @@ public class MainActivity extends BridgeActivity {
 
 7. Build it in Android Studio
 
+8. If upgrading from previous versions of this plugin you may recieve this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
+
+   a. In Android Studio Go to File -> Invalidate Caches/Restart.
+   
+   b. Close the project.
+   
+   c. Go to project folder and delete .idea folder.
+   
+   d. Delete YourProjectName.iml in project folder.
+   
+   e. Delete app.iml in app folder.
+   
+   f. run `npx cap sync && npx cap open android` 
+
 ### Optional: Adding Glide Support
 
 Starting with SDK version 1.22, a Glide module must be provided by the host app.
