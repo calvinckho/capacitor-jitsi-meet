@@ -2,6 +2,7 @@
           package="com.capacitor.jitsi.plugin.capacitorjitsimeet">
   <application>
     <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity"
+              android:supportsPictureInPicture="true"
               android:configChanges="orientation|screenSize|keyboardHidden">
     </activity>
   </application>
