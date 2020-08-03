@@ -7,7 +7,7 @@ target 'Plugin' do
 
   # Pods for IonicRunner
   pod 'Capacitor'
-  pod 'JitsiMeetSDK', '2.9.0'
+  pod 'JitsiMeetSDK', '2.9.3'
 end
 
 post_install do |installer|
