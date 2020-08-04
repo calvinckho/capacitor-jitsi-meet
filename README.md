@@ -6,7 +6,7 @@ This plugin is used to make video calls using Jitsi video platform (https://meet
 
 1.4.2: requires Capacitor 2.0+, Xcode 1.4.1+
 
-1.3.10: requires Capacitor 2.0+, Xcode 1.3.1. See below section Upgrade to Capacitor 2.0 for instructions.
+1.3.12: requires Capacitor 2.0+, Xcode 1.3.1. See below section Upgrade to Capacitor 2.0 for instructions.
 
 1.3.6: requires Capacitor 1.0+, Xcode 1.3.1
 
