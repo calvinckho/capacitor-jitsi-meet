@@ -1,19 +1,14 @@
 # Jitsi Meet Plugin for iOS
 
-This plugin uses the Jitsi SDK 2.9.0 for iOS.
+This plugin uses the Jitsi SDK 2.9.3 for iOS.
 
 ## Xcode and iOS SDK Compatibility
 
 Please note that different Xcode version is required to work with different iOS SDK versions.
 
-capacitor-jitsi-meet 1.3.10 uses iOS SDK 2.7.0, hence the last version that works with Xcode 1.3.1.
+capacitor-jitsi-meet 1.3.10 uses iOS SDK 2.7.0, hence the last version that works with Xcode 1.3.1. See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
 
-iOS SDK 2.7.0 is the last version that works with Xcode 1.3.1. See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
-
-
-capacitor-jitsi-meet 1.4.1+ provides support for Xcode 1.4.1+.
-
-iOS SDK 2.8.0+ is built using Xcode 1.4.1. See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
+capacitor-jitsi-meet 1.4.1+ provides support for Xcode 1.4.1+. See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
 
 
 ### Usage
@@ -30,6 +25,8 @@ const result = await Jitsi.joinConference({
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
    startWithAudioMuted: true, // start with audio muted
    startWithVideoMuted: false // start with video muted
+   chatEnabled: false, // enable Chat feature
+   inviteEnabled: false // enable Invitation feature
 });
 
 window.addEventListener('onConferenceJoined', () => {

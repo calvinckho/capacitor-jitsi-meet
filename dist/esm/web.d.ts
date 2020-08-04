@@ -8,12 +8,16 @@ export declare class JitsiWeb extends WebPlugin implements JitsiPlugin {
         channelLastN: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
+        chatEnabled: boolean;
+        inviteEnabled: boolean;
     }): Promise<{
         roomName: string;
         url: string;
         channelLastN: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
+        chatEnabled: boolean;
+        inviteEnabled: boolean;
     }>;
 }
 declare const Jitsi: JitsiWeb;

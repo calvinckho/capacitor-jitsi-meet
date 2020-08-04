@@ -4,7 +4,7 @@ This plugin is used to make video calls using Jitsi video platform (https://meet
 
 ## Compatible Versions
 
-1.4.1: requires Capacitor 2.0+, Xcode 1.4.1+
+1.4.2: requires Capacitor 2.0+, Xcode 1.4.1+
 
 1.3.10: requires Capacitor 2.0+, Xcode 1.3.1. See below section Upgrade to Capacitor 2.0 for instructions.
 
@@ -18,7 +18,7 @@ For android deployment, ensure you follow step 6 in [README](android/README.md).
 
 ## Embedding in web applications
    
-For web implementation, see the Jitsi Meet API doc (https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md)
+The web plugin defaults to open a video call in the jitsi meet web interface. For full web implementation, we recommend using the Jitsi Meet API (https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md)
 
 ## Usage
 
@@ -36,6 +36,8 @@ const result = await Jitsi.joinConference({
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge,
    startWithAudioMuted: true, // start with audio muted
    startWithVideoMuted: false // start with video muted
+   chatEnabled: false, // enable Chat feature
+   inviteEnabled: false // enable Invitation feature
 });
 
 window.addEventListener('onConferenceJoined', () => {

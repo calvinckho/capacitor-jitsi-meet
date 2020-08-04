@@ -16,7 +16,8 @@ export class JitsiWeb extends WebPlugin {
     }
     joinConference(options) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('join conference', options);
+            console.log('this is a sample feature. It uses the default jitsi.meet interface for web implementation using this roomName:', options.roomName);
+            window.open('https://meet.jit.si' + options.roomName + ';channelLastN=' + options.channelLastN + ';startWithAudioMuted=' + options.startWithAudioMuted + ';startWithVideoMuted=' + options.startWithVideoMuted, '_blank');
             return options;
         });
     }
