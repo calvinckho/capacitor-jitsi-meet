@@ -13,12 +13,17 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       roomName: string, url: string,
       channelLastN: string;
       startWithAudioMuted: boolean;
-      startWithVideoMuted: boolean; }): Promise<{
+      startWithVideoMuted: boolean;
+      chatEnabled: boolean;
+      inviteEnabled: boolean;
+  }): Promise<{
       roomName: string,
       url: string,
       channelLastN: string;
       startWithAudioMuted: boolean;
       startWithVideoMuted: boolean;
+      chatEnabled: boolean;
+      inviteEnabled: boolean;
   }> {
       console.log('this is a sample feature. It uses the default jitsi.meet interface for web implementation using this roomName:', options.roomName);
       window.open('https://meet.jit.si' + options.roomName + ';channelLastN=' + options.channelLastN + ';startWithAudioMuted=' + options.startWithAudioMuted + ';startWithVideoMuted=' + options.startWithVideoMuted, '_blank');

@@ -26,6 +26,8 @@ public class Jitsi extends Plugin {
         String roomName = call.getString("roomName");
         Boolean startWithAudioMuted = call.getBoolean("startWithAudioMuted");
         Boolean startWithVideoMuted = call.getBoolean("startWithVideoMuted");
+        Boolean chatEnabled = call.getBoolean("chatEnabled");
+        Boolean inviteEnabled = call.getBoolean("inviteEnabled");
 
         JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -49,6 +51,12 @@ public class Jitsi extends Plugin {
         if(startWithVideoMuted == null) {
             startWithVideoMuted = false;
         }
+        if(chatEnabled == null) {
+            chatEnabled = true;
+        }
+        if(inviteEnabled == null) {
+            chatEnabled = true;
+        }
         Log.v(TAG, "display url: " + url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
@@ -56,6 +64,8 @@ public class Jitsi extends Plugin {
         intent.putExtra("roomName",roomName);
         intent.putExtra("startWithAudioMuted", startWithAudioMuted);
         intent.putExtra("startWithVideoMuted", startWithVideoMuted);
+        intent.putExtra("chatEnabled", chatEnabled);
+        intent.putExtra("inviteEnabled", inviteEnabled);
 
         getActivity().startActivity(intent);
 

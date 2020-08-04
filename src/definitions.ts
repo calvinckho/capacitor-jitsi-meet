@@ -10,11 +10,15 @@ export interface JitsiPlugin {
         channelLastN: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
+        chatEnabled: boolean;
+        inviteEnabled: boolean;
     }): Promise<{
         roomName: string;
         url: string;
         channelLastN: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
+        chatEnabled: boolean;
+        inviteEnabled: boolean;
     }>;
 }

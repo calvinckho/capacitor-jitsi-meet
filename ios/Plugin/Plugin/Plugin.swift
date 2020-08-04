@@ -31,6 +31,8 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.roomName = roomName;
         self.jitsiMeetViewController.startWithAudioMuted = call.options["startWithAudioMuted"] as? Bool ?? false;
         self.jitsiMeetViewController.startWithVideoMuted = call.options["startWithVideoMuted"] as? Bool ?? false;
+        self.jitsiMeetViewController.chatEnabled = call.options["chatEnabled"] as? Bool ?? true;
+        self.jitsiMeetViewController.inviteEnabled = call.options["inviteEnabled"] as? Bool ?? true;
 
         self.jitsiMeetViewController.delegate = self;
         

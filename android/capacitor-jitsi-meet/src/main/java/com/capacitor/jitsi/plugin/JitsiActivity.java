@@ -76,6 +76,8 @@ public class JitsiActivity extends JitsiMeetActivity {
         String roomName = getIntent().getStringExtra("roomName");
         Boolean startWithAudioMuted = getIntent().getBooleanExtra("startWithAudioMuted", false);
         Boolean startWithVideoMuted = getIntent().getBooleanExtra("startWithVideoMuted", false);
+        Boolean chatEnabled = getIntent().getBooleanExtra("chatEnabled", false);
+        Boolean inviteEnabled = getIntent().getBooleanExtra("inviteEnabled", false);
 
         Log.d("DEBUG", roomName);
 
@@ -85,6 +87,8 @@ public class JitsiActivity extends JitsiMeetActivity {
                 .setSubject(" ")
                 .setAudioMuted(startWithAudioMuted)
                 .setVideoMuted(startWithVideoMuted)
+                .setFeatureFlag("chat.enabled", chatEnabled)
+                .setFeatureFlag("invite.enabled", inviteEnabled)
                 //.setAudioOnly(false)
                 .setWelcomePageEnabled(false)
                 .build();

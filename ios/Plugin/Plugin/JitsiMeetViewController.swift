@@ -17,6 +17,8 @@ public class JitsiMeetViewController: UIViewController {
     var roomName: String = ""
     var startWithAudioMuted: Bool = false
     var startWithVideoMuted: Bool = false
+    var chatEnabled: Bool = true
+    var inviteEnabled: Bool = true
     weak var delegate: JitsiMeetViewControllerDelegate?
 
     public override func viewDidLoad() {
@@ -38,6 +40,8 @@ public class JitsiMeetViewController: UIViewController {
             builder.subject = " "
             builder.audioMuted = self.startWithAudioMuted
             builder.videoMuted = self.startWithVideoMuted
+            builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
+            builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
         })
         jitsiMeetView.join(options)
     }
