@@ -18,7 +18,7 @@ For android deployment, ensure you follow step 6 in [README](android/README.md).
 
 ## Embedding in web applications
    
-The web plugin defaults to open a video call in the jitsi meet web interface. For full web implementation, we recommend using the Jitsi Meet API (https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md)
+The web plugin defaults to open a video call in the jitsi meet web interface. For full web implementation, we recommend using the Jitsi iFrame API (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe)
 
 ## Usage
 
