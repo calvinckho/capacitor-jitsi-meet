@@ -15,6 +15,7 @@ public class JitsiMeetViewController: UIViewController {
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
     var roomName: String = ""
+    var token: String? = nil
     var startWithAudioMuted: Bool = false
     var startWithVideoMuted: Bool = false
     var chatEnabled: Bool = true
@@ -48,6 +49,7 @@ public class JitsiMeetViewController: UIViewController {
             builder.serverURL = URL(string: self.url)
             builder.room = self.roomName
             builder.subject = " "
+            builder.token = self.token
             builder.audioMuted = self.startWithAudioMuted
             builder.videoMuted = self.startWithVideoMuted
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
