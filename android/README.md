@@ -1,6 +1,6 @@
 # Jitsi Meet Plugin for Android
 
-This plugin uses the Jitsi SDK 2.9.3 for android.
+This plugin uses the Jitsi SDK 2.10.0 for android.
 
 ### Usage
 

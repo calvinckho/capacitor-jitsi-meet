@@ -47,7 +47,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.9.3') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.10.0') { transitive = true }
 
     // Firebase
     implementation 'com.google.firebase:firebase-core:16.0.6'
