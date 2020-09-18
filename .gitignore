@@ -1,1 +1,4 @@
 /node_modules/
+android/capacitor-jitsi-meet/build/
+android/.idea
+.idea/
