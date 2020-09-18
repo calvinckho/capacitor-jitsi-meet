@@ -14,9 +14,11 @@ const { Jitsi } = Plugins;
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
+   token: string; // jwt authentication token
+   channelLastN: string; // last N participants allowed to join
    startWithAudioMuted: true, // start with audio muted
    startWithVideoMuted: false // start with video muted
-    chatEnabled: false, // enable Chat feature
+   chatEnabled: false, // enable Chat feature
    inviteEnabled: false // enable Invitation feature
    });
 
