@@ -10,15 +10,18 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
   }
 
   async joinConference(options: {
-      roomName: string, url: string,
+      roomName: string;
+      url: string;
+      token: string;
       channelLastN: string;
       startWithAudioMuted: boolean;
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
       inviteEnabled: boolean;
   }): Promise<{
-      roomName: string,
-      url: string,
+      roomName: string;
+      url: string;
+      token: string;
       channelLastN: string;
       startWithAudioMuted: boolean;
       startWithVideoMuted: boolean;
