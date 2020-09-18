@@ -1,6 +1,6 @@
 {
   "name": "capacitor-jitsi-meet",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor.",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -13,10 +13,10 @@
   "author": "Calvin Ho",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "^2.2.0"
+    "@capacitor/core": "^2.4.1"
   },
   "devDependencies": {
-    "typescript": "^2.6.2"
+    "typescript": "^2.9.2"
   },
   "files": [
     "dist/",
