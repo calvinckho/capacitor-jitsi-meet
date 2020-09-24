@@ -61,5 +61,5 @@ window.addEventListener('onConferenceLeft', () => {
 
 ### iOS SDK Developer Guide
 
-[Documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk)
+Consult the official Jitsi iOS SDK [documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk)
 
