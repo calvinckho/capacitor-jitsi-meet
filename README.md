@@ -60,4 +60,4 @@ window.addEventListener('onConferenceLeft', () => {
 
 ## Acknowledgements
 
-This plugin uses the Jitsi Meet SDK. It was originally developed by then ESTOS' developer Philipp Hancke who then contributed it to the community where development continues with joint forces!
+This plugin uses the [Jitsi Meet SDK](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-mobile). It was originally developed by then ESTOS' developer Philipp Hancke who then contributed it to the community where development continues with joint forces!
