@@ -10,7 +10,7 @@ capacitor-jitsi-meet 1.3.13 uses iOS SDK 2.7.0, hence the last version that work
 
 capacitor-jitsi-meet 1.4.3+ provides support for Xcode 11.4.1+. 
 
-capacitor-jitsi-meet 1.5.3 provides support for Xcode 12.0. 
+capacitor-jitsi-meet 1.5.4 provides support for Xcode 12.0. 
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
 
