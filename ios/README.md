@@ -1,18 +1,12 @@
 # Jitsi Meet Plugin for iOS
 
-This plugin uses the Jitsi SDK 2.10.2 for iOS.
+This plugin uses the Jitsi SDK.
 
 ## Xcode and iOS SDK Compatibility
 
-Please note that different Xcode versions are required to work with different iOS SDK versions.
+Each version of the jitsi capacitor plugin uses the latest Jitsi SDK version published by Jitsi. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if you local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the plugin version that uses the compatible SDK version.  
 
-capacitor-jitsi-meet 1.3.13 uses iOS SDK 2.7.0, hence the last version that works with Xcode 11.3.1. See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
-
-capacitor-jitsi-meet 1.4.3+ provides support for Xcode 11.4.1+. 
-
-capacitor-jitsi-meet 1.5.4 provides support for Xcode 12.0. 
-
-See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md#280-2020-04-21)
+See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for compatible plugin versions.
 
 ### Usage
 
