@@ -9,6 +9,9 @@ export interface JitsiPlugin {
         url: string;
         token: string;
         channelLastN: string;
+        displayName: string;
+        email: string;
+        avatarURL: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
         chatEnabled: boolean;
@@ -18,6 +21,9 @@ export interface JitsiPlugin {
         url: string;
         token: string;
         channelLastN: string;
+        displayName: string;
+        email: string;
+        avatarURL: string;
         startWithAudioMuted: boolean;
         startWithVideoMuted: boolean;
         chatEnabled: boolean;

@@ -2,8 +2,6 @@ package com.capacitor.jitsi.plugin;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import android.content.Intent;
@@ -20,7 +18,7 @@ import org.jitsi.meet.sdk.JitsiMeetUserInfo;
 
 public class JitsiActivity extends JitsiMeetActivity {
     private JitsiMeetView view;
-    private JitsiMeetUserInfo info;
+    private JitsiMeetUserInfo userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +72,32 @@ public class JitsiActivity extends JitsiMeetActivity {
         }
 
         String roomName = getIntent().getStringExtra("roomName");
+        String token = getIntent().getStringExtra("token");
         Boolean startWithAudioMuted = getIntent().getBooleanExtra("startWithAudioMuted", false);
         Boolean startWithVideoMuted = getIntent().getBooleanExtra("startWithVideoMuted", false);
         Boolean chatEnabled = getIntent().getBooleanExtra("chatEnabled", false);
         Boolean inviteEnabled = getIntent().getBooleanExtra("inviteEnabled", false);
-        String token = getIntent().getStringExtra("token");
+
+        String displayName = getIntent().getStringExtra("displayName");
+        String email = getIntent().getStringExtra("email");
+        String avatarURL = getIntent().getStringExtra("avatarURL");
+
+        // assign user info
+        userInfo = new JitsiMeetUserInfo();
+        if (displayName != null) {
+            userInfo.setDisplayName(displayName);
+        }
+        if (email != null) {
+            userInfo.setEmail(email);
+        }
+        if (avatarURL != null) {
+            // try to assign avatar URL
+            try {
+                userInfo.setAvatar(new URL(getIntent().getStringExtra("avatarURL")));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
 
         Log.d("DEBUG", roomName);
 
@@ -93,17 +112,12 @@ public class JitsiActivity extends JitsiMeetActivity {
                 .setFeatureFlag("invite.enabled", inviteEnabled)
                 //.setAudioOnly(false)
                 .setWelcomePageEnabled(false)
+                .setUserInfo(userInfo)
                 .build();
         view.join(options);
         setContentView(view);
     }
 
-    /**
-     * The query to perform through {@link AddPeopleController} when the
-     * {@code InviteButton} is tapped in order to exercise the public API of the
-     * feature invite. If {@code null}, the {@code InviteButton} will not be
-     * rendered.
-     */
     private static final String ADD_PEOPLE_CONTROLLER_QUERY = null;
 }
 

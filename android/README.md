@@ -15,6 +15,9 @@ const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
    token: string; // jwt authentication token
+   displayName: string; // user's display name
+   email: string; // user's email
+   avatarURL: string; // user's avatar url
    channelLastN: string; // last N participants allowed to join
    startWithAudioMuted: true, // start with audio muted
    startWithVideoMuted: false // start with video muted

@@ -14,6 +14,9 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       url: string;
       token: string;
       channelLastN: string;
+      displayName: string;
+      email: string;
+      avatarURL: string;
       startWithAudioMuted: boolean;
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
@@ -23,6 +26,9 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       url: string;
       token: string;
       channelLastN: string;
+      displayName: string;
+      email: string;
+      avatarURL: string;
       startWithAudioMuted: boolean;
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
