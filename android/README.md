@@ -1,6 +1,6 @@
 # Jitsi Meet Plugin for Android
 
-This plugin uses the Jitsi SDK 2.10.0 for android.
+This plugin uses the Jitsi SDK for android. See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for the list of corresponding SDKs used.
 
 ### Usage
 
