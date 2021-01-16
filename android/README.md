@@ -137,4 +137,4 @@ public class MainActivity extends BridgeActivity {
 
 ### Android SDK Developer Guide
 
-Consult the official Jitsi iOS SDK [documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-android-sdk).
+Consult the official Jitsi Android SDK [documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-android-sdk).
