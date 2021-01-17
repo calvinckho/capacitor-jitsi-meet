@@ -21,6 +21,9 @@ public class JitsiMeetViewController: UIViewController {
     var chatEnabled: Bool = true
     var inviteEnabled: Bool = true
     var callkitEnabled: Bool = true
+    var email: String? = nil
+    var displayName: String? = nil
+    var avatarUrl: String? = nil
     let userLocale = NSLocale.current as NSLocale
     weak var delegate: JitsiMeetViewControllerDelegate?
 
@@ -44,6 +47,11 @@ public class JitsiMeetViewController: UIViewController {
             print("currentLocale is China so we cannot use CallKit.")
             callkitEnabled = false
         }
+        
+        let userInfo = JitsiMeetUserInfo()
+        userInfo.displayName = self.displayName
+        userInfo.email = self.email
+        userInfo.avatar = URL(string: self.avatarUrl ?? "")
 
         let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
             builder.serverURL = URL(string: self.url)
@@ -55,6 +63,7 @@ public class JitsiMeetViewController: UIViewController {
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
             builder.setFeatureFlag("JMCallKitProxy.enabled", withBoolean: self.callkitEnabled)
+            builder.userInfo = userInfo
         })
         jitsiMeetView.join(options)
     }
