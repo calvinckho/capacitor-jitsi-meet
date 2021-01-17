@@ -1,6 +1,6 @@
 # Jitsi Meet Capacitor Plugin for Ionic Apps
 
-This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor.
+This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.
 
 ## iOS Compatible Versions
 
