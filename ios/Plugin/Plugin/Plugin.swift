@@ -34,7 +34,9 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.startWithVideoMuted = call.options["startWithVideoMuted"] as? Bool ?? false;
         self.jitsiMeetViewController.chatEnabled = call.options["chatEnabled"] as? Bool ?? true;
         self.jitsiMeetViewController.inviteEnabled = call.options["inviteEnabled"] as? Bool ?? true;
-
+        self.jitsiMeetViewController.email = call.options["email"] as? String ?? nil
+        self.jitsiMeetViewController.displayName = call.options["displayName"] as? String ?? nil
+        self.jitsiMeetViewController.avatarUrl = call.options["avatarURL"] as? String ?? nil
         self.jitsiMeetViewController.delegate = self;
         
         DispatchQueue.main.async {
