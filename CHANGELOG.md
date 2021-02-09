@@ -4,6 +4,17 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 1.5.8 (2021-02-08)
+
+- uses Jitsi SDK 3.1.0.
+
+- [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.1.0)
+- [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.1.0)
+
+## iOS
+
+- Built with Xcode 12.2
+
 # 1.5.7 (2021-01-17)
 
 - add userInfo (displayName, email, avatarURL) parameters in iOS

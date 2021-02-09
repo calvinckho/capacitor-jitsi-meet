@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import JitsiMeet
+import JitsiMeetSDK
 
 public class JitsiMeetViewController: UIViewController {
     
