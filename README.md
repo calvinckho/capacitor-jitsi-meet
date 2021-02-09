@@ -55,6 +55,10 @@ window.addEventListener('onConferenceLeft', () => {
 
 4. Follow the deployment instructions for [Android](android/README.md) and [iOS](ios/README.md).
 
+## Feature Requests and Jitsi SDK Customizations
+
+I appreciate those who use this plugin in their production apps and are funding this project as sponsors. Your sponsorship enables me to continue to maintain and roll out releases in a timely manner. Consider joining as a sponsor to get first-class support and consultation. For feature requests, create an issue with a label 'feature request'. I also offer paid consultation service to those needing to modify the Jitsi UI interface. To submit a request, create an issue and add the label 'sdk customization'.
+
 ## Acknowledgements
 
 This plugin uses the [Jitsi Meet SDK](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-mobile). It was originally developed by then ESTOS' developer Philipp Hancke who then contributed it to the community where development continues with joint forces!
