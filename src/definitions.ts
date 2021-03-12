@@ -16,6 +16,8 @@ export interface JitsiPlugin {
         startWithVideoMuted: boolean;
         chatEnabled: boolean;
         inviteEnabled: boolean;
+        callkitEnabled: boolean;
+        callIntegrationEnabled: boolean;
     }): Promise<{
         roomName: string;
         url: string;

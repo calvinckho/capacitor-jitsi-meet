@@ -7,9 +7,9 @@ import Capacitor
  */
 @objc(Jitsi)
 public class Jitsi: CAPPlugin {
-    
+
     var jitsiMeetViewController: JitsiMeetViewController!
-    
+
     @objc func joinConference(_ call: CAPPluginCall) {
         guard let url = call.options["url"] as? String else {
                 call.reject("Must provide an url")
@@ -37,14 +37,27 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.email = call.options["email"] as? String ?? nil
         self.jitsiMeetViewController.displayName = call.options["displayName"] as? String ?? nil
         self.jitsiMeetViewController.avatarUrl = call.options["avatarURL"] as? String ?? nil
+        self.jitsiMeetViewController.callkitEnabled = call.options["callkitEnabled"] as? Bool ?? true
+        self.jitsiMeetViewController.callIntegrationEnabled = call.options["callIntegrationEnabled"] as? Bool ?? true
         self.jitsiMeetViewController.delegate = self;
-        
+
         DispatchQueue.main.async {
             self.bridge.viewController.present(self.jitsiMeetViewController, animated: true, completion: {
                 call.resolve([
                     "success": true
                     ])
             });
+        }
+    }
+
+    @objc func leaveConference(_ call: CAPPluginCall) {
+        self.jitsiMeetViewController.delegate = self;
+        DispatchQueue.main.async {
+            self.bridge.viewController.dismiss(animated: true, completion: {
+                call.resolve([
+                    "success": true
+                ])
+            })
         }
     }
 }

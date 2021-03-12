@@ -21,6 +21,8 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
       inviteEnabled: boolean;
+      callkitEnabled: boolean;
+      callIntegrationEnabled: boolean;
   }): Promise<{
       roomName: string;
       url: string;

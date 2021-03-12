@@ -5,4 +5,5 @@
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
 CAP_PLUGIN(Jitsi, "Jitsi",
            CAP_PLUGIN_METHOD(joinConference, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(leaveConference, CAPPluginReturnPromise);
 )
