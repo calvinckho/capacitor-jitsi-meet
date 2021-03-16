@@ -4,6 +4,25 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 1.5.9 (2021-03-16)
+
+- uses Jitsi SDK 3.2.0.
+
+- [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.2.0)
+- [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.2.0)
+
+## Android
+
+- adds leaveConference() method
+- supports callIntegrationEnabled property in JoinConference()
+- uses the new Listening for broadcasted events mechanism
+
+## iOS
+
+- adds leaveConference() method
+- supports callIntegrationEnabled property in JoinConference()
+- built with Xcode 12.4
+
 # 1.5.8 (2021-02-08)
 
 - uses Jitsi SDK 3.1.0.
@@ -13,7 +32,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 ## iOS
 
-- Built with Xcode 12.2
+- built with Xcode 12.2
 
 # 1.5.7 (2021-01-17)
 
@@ -32,7 +51,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 ## iOS
 
-- Built with Xcode 12.2
+- built with Xcode 12.2
 
 # 1.5.4 (2020-09-18)
 
@@ -40,7 +59,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 ## iOS
 
-- Built with Xcode 12.0
+- built with Xcode 12.0
 
 # 1.4.3 (2020-09-15)
 
@@ -48,7 +67,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 ## iOS
 
-- Built with Xcode 11.4.1
+- built with Xcode 11.4.1
 
 # 1.3.13 (2020-03-25)
 
@@ -56,5 +75,5 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 ## iOS
 
-- Built with Xcode 11.3.1
+- built with Xcode 11.3.1
 

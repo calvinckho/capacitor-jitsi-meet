@@ -11,7 +11,7 @@ import { Plugins } from '@capacitor/core';
 import 'capacitor-jitsi-meet';
 
 const { Jitsi } = Plugins;
-const result = await Jitsi.joinConference({
+const result: any = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
    token: string; // jwt authentication token
@@ -24,7 +24,8 @@ const result = await Jitsi.joinConference({
    chatEnabled: false, // enable Chat feature
    inviteEnabled: false // enable Invitation feature
    callIntegrationEnabled: true // enable call integration (CallKit on iOS, ConnectionService on Android)
-   });
+});
+console.log("join status": result.success);
 
 window.addEventListener('onConferenceJoined', () => {
     // do things here
@@ -33,7 +34,8 @@ window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
 
-await Jitsi.leaveConference();
+const result: any = await Jitsi.leaveConference();
+console.log("leave status": result.success);
 
 ```
 
@@ -124,7 +126,7 @@ public class MainActivity extends BridgeActivity {
 
 7. Build it in Android Studio
 
-8. If upgrading from previous versions of this plugin you may recieve this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
+8. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
 
    a. In Android Studio Go to File -> Invalidate Caches/Restart.
    
