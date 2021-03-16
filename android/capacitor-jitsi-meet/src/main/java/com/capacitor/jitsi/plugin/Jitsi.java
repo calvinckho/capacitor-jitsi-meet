@@ -103,5 +103,11 @@ public class Jitsi extends Plugin {
 
     public void onEventReceived(String eventName) {
         bridge.triggerWindowJSEvent(eventName);
+        if(eventName.equals("onConferenceLeft")) {
+            if (receiver != null) {
+                getContext().unregisterReceiver(receiver);
+                receiver = null;
+            }
+        }
     }
 }
