@@ -92,7 +92,6 @@ public class Jitsi extends Plugin {
 
     @PluginMethod()
     public void leaveConference(PluginCall call) {
-        Log.v(TAG, "leaving conference");
         Intent leaveBroadcastIntent = BroadcastIntentHelper.buildHangUpIntent();
         LocalBroadcastManager.getInstance(getContext()).sendBroadcast(leaveBroadcastIntent);
 
