@@ -16,6 +16,7 @@ export interface JitsiPlugin {
         startWithVideoMuted: boolean;
         chatEnabled: boolean;
         inviteEnabled: boolean;
+        callIntegrationEnabled: boolean;
     }): Promise<{
         roomName: string;
         url: string;
@@ -28,5 +29,7 @@ export interface JitsiPlugin {
         startWithVideoMuted: boolean;
         chatEnabled: boolean;
         inviteEnabled: boolean;
+        callIntegrationEnabled: boolean;
     }>;
+    leaveConference(options: {}): Promise<{}>;
 }

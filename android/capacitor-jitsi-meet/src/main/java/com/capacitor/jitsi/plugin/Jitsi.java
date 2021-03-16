@@ -10,6 +10,9 @@ import android.content.IntentFilter;
 import android.util.Log;
 import android.content.Intent;
 import android.Manifest;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import org.jitsi.meet.sdk.BroadcastIntentHelper;
 
 @NativePlugin(
     permissions={
@@ -32,6 +35,7 @@ public class Jitsi extends Plugin {
         Boolean startWithVideoMuted = call.getBoolean("startWithVideoMuted");
         Boolean chatEnabled = call.getBoolean("chatEnabled");
         Boolean inviteEnabled = call.getBoolean("inviteEnabled");
+        Boolean callIntegrationEnabled = call.getBoolean("callIntegrationEnabled");
 
         JitsiBroadcastReceiver receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -61,6 +65,9 @@ public class Jitsi extends Plugin {
         if(inviteEnabled == null) {
             chatEnabled = true;
         }
+        if(callIntegrationEnabled == null) {
+            callIntegrationEnabled = true;
+        }
         Log.v(TAG, "display url: " + url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
@@ -74,12 +81,24 @@ public class Jitsi extends Plugin {
         intent.putExtra("startWithVideoMuted", startWithVideoMuted);
         intent.putExtra("chatEnabled", chatEnabled);
         intent.putExtra("inviteEnabled", inviteEnabled);
+        intent.putExtra("callIntegrationEnabled", callIntegrationEnabled);
 
         getActivity().startActivity(intent);
 
         JSObject ret = new JSObject();
         ret.put("success", true);
-        call.success(ret);
+        call.resolve(ret);
+    }
+
+    @PluginMethod()
+    public void leaveConference(PluginCall call) {
+        Log.v(TAG, "leaving conference");
+        Intent leaveBroadcastIntent = BroadcastIntentHelper.buildHangUpIntent();
+        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(leaveBroadcastIntent);
+
+        JSObject ret = new JSObject();
+        ret.put("success", true);
+        call.resolve(ret);
     }
 
     public void onEventReceived(String eventName) {

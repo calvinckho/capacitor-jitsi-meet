@@ -29,6 +29,7 @@ const result = await Jitsi.joinConference({
    startWithVideoMuted: false // start with video muted
    chatEnabled: false, // enable Chat feature
    inviteEnabled: false // enable Invitation feature
+   callIntegrationEnabled: true // enable call integration (CallKit on iOS, ConnectionService on Android)
 });
 
 window.addEventListener('onConferenceJoined', () => {
@@ -37,6 +38,8 @@ window.addEventListener('onConferenceJoined', () => {
 window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
+
+await Jitsi.leaveConference();
 
 ```
 

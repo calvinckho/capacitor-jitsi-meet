@@ -11,7 +11,7 @@ import UIKit
 import JitsiMeetSDK
 
 public class JitsiMeetViewController: UIViewController {
-    
+
     var jitsiMeetView: JitsiMeetView!
     var url: String = ""
     var roomName: String = ""
@@ -20,7 +20,7 @@ public class JitsiMeetViewController: UIViewController {
     var startWithVideoMuted: Bool = false
     var chatEnabled: Bool = true
     var inviteEnabled: Bool = true
-    var callkitEnabled: Bool = true
+    var callIntegrationEnabled: Bool = true
     var email: String? = nil
     var displayName: String? = nil
     var avatarUrl: String? = nil
@@ -47,7 +47,7 @@ public class JitsiMeetViewController: UIViewController {
             print("currentLocale is China so we cannot use CallKit.")
             callkitEnabled = false
         }
-        
+
         let userInfo = JitsiMeetUserInfo()
         userInfo.displayName = self.displayName
         userInfo.email = self.email
@@ -62,10 +62,22 @@ public class JitsiMeetViewController: UIViewController {
             builder.videoMuted = self.startWithVideoMuted
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
-            builder.setFeatureFlag("JMCallKitProxy.enabled", withBoolean: self.callkitEnabled)
+            builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
+
             builder.userInfo = userInfo
         })
         jitsiMeetView.join(options)
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::leaveConference");
+
+        jitsiMeetView = view as? JitsiMeetView;
+        jitsiMeetView?.delegate = self
+        jitsiMeetView.leave()
+
     }
 }
 
