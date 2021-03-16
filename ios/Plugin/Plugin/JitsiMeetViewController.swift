@@ -45,7 +45,7 @@ public class JitsiMeetViewController: UIViewController {
             userLocale.countryCode?.contains("MO") ?? false ||
             userLocale.countryCode?.contains("HK") ?? false {
             print("currentLocale is China so we cannot use CallKit.")
-            callkitEnabled = false
+            callIntegrationEnabled = false
         }
 
         let userInfo = JitsiMeetUserInfo()
