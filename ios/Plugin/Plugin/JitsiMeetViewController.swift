@@ -20,7 +20,6 @@ public class JitsiMeetViewController: UIViewController {
     var startWithVideoMuted: Bool = false
     var chatEnabled: Bool = true
     var inviteEnabled: Bool = true
-    var callkitEnabled: Bool = true
     var callIntegrationEnabled: Bool = true
     var email: String? = nil
     var displayName: String? = nil
@@ -63,8 +62,6 @@ public class JitsiMeetViewController: UIViewController {
             builder.videoMuted = self.startWithVideoMuted
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
-
-            builder.setFeatureFlag("JMCallKitProxy.enabled", withBoolean: self.callkitEnabled)
             builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
 
             builder.userInfo = userInfo

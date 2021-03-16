@@ -21,7 +21,6 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
       inviteEnabled: boolean;
-      callkitEnabled: boolean;
       callIntegrationEnabled: boolean;
   }): Promise<{
       roomName: string;
@@ -35,7 +34,6 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       startWithVideoMuted: boolean;
       chatEnabled: boolean;
       inviteEnabled: boolean;
-      callkitEnabled: boolean;
       callIntegrationEnabled: boolean;
   }> {
       console.log('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');

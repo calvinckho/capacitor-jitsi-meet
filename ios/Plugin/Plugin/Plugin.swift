@@ -32,12 +32,11 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.roomName = roomName;
         self.jitsiMeetViewController.startWithAudioMuted = call.options["startWithAudioMuted"] as? Bool ?? false;
         self.jitsiMeetViewController.startWithVideoMuted = call.options["startWithVideoMuted"] as? Bool ?? false;
-        self.jitsiMeetViewController.chatEnabled = call.options["chatEnabled"] as? Bool ?? true;
-        self.jitsiMeetViewController.inviteEnabled = call.options["inviteEnabled"] as? Bool ?? true;
+        self.jitsiMeetViewController.chatEnabled = call.options["chatEnabled"] as? Bool ?? false;
+        self.jitsiMeetViewController.inviteEnabled = call.options["inviteEnabled"] as? Bool ?? false;
         self.jitsiMeetViewController.email = call.options["email"] as? String ?? nil
         self.jitsiMeetViewController.displayName = call.options["displayName"] as? String ?? nil
         self.jitsiMeetViewController.avatarUrl = call.options["avatarURL"] as? String ?? nil
-        self.jitsiMeetViewController.callkitEnabled = call.options["callkitEnabled"] as? Bool ?? true
         self.jitsiMeetViewController.callIntegrationEnabled = call.options["callIntegrationEnabled"] as? Bool ?? true
         self.jitsiMeetViewController.delegate = self;
 
