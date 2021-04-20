@@ -6,7 +6,7 @@ This plugin uses the Jitsi SDK for android. See the plugin [changelog](https://g
 
 1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
 
-```
+```javascript
 import { Plugins } from '@capacitor/core';
 import 'capacitor-jitsi-meet';
 
@@ -78,7 +78,7 @@ dependencies {
 
 5. Register the plugin in your main Activity
 
-```
+```java
 import android.os.Bundle;
 
 import com.getcapacitor.BridgeActivity;
@@ -104,7 +104,7 @@ public class MainActivity extends BridgeActivity {
 6. For 2.0+, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
 
  Create a android/variables.gradle file with this content
- ```
+ ```gradle
  ext {
    minSdkVersion = 21
    compileSdkVersion = 29
