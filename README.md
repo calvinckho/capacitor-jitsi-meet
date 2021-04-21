@@ -22,7 +22,7 @@ This plugin does not currently support web implementation. We recommend using th
 
 2. use it as a Capacitor Plugin
 
-```
+```javascript
 import { Plugins } from '@capacitor/core';
 import 'capacitor-jitsi-meet';
 
