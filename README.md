@@ -6,6 +6,9 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
 
 See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode.
 
+## Capacitor 3.0
+Capacitor 3.0 is not supported yet. For more information you can check [this issue](https://github.com/calvinckho/capacitor-jitsi-meet/issues/52).
+
 ## Upgrade to Capacitor 2.0
 
 Follow the [official Capacitor doc to upgrade to 2.0+](https://ionicframework.com/blog/announcing-capacitor-2-0/?utm_campaign=capacitor&utm_source=hs_email&utm_medium=email&utm_content=86094990&_hsenc=p2ANqtz-894lhie-saMpN3lq1GaI2aQiC9cBv-bvtZK-a9UyN5obOCgqkOxIb7yk1IRuJeK-LEsyKKqkZ3uxmmfV8nxqWzZZXInQ&_hsmi=86094990). 
