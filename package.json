@@ -24,7 +24,7 @@
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "prettier": "^2.2.1",
-    "prettier-plugin-java": "^0.8.0",
+    "prettier-plugin-java": "^1.0.2",
     "rimraf": "^3.0.0",
     "rollup": "^2.36.1",
     "swiftlint": "^1.0.1",
