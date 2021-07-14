@@ -11,6 +11,9 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 - [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.6.0)
 - [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.6.0)
 
+## iOS
+
+- built with Xcode 12.5
 
 # 1.5.13 (2021-05-12)
 
@@ -19,6 +22,9 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 - [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.5.0)
 - [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.5.0)
 
+## iOS
+
+- built with Xcode 12.5
 
 # 1.5.12 (2021-04-20)
 
