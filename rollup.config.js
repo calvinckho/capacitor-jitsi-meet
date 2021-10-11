@@ -5,6 +5,7 @@ export default {
   output: {
     file: 'dist/plugin.js',
     format: 'iife',
+    inlineDynamicImports: true,
     name: 'JitsiPlugin', // TODO: change this
     globals: {
       '@capacitor/core': 'capacitorExports',

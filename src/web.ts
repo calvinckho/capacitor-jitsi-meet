@@ -2,14 +2,9 @@ import { WebPlugin } from '@capacitor/core';
 import { JitsiPlugin } from './definitions';
 
 export class JitsiWeb extends WebPlugin implements JitsiPlugin {
-  constructor() {
-    super({
-      name: 'Jitsi',
-      platforms: ['web']
-    });
-  }
 
-  async joinConference(options: {
+  // @ts-ignore
+    async joinConference(options: {
       roomName: string;
       url: string;
       token: string;
@@ -36,19 +31,14 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       inviteEnabled: boolean;
       callIntegrationEnabled: boolean;
   }> {
-      console.log('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
-      return options;
+      throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };
+    // @ts-ignore
   async leaveConference(options: {}): Promise<{}> {
-      console.log('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
-      return options;
+      throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };
 }
 
 const Jitsi = new JitsiWeb();
 
 export { Jitsi };
-
-// Register as a web plugin
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(Jitsi);
