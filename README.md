@@ -1,6 +1,3 @@
-> This project is a fork from https://github.com/calvinckho/capacitor-jitsi-meet and it will be
-> archived when original project will be compatible with capacitor 3.
-
 # Jitsi Meet Capacitor Plugin for Ionic Apps
 
 This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.
@@ -19,7 +16,7 @@ import 'capacitor-jitsi-meet';
 const { Jitsi } = Plugins;
 
 // On capacitor 3
-import {Jitsi} from '@cyril-colin/capacitor3-jitsi-meet';
+import {Jitsi} from 'capacitor-jitsi-meet';
 ```
 
 ## Upgrade to Capacitor 2.0
@@ -39,7 +36,7 @@ This plugin does not currently support web implementation. We recommend using th
 2. use it as a Capacitor Plugin
 
 ```javascript
-import {Jitsi} from '@cyril-colin/capacitor3-jitsi-meet';
+import {Jitsi} from 'capacitor-jitsi-meet';
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge,

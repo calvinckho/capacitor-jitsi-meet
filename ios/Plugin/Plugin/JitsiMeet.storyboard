@@ -10,7 +10,7 @@
         <!--Jitsi Meet View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="jitsiMeetStoryBoardID" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="JitsiMeetViewController" customModule="CyrilColinCapacitor3JitsiMeet" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jitsiMeetStoryBoardID" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="JitsiMeetViewController" customModule="CapacitorJitsiMeet" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="drl-1K-Grw"/>
                         <viewControllerLayoutGuide type="bottom" id="qI8-KV-6mq"/>
