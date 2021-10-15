@@ -56,10 +56,8 @@ public class JitsiMeetViewController: UIViewController {
         let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
             builder.serverURL = URL(string: self.url)
             builder.room = self.roomName
-            builder.subject = " "
             builder.token = self.token
-            builder.audioMuted = self.startWithAudioMuted
-            builder.videoMuted = self.startWithVideoMuted
+            builder.setFeatureFlag("meeting-name.enabled", withBoolean: false)
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
             builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
@@ -67,6 +65,8 @@ public class JitsiMeetViewController: UIViewController {
             builder.userInfo = userInfo
         })
         jitsiMeetView.join(options)
+        jitsiMeetView.setAudioMuted(self.startWithAudioMuted)
+        jitsiMeetView.setVideoMuted(self.startWithVideoMuted)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
