@@ -19,11 +19,9 @@ const { Jitsi } = Plugins;
 import {Jitsi} from 'capacitor-jitsi-meet';
 ```
 
-## Upgrade to Capacitor 2.0
+## Upgrade to Capacitor 3.0
 
-Follow the [official Capacitor doc to upgrade to 2.0+](https://ionicframework.com/blog/announcing-capacitor-2-0/?utm_campaign=capacitor&utm_source=hs_email&utm_medium=email&utm_content=86094990&_hsenc=p2ANqtz-894lhie-saMpN3lq1GaI2aQiC9cBv-bvtZK-a9UyN5obOCgqkOxIb7yk1IRuJeK-LEsyKKqkZ3uxmmfV8nxqWzZZXInQ&_hsmi=86094990). 
-
-For android deployment, ensure you follow step 6 in [README](android/README.md).
+Follow the [official Capacitor doc to upgrade to 3.0](https://capacitorjs.com/docs/updating/3-0). 
 
 ## Embedding in web applications
    

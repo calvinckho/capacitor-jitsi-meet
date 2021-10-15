@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.1'
+platform :ios, '12.0'
 
 target 'Plugin' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,7 +7,7 @@ target 'Plugin' do
 
   # Pods for IonicRunner
   pod 'Capacitor'
-  pod 'JitsiMeetSDK', '3.6.0'
+  pod 'JitsiMeetSDK', '3.10.4'
 end
 
 post_install do |installer|
@@ -22,5 +22,5 @@ target 'PluginTests' do
   use_frameworks!
 
   pod 'Capacitor'
-  pod 'JitsiMeetSDK', '3.6.0'
+  pod 'JitsiMeetSDK', '3.10.4'
 end
