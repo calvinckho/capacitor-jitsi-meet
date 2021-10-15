@@ -7,7 +7,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 # 2.0.0 (2021-10-14)
 
 - upgrade plugin for Capacitor 3
-- uses Jitsi SDK 3.10.4.
+- uses Jitsi SDK 3.10.4 for ios, SDK 3.10.2 for android.
 
 - [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.10.2)
 - [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.10.4)
