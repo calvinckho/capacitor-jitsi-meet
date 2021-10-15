@@ -2,26 +2,58 @@
 
 This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.
 
+## Compatibility to Capacitor Versions
+
+<table>
+  <thead>
+    <tr>
+      <th>Capacitor</th>
+      <th>capacitor-jitsi-meet</th>
+      <th>supported</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        v3
+      </td>
+      <td>
+        >= 2.0.0
+      </td>
+      <td>
+        TBD
+      </td>
+    </tr>
+    <tr>
+      <td>
+        v2
+      </td>
+      <td>
+        >= 1.3.7
+      </td>
+      <td>
+        until Sept 30, 2021
+      </td>
+    </tr>
+    <tr>
+      <td>
+        v1
+      </td>
+      <td>
+        <= 1.3.6
+      </td>
+      <td>
+        until June 30, 2020
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Follow the [official Capacitor doc to upgrade to Capacitor 3](https://capacitorjs.com/docs/updating/3-0).
+
 ## iOS Compatible Versions
 
-See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode.
-
-## Capacitor 3.0
-
-```javascript
-// On capacitor 2
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
-
-// On capacitor 3
-import {Jitsi} from 'capacitor-jitsi-meet';
-```
-
-## Upgrade to Capacitor 3.0
-
-Follow the [official Capacitor doc to upgrade to 3.0](https://capacitorjs.com/docs/updating/3-0). 
+See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode version.
 
 ## Embedding in web applications
    
@@ -34,7 +66,17 @@ This plugin does not currently support web implementation. We recommend using th
 2. use it as a Capacitor Plugin
 
 ```javascript
-import {Jitsi} from 'capacitor-jitsi-meet';
+// On Capacitor 3
+import { Jitsi } from 'capacitor-jitsi-meet';
+
+// On Capacitor 1 and 2
+import { Plugins } from '@capacitor/core';
+import 'capacitor-jitsi-meet';
+
+const { Jitsi } = Plugins;
+```
+
+```javascript
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge,
