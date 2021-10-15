@@ -12,6 +12,19 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 - [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.10.2)
 - [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.10.4)
 
+# 1.5.15 (2021-09-13)
+
+## iOS
+
+- uses Jitsi SDK 3.8.1.
+- built with Xcode 12.5
+- [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.8.1)
+
+## Android
+
+- uses Jitsi SDK 3.8.0.
+- [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.8.0)
+
 # 1.5.14 (2021-07-06)
 
 - uses Jitsi SDK 3.6.0.
