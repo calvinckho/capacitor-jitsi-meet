@@ -22,7 +22,7 @@ const result: any = await Jitsi.joinConference({
    inviteEnabled: false // enable Invitation feature
    callIntegrationEnabled: true // enable call integration (CallKit on iOS, ConnectionService on Android)
 });
-console.log("join status": result.success);
+console.log("join status", result.success);
 
 window.addEventListener('onConferenceJoined', () => {
     // do things here

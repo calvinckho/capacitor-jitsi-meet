@@ -1,16 +1,24 @@
 # Capacitor Plugin Changelog
 
-Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if you local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the corresponding plugin version.  
+Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if your local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the corresponding plugin version.  
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
 # 2.0.0 (2021-10-14)
 
-- upgrade plugin for Capacitor 3
-- uses Jitsi SDK 3.10.4 for ios, SDK 3.10.2 for android.
+## Breaking Changes
+- upgrades plugin for Capacitor 3. If you are currently using Capacitor 2, you need to upgrade your project to Capacitor 3 first before you can use this plugin.
 
-- [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.10.2)
+## iOS
+
+- uses Jitsi SDK 3.10.4
+- built with Xcode 13.0
 - [iOS](https://github.com/jitsi/jitsi-meet/releases/tag/ios-sdk-3.10.4)
+
+## Android
+
+- uses Jitsi SDK 3.10.2
+- [Android](https://github.com/jitsi/jitsi-meet/releases/tag/android-sdk-3.10.2)
 
 # 1.5.15 (2021-09-13)
 
