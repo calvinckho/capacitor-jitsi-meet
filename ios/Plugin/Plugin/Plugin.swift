@@ -41,7 +41,7 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.delegate = self;
 
         DispatchQueue.main.async {
-            self.bridge.viewController.present(self.jitsiMeetViewController, animated: true, completion: {
+            self.bridge?.presentVC(self.jitsiMeetViewController, animated: true, completion: {
                 call.resolve([
                     "success": true
                     ])
@@ -52,7 +52,7 @@ public class Jitsi: CAPPlugin {
     @objc func leaveConference(_ call: CAPPluginCall) {
         self.jitsiMeetViewController.delegate = self;
         DispatchQueue.main.async {
-            self.bridge.viewController.dismiss(animated: true, completion: {
+            self.bridge?.dismissVC(animated: true, completion: {
                 call.resolve([
                     "success": true
                 ])
@@ -63,10 +63,10 @@ public class Jitsi: CAPPlugin {
 
 extension Jitsi: JitsiMeetViewControllerDelegate {
     @objc func onConferenceJoined() {
-        self.bridge.triggerWindowJSEvent(eventName: "onConferenceJoined");
+        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceJoined");
     }
 
     @objc func onConferenceLeft() {
-        self.bridge.triggerWindowJSEvent(eventName: "onConferenceLeft");
+        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceLeft");
     }
 }

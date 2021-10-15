@@ -7,10 +7,7 @@ This plugin uses the Jitsi SDK for android. See the plugin [changelog](https://g
 1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
 
 ```javascript
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
+import {Jitsi} from 'capacitor-jitsi-meet';
 const result: any = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
@@ -76,30 +73,7 @@ dependencies {
 }
 ```
 
-5. Register the plugin in your main Activity
-
-```java
-import android.os.Bundle;
-
-import com.getcapacitor.BridgeActivity;
-import com.getcapacitor.Plugin;
-import com.capacitor.jitsi.plugin.Jitsi; // import Jitsi
-
-import java.util.ArrayList;
-
-public class MainActivity extends BridgeActivity {
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Initializes the Bridge
-    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      add(Jitsi.class); // register the Jitsi Plugin here
-    }});
-  }
-}
-```
+5. No need to register the plugin in your main Activity anymore.
 
 6. For 2.0+, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
 

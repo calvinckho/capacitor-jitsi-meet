@@ -8,7 +8,16 @@ See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/bl
 
 ## Capacitor 3.0
 
-Capacitor 3.0 is not supported yet. For more information you can check [this issue](https://github.com/calvinckho/capacitor-jitsi-meet/issues/52).
+```javascript
+// On capacitor 2
+import { Plugins } from '@capacitor/core';
+import 'capacitor-jitsi-meet';
+
+const { Jitsi } = Plugins;
+
+// On capacitor 3
+import {Jitsi} from 'capacitor-jitsi-meet';
+```
 
 ## Upgrade to Capacitor 2.0
 
@@ -27,10 +36,7 @@ This plugin does not currently support web implementation. We recommend using th
 2. use it as a Capacitor Plugin
 
 ```javascript
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
+import {Jitsi} from 'capacitor-jitsi-meet';
 const result = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge,

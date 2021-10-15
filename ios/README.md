@@ -13,10 +13,7 @@ See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/bl
 1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
 
 ```javascript
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
+import {Jitsi} from 'capacitor-jitsi-meet';
 const result: any = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
    url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge

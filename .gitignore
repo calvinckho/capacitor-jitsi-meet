@@ -1,4 +1,8 @@
 /node_modules/
 android/capacitor-jitsi-meet/build/
 android/.idea
+android/build
 .idea/
+
+/dist/
+/ios/Plugin/Pods/
