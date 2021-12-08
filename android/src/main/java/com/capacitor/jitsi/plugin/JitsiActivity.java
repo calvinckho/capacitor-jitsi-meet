@@ -94,7 +94,6 @@ public class JitsiActivity extends JitsiMeetActivity {
                 .setFeatureFlag("invite.enabled", inviteEnabled)
                 .setFeatureFlag("call-integration.enabled", callIntegrationEnabled)
                 //.setAudioOnly(false)
-                .setWelcomePageEnabled(false)
                 .setUserInfo(userInfo)
                 .build();
         view.join(options);
