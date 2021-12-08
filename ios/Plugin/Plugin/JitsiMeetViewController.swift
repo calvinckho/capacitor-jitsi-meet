@@ -93,7 +93,7 @@ extension JitsiMeetViewController: JitsiMeetViewDelegate {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined. Room name is \(self.roomName)");
     }
 
-    @objc public func readyToClose(_ data: [AnyHashable : Any]!) {
+    @objc public func ready(toClose: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::ready to close");
         delegate?.onConferenceLeft()
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
