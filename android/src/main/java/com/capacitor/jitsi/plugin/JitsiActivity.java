@@ -122,7 +122,7 @@ public class JitsiActivity extends JitsiMeetActivity {
                 case CONFERENCE_WILL_JOIN:
                     on("onConferenceWillJoin", event.getData());
                     break;
-                case CONFERENCE_TERMINATED:
+                case READY_TO_CLOSE:
                     view.dispose();
                     view = null;
                     finish();

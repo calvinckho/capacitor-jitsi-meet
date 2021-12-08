@@ -1,7 +1,7 @@
 
   Pod::Spec.new do |s|
     s.name = 'CapacitorJitsiMeet'
-    s.version = '2.0.0'
+    s.version = '2.1.0'
     s.summary = 'This plugin is used to make video calls using Jitsi video platform (https://meet.jit.si) on iOS and Android using Capacitor. Since the current implementation of Ionic/PWA apps on iOS run on top of WKWebView, and as of today (24/01/2019), Apple does not support WebRTC on WKWebView, the only way to work with Jitsi Video on this platform is to build it natively.'
     s.license = 'MIT'
     s.homepage = 'https://github.com/calvinckho/capacitor-jitsi-meet'
@@ -15,5 +15,5 @@
     }
     s.ios.deployment_target  = '12.0'
     s.dependency 'Capacitor'
-    s.dependency 'JitsiMeetSDK', '3.10.4'
+    s.dependency 'JitsiMeetSDK', '4.0.0'
   end

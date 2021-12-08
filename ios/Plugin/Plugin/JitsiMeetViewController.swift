@@ -3,7 +3,6 @@
 //  Plugin
 //
 //  Created by Calvin Ho on 1/25/19.
-//  Copyright © 2019 Max Lynch. All rights reserved.
 //
 
 import Foundation
@@ -57,6 +56,8 @@ public class JitsiMeetViewController: UIViewController {
             builder.serverURL = URL(string: self.url)
             builder.room = self.roomName
             builder.token = self.token
+            builder.setAudioMuted(self.startWithAudioMuted);
+            builder.setVideoMuted(self.startWithAudioMuted);
             builder.setFeatureFlag("meeting-name.enabled", withBoolean: false)
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
@@ -65,8 +66,6 @@ public class JitsiMeetViewController: UIViewController {
             builder.userInfo = userInfo
         })
         jitsiMeetView.join(options)
-        jitsiMeetView.setAudioMuted(self.startWithAudioMuted)
-        jitsiMeetView.setVideoMuted(self.startWithVideoMuted)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -91,11 +90,11 @@ protocol JitsiMeetViewControllerDelegate: AnyObject {
 extension JitsiMeetViewController: JitsiMeetViewDelegate {
     @objc public func conferenceJoined(_ data: [AnyHashable : Any]!) {
         delegate?.onConferenceJoined()
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined");
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined. Room name is \(self.roomName)");
     }
 
-    @objc public func conferenceTerminated(_ data: [AnyHashable : Any]!) {
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference left");
+    @objc public func readyToClose(_ data: [AnyHashable : Any]!) {
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::ready to close");
         delegate?.onConferenceLeft()
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
