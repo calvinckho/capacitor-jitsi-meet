@@ -4,7 +4,7 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 2.1.0-beta.0 (2021-12-08)
+# 2.1.0-beta.2 (2021-12-08)
 
 ## Breaking Changes
 - the 4.0.0 mobile sdk introduces breakout rooms.
