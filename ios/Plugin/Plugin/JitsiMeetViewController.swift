@@ -57,7 +57,7 @@ public class JitsiMeetViewController: UIViewController {
             builder.room = self.roomName
             builder.token = self.token
             builder.setAudioMuted(self.startWithAudioMuted);
-            builder.setVideoMuted(self.startWithAudioMuted);
+            builder.setVideoMuted(self.startWithVideoMuted);
             builder.setFeatureFlag("meeting-name.enabled", withBoolean: false)
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
