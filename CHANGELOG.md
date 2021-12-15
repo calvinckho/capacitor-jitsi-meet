@@ -7,7 +7,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 # 2.1.1-beta.0 (2021-12-15)
 
 ## Android
-- with the change in Capacitor 3, each plugin needs to use its AndroidManifest.xml. This version will ensure that the Jitsi conference will continue to run in the background even if the user minimizes the app.
+- with the change in Capacitor 3, each plugin needs to use its own AndroidManifest.xml. with the change in Capacitor 3, each plugin needs to use its own AndroidManifest.xml. This update allows the Jitsi conference to run in the background even if the user minimizes the app.
 
 # 2.1.0 (2021-12-10)
 
