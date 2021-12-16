@@ -4,10 +4,10 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 2.1.1-beta.0 (2021-12-15)
+# 2.1.1 (2021-12-15)
 
 ## Android
-- with the change in Capacitor 3, each plugin needs to use its own AndroidManifest.xml. with the change in Capacitor 3, each plugin needs to use its own AndroidManifest.xml. This update allows the Jitsi conference to run in the background even if the user minimizes the app.
+- Capacitor 3 requires each Capacitor plugin to load settings from its own AndroidManifest.xml. This version provides correct settings in the manifest file which allows the Jitsi call to run in the background even if the user minimizes the app.
 
 # 2.1.0 (2021-12-10)
 
