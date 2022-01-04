@@ -122,35 +122,31 @@ public class JitsiActivity extends JitsiMeetActivity {
 
             switch (event.getType()) {
                 case CONFERENCE_JOINED:
-                    on("onConferenceJoined", event.getData());
+                    on("onConferenceJoined");
                     break;
                 case CONFERENCE_WILL_JOIN:
-                    on("onConferenceWillJoin", event.getData());
+                    on("onConferenceWillJoin");
                     break;
                 case READY_TO_CLOSE:
                     view.dispose();
                     view = null;
                     finish();
-                    on("onConferenceLeft", event.getData()); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+                    on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
                     break;
                 case PARTICIPANT_JOINED:
-                    on("onParticipantJoined", event.getData());
+                    on("onParticipantJoined");
                     break;
                 case PARTICIPANT_LEFT:
-                    on("onParticipantLeft", event.getData());
+                    on("onParticipantLeft");
                     break;
             }
         }
     }
 
-    private void on(String name, Map<String, Object> data) {
+    private void on(String name) {
         UiThreadUtil.assertOnUiThread();
+        Timber.d(JitsiMeetView.class.getSimpleName() + ": " + name);
 
-        // Log with the tag "ReactNative" in order to have the log
-        // visible in react-native log-android as well.
-        Timber.d(JitsiMeetViewListener.class.getSimpleName() + " "
-                + name + " "
-                + data);
         Intent intent = new Intent(name);
         intent.putExtra("eventName", name);
         sendBroadcast(intent);
@@ -165,6 +161,24 @@ public class JitsiActivity extends JitsiMeetActivity {
         super.onDestroy();
     }
 
+    // detect if PIP window is closed. If closed, dispose view and finish activity
+    @Override
+    public void onStop() {
+        Timber.d("Picture-in-picture is stopped. Disposing view and finishing activity.");
+        view.dispose();
+        view = null;
+        finish();
+        on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+        super.onStop();
+    }
+
+    // for logging only. nothing is done when picture-in-picture mode is toggled
+    @Override
+    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode);
+
+        Timber.d("Is in picture-in-picture mode: " + isInPictureInPictureMode);
+    }
+
     private static final String ADD_PEOPLE_CONTROLLER_QUERY = null;
 }
-
