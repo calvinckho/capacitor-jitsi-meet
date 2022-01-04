@@ -165,9 +165,11 @@ public class JitsiActivity extends JitsiMeetActivity {
     @Override
     public void onStop() {
         Timber.d("Picture-in-picture is stopped. Disposing view and finishing activity.");
-        view.dispose();
-        view = null;
-        finish();
+        if (view != null) {
+            view.dispose();
+            view = null;
+            finish();
+        }
         on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         super.onStop();
     }
