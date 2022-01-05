@@ -17,6 +17,8 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       chatEnabled: boolean;
       inviteEnabled: boolean;
       callIntegrationEnabled: boolean;
+      recordingEnabled: boolean;
+      liveStreamingEnabled: boolean;
   }): Promise<{
       roomName: string;
       url: string;
@@ -30,6 +32,8 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
       chatEnabled: boolean;
       inviteEnabled: boolean;
       callIntegrationEnabled: boolean;
+      recordingEnabled: boolean;
+      liveStreamingEnabled: boolean;
   }> {
       throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };
