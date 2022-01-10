@@ -62,6 +62,8 @@ public class JitsiMeetViewController: UIViewController {
             builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
             builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
             builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
+            builder.setFeatureFlag("ios.screensharing.enabled", withBoolean: true)
+            // METER AQUI COMPARTILHAR TELA ios.screensharing.enabled
 
             builder.userInfo = userInfo
         })
