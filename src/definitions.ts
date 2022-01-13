@@ -14,6 +14,7 @@ export interface JitsiPlugin {
         callIntegrationEnabled: boolean;
         recordingEnabled: boolean;
         liveStreamingEnabled: boolean;
+        screenSharingEnabled: boolean;
     }): Promise<{
         roomName: string;
         url: string;
@@ -29,6 +30,7 @@ export interface JitsiPlugin {
         callIntegrationEnabled: boolean;
         recordingEnabled: boolean;
         liveStreamingEnabled: boolean;
+        screenSharingEnabled: boolean;
     }>;
     leaveConference(options: {}): Promise<{}>;
 }
