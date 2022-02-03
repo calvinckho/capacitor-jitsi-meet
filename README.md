@@ -29,7 +29,7 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
         v2
       </td>
       <td>
-        >= 1.3.7
+        <= 1.5.14
       </td>
       <td>
         until Sept 30, 2021
