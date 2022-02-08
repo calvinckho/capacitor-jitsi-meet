@@ -20,17 +20,17 @@ const { Jitsi } = Plugins;
 ```javascript
 const result: any = await Jitsi.joinConference({
    roomName: 'room1', // room identifier for the conference
-   url: 'https://meet.jit.si' // endpoint of the Jitsi Meet video bridge
-   token: string; // jwt authentication token
-   displayName: string; // user's display name
-   email: string; // user's email
-   avatarURL: string; // user's avatar url
-   channelLastN: string; // last N participants allowed to join
+   url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
+   token: string, // jwt authentication token
+   displayName: string, // user's display name
+   email: string, // user's email
+   avatarURL: string, // user's avatar url
+   channelLastN: string, // last N participants allowed to join
    startWithAudioMuted: true, // start with audio muted
-   startWithVideoMuted: false // start with video muted
+   startWithVideoMuted: false, // start with video muted
    chatEnabled: false, // enable Chat feature
-   inviteEnabled: false // enable Invitation feature
-   callIntegrationEnabled: true // enable call integration (CallKit on iOS, ConnectionService on Android)
+   inviteEnabled: false, // enable Invitation feature
+   callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android)
 });
 console.log("join status", result.success);
 
