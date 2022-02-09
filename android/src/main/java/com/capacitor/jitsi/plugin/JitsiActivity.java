@@ -161,8 +161,12 @@ public class JitsiActivity extends JitsiMeetActivity {
         super.onDestroy();
     }
 
-    // detect if PIP window is closed. If closed, dispose view and finish activity
-    @Override
+    // The following handler is triggered when the app transitions from the background to the foreground.
+    // For PIP users, uncomment the code to try PIP mode. Also change android:supportsPictureInPicture="true" in AndroidManifest.xml
+    // When PIP is enabled, it can detect when the PIP window is closed by caller so it can terminate the call correctly.
+    // TODO: Some users who enabled PIP report that it doesn't always terminate the call correctly.
+    //  Therefore the PIP mode is disabled in the published plugin until this issue is resolved
+    /*@Override
     public void onStop() {
         Timber.d("Picture-in-picture is stopped. Disposing view and finishing activity.");
         if (view != null) {
@@ -172,9 +176,9 @@ public class JitsiActivity extends JitsiMeetActivity {
         }
         on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         super.onStop();
-    }
+    }*/
 
-    // for logging only. nothing is done when picture-in-picture mode is toggled
+    // for logging entering and leaving PIP only
     @Override
     public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode);
