@@ -63,7 +63,7 @@ This plugin does not currently support web implementation. We recommend using th
 
 1. npm install capacitor-jitsi-meet
 
-2. use it as a Capacitor Plugin
+2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app)
 
 ```javascript
 // On Capacitor 3
@@ -107,10 +107,17 @@ await Jitsi.leaveConference();
 
 ```
 
-
 3. Build the project
 
+```
+$ npm run build
+```
+
 4. Follow the deployment instructions for [Android](android/README.md) and [iOS](ios/README.md).
+
+## Sample React App for Android
+
+You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jitsi-meet-sample) which runs the Jitsi meeting on the Android device
 
 ## Feature Requests and Jitsi SDK Customizations
 

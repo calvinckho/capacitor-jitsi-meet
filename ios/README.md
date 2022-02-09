@@ -10,66 +10,35 @@ See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/bl
 
 ### Usage
 
-1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
+[Follow installation steps 1-3 here.](https://github.com/calvinckho/capacitor-jitsi-meet#usage)
 
-```javascript
-// On Capacitor 3
-import { Jitsi } from 'capacitor-jitsi-meet';
+4. Follow [these steps](https://ionicframework.com/docs/developing/ios#project-setup) to add iOS to your project
 
-// On Capacitor 2
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
-```
-
-```javascript
-const result: any = await Jitsi.joinConference({
-   // required parameters
-   roomName: 'room1', // room identifier for the conference
-   url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
-   // optional parameters
-   token: string, // jwt authentication token
-   displayName: string, // user's display name
-   email: string, // user's email
-   avatarURL: string, // user's avatar url
-   startWithAudioMuted: true, // start with audio muted, default: false
-   startWithVideoMuted: false, // start with video muted, default: false
-   chatEnabled: false, // enable Chat feature, default: true
-   inviteEnabled: false, // enable Invitation feature, default: true
-   callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
-   recordingEnabled: false, // enable recording feature, default: false
-   liveStreamingEnabled: false, // enable live streaming feature, default: false
-   screenSharingEnabled: false, // enable screen sharing feature, default: false
-});
-console.log("join status", result.success);
-
-window.addEventListener('onConferenceJoined', () => {
-    // do things here
-});
-window.addEventListener('onConferenceLeft', () => {
-    // do things here
-});
-
-const result: any = await Jitsi.leaveConference();
-console.log("leave status: " +  result.success);
+5. Let capacitor sync the projects using either of the following commands
 
 ```
+npx cap update
+```
+```
+npx cap sync
+```
 
-2. npx cap sync
+6. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
 
-3. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
-
-
+```
    i. Pods -> Project -> Pods -> Build Settings -> Enable Bitcode -> No
    
    ii Pods -> Targets -> CapacitorJitsiMeet -> Build Settings -> Enable Bitcode -> No
-   
+  ``` 
 
-4. Use Swift 5 for the Capacitor target. In Xcode Project Navigator,
+7. Use Swift 5 for the Capacitor target. In Xcode Project Navigator,
 
+```
     i. Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> Swift 5
-5. In order for app to properly work in the background, select the "audio" and "voip" background modes.
+```
+
+8. In order for app to properly work in the background, select the "audio" and "voip" background modes.
+
 ```
 <key>UIBackgroundModes</key>
 	<array>
@@ -77,7 +46,12 @@ console.log("leave status: " +  result.success);
 		<string>voip</string>
 	</array>
 ```
-6. Deploy it to your device
+
+9. Build it in Xcode and deploy it to your device
+
+```
+ionic capacitor open ios
+```
 
 ### iOS SDK Developer Guide
 

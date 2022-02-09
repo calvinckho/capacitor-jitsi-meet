@@ -4,55 +4,20 @@ This plugin uses the Jitsi SDK for android. See the plugin [changelog](https://g
 
 ### Usage
 
-1. npm install capacitor-jitsi-meet, then use it as a Capacitor Plugin
+[Follow installation steps 1-3 here.](https://github.com/calvinckho/capacitor-jitsi-meet#usage)
 
-```javascript
-// On Capacitor 3
-import { Jitsi } from 'capacitor-jitsi-meet';
+4. Follow [these steps](https://ionicframework.com/docs/developing/android#project-setup) to add Android to your project
 
-// On Capacitor 2
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-
-const { Jitsi } = Plugins;
-```
-
-```javascript
-const result: any = await Jitsi.joinConference({
-   // required parameters
-   roomName: 'room1', // room identifier for the conference
-   url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
-   // optional parameters
-   token: string, // jwt authentication token
-   displayName: string, // user's display name
-   email: string, // user's email
-   avatarURL: string, // user's avatar url
-   startWithAudioMuted: true, // start with audio muted, default: false
-   startWithVideoMuted: false, // start with video muted, default: false
-   chatEnabled: false, // enable Chat feature, default: true
-   inviteEnabled: false, // enable Invitation feature, default: true
-   callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
-   recordingEnabled: false, // enable recording feature, default: false
-   liveStreamingEnabled: false, // enable live streaming feature, default: false
-   screenSharingEnabled: false, // enable screen sharing feature, default: false
-});
-console.log("join status", result.success);
-
-window.addEventListener('onConferenceJoined', () => {
-    // do things here
-});
-window.addEventListener('onConferenceLeft', () => {
-    // do things here
-});
-
-const result: any = await Jitsi.leaveConference();
-console.log("leave status": result.success);
+5. Let capacitor sync the projects using either of the following commands
 
 ```
+npx cap update
+```
+```
+npx cap sync
+```
 
-2. npx cap sync
-
-3. In your android/build.gradle, add the Maven repository
+6. In your android/build.gradle, add the Maven repository
 
 ```gradle
 allprojects {
@@ -66,7 +31,7 @@ allprojects {
 }
 ```
 
-4. In your android/app/build.gradle file, add Java 1.8 compatibility support
+6. In your android/app/build.gradle file, add Java 1.8 compatibility support
 
 ```gradle
 android {
@@ -78,7 +43,7 @@ android {
     ...
 ```
 
-Also, replace the line implementation 'ionic-team:capacitor-android:1+' with:
+In older capacitor versions, replace the line implementation 'ionic-team:capacitor-android:1+' with:
 
 ```gradle
 dependencies {
@@ -87,14 +52,12 @@ dependencies {
 }
 ```
 
-5. No need to register the plugin in your main Activity anymore.
+7. In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
 
-6. For 2.0+, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
-
- Create a android/variables.gradle file with this content
+ Create an android/variables.gradle file with this content
  ```gradle
  ext {
-   minSdkVersion = 21
+   minSdkVersion = 23
    compileSdkVersion = 29
    targetSdkVersion = 29
    androidxAppCompatVersion = '1.1.0'
@@ -112,9 +75,13 @@ dependencies {
 ```
  In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
 
-7. Build it in Android Studio
+9. Build it in Android Studio
 
-8. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
+```
+ionic capacitor open android
+```
+
+10. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
 
    a. In Android Studio Go to File -> Invalidate Caches/Restart.
    
