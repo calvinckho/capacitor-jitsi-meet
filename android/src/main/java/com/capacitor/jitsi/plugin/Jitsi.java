@@ -40,6 +40,9 @@ public class Jitsi extends Plugin {
         Boolean chatEnabled = call.getBoolean("chatEnabled");
         Boolean inviteEnabled = call.getBoolean("inviteEnabled");
         Boolean callIntegrationEnabled = call.getBoolean("callIntegrationEnabled");
+        Boolean recordingEnabled = call.getBoolean("recordingEnabled");
+        Boolean liveStreamingEnabled = call.getBoolean("liveStreamingEnabled");
+        Boolean screenSharingEnabled = call.getBoolean("screenSharingEnabled");
 
         receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -72,6 +75,15 @@ public class Jitsi extends Plugin {
         if(callIntegrationEnabled == null) {
             callIntegrationEnabled = true;
         }
+        if(recordingEnabled == null){
+            recordingEnabled = false;
+        }
+        if(liveStreamingEnabled == null){
+            liveStreamingEnabled = false;
+        }
+        if(screenSharingEnabled == null){
+            screenSharingEnabled = false;
+        }
         Timber.tag(TAG).v("display url: %s", url);
 
         Intent intent = new Intent(getActivity(), JitsiActivity.class);
@@ -86,6 +98,9 @@ public class Jitsi extends Plugin {
         intent.putExtra("chatEnabled", chatEnabled);
         intent.putExtra("inviteEnabled", inviteEnabled);
         intent.putExtra("callIntegrationEnabled", callIntegrationEnabled);
+        intent.putExtra("recordingEnabled", recordingEnabled);
+        intent.putExtra("liveStreamingEnabled", liveStreamingEnabled);
+        intent.putExtra("screenSharingEnabled", screenSharingEnabled);
 
         getActivity().startActivity(intent);
 
