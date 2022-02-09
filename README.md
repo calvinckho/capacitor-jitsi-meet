@@ -78,18 +78,22 @@ const { Jitsi } = Plugins;
 
 ```javascript
 const result = await Jitsi.joinConference({
-   roomName: 'room1', // room identifier for the conference
-   url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge,
-   token: string, // jwt authentication token
-   displayName: string, // user's display name
-   email: string, // user's email
-   avatarURL: string, // user's avatar url
-   channelLastN: string, // last N participants allowed to join
-   startWithAudioMuted: true, // start with audio muted
-   startWithVideoMuted: false, // start with video muted
-   chatEnabled: false, // enable Chat feature
-   inviteEnabled: false, // enable Invitation feature
-   callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android)
+    // required parameters
+    roomName: 'room1', // room identifier for the conference
+    url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
+    // optional parameters
+    token: string, // jwt authentication token
+    displayName: string, // user's display name
+    email: string, // user's email
+    avatarURL: string, // user's avatar url
+    startWithAudioMuted: true, // start with audio muted, default: false
+    startWithVideoMuted: false, // start with video muted, default: false
+    chatEnabled: false, // enable Chat feature, default: true
+    inviteEnabled: false, // enable Invitation feature, default: true
+    callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
+    recordingEnabled: false, // enable recording feature, default: false
+    liveStreamingEnabled: false, // enable live streaming feature, default: false
+    screenSharingEnabled: false, // enable screen sharing feature, default: false
 });
 
 window.addEventListener('onConferenceJoined', () => {
