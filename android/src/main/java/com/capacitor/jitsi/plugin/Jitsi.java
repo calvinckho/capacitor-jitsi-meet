@@ -78,9 +78,6 @@ public class Jitsi extends Plugin {
         if(recordingEnabled == null){
             recordingEnabled = false;
         }
-        if(liveStreamingEnabled == null){
-            liveStreamingEnabled = false;
-        }
         if(screenSharingEnabled == null){
             screenSharingEnabled = false;
         }
@@ -99,7 +96,9 @@ public class Jitsi extends Plugin {
         intent.putExtra("inviteEnabled", inviteEnabled);
         intent.putExtra("callIntegrationEnabled", callIntegrationEnabled);
         intent.putExtra("recordingEnabled", recordingEnabled);
-        intent.putExtra("liveStreamingEnabled", liveStreamingEnabled);
+        if(liveStreamingEnabled != null){
+            intent.putExtra("liveStreamingEnabled", Boolean.parseBoolean(liveStreamingEnabled));
+        }
         intent.putExtra("screenSharingEnabled", screenSharingEnabled);
 
         getActivity().startActivity(intent);

@@ -3,7 +3,7 @@
   <application android:theme="@style/AppTheme">
     <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity"
               android:excludeFromRecents="true"
-              android:supportsPictureInPicture="true"
+              android:supportsPictureInPicture="false"
               android:resizeableActivity="true"
               android:launchMode="singleTask"
               android:theme="@style/AppTheme.NoActionBar"
