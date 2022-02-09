@@ -6,6 +6,8 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 # 2.1.2 (2022-02-08)
 
+- adds recordEnabled, liveStreamingEnabled, screenSharingEnabled (android only) feature flags as plugin parameters.
+
 ## iOS
 
 - uses Jitsi SDK 4.1.0.

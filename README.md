@@ -93,7 +93,7 @@ const result = await Jitsi.joinConference({
     callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
     recordingEnabled: false, // enable recording feature, default: false
     liveStreamingEnabled: false, // enable live streaming feature, default: false
-    screenSharingEnabled: false, // enable screen sharing feature, default: false
+    screenSharingEnabled: false, // (android only) enable screen sharing feature, default: false
 });
 
 window.addEventListener('onConferenceJoined', () => {
