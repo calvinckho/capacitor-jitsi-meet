@@ -4,9 +4,15 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 2.1.2 (2022-02-08)
+# 2.1.3 (2022-02-09)
 
-- adds recordEnabled, liveStreamingEnabled, screenSharingEnabled (android only) feature flags as plugin parameters.
+## Breaking Changes
+- adds the following optional parameters with their default values. Those defaulted to false must be manually set to true in order to enable them.
+  - recordEnabled (default: false)
+  - liveStreamingEnabled (default: auto-detected)
+  - screenSharingEnabled (android only, default: false)
+
+- fixes liveStreamingEnabled bug in 2.1.2
 
 ## iOS
 

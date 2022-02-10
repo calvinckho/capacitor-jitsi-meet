@@ -62,7 +62,7 @@ public class JitsiActivity extends JitsiMeetActivity {
         Boolean inviteEnabled = getIntent().getBooleanExtra("inviteEnabled", false);
         Boolean callIntegrationEnabled = getIntent().getBooleanExtra("callIntegrationEnabled", false);
         Boolean recordingEnabled = getIntent().getBooleanExtra("recordingEnabled", false);
-        Boolean liveStreamingEnabled = getIntent().getBooleanExtra("liveStreamingEnabled", false);
+        Boolean liveStreamingEnabled = getIntent().getBooleanExtra("liveStreamingEnabled", true);
         Boolean screenSharingEnabled = getIntent().getBooleanExtra("screenSharingEnabled", false);
 
         String displayName = getIntent().getStringExtra("displayName");
@@ -99,7 +99,6 @@ public class JitsiActivity extends JitsiMeetActivity {
                 .setFeatureFlag("recording.enabled", recordingEnabled)
                 .setFeatureFlag("live-streaming.enabled", liveStreamingEnabled)
                 .setFeatureFlag("android.screensharing.enabled", screenSharingEnabled)
-                //.setAudioOnly(false)
                 .setUserInfo(userInfo)
                 .build();
         view.join(options);

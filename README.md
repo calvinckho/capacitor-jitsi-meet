@@ -91,9 +91,9 @@ const result = await Jitsi.joinConference({
     chatEnabled: false, // enable Chat feature, default: true
     inviteEnabled: false, // enable Invitation feature, default: true
     callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
-    recordingEnabled: false, // enable recording feature, default: false
-    liveStreamingEnabled: false, // enable live streaming feature, default: false
-    screenSharingEnabled: false, // (android only) enable screen sharing feature, default: false
+    recordingEnabled: false, // enable recording feature, default: false, requires adding Dropbox APP_KEY to Info.plist and AndroidManifest.xml
+    liveStreamingEnabled: false, // enable live streaming feature, default: auto-detected
+    screenSharingEnabled: false, // enable screen sharing feature, default: false, iOS requires manually adding the Broadcast Upload Extension
 });
 
 window.addEventListener('onConferenceJoined', () => {

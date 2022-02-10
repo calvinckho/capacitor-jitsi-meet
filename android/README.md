@@ -95,6 +95,14 @@ ionic capacitor open android
    
    f. run `npx cap sync && npx cap open android` 
 
+### Dropbox Integration
+
+See [Jitsi Meet Handbook](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-android-sdk#dropbox-integration).
+
+### Screen Sharing Integration
+
+Some users experienced issues on Android. Report your issues [here](https://github.com/calvinckho/capacitor-jitsi-meet/issues/35).
+
 ### Android SDK Developer Guide
 
 Consult the official Jitsi Android SDK [documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-android-sdk).

@@ -53,6 +53,15 @@ npx cap sync
 ionic capacitor open ios
 ```
 
+### Dropbox Integration
+
+See [Jitsi Meet Handbook](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk#dropbox-integration).
+
+### Screen Sharing Integration
+
+See [Jitsi Meet Handbook](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk#screen-sharing-integration).
+
+
 ### iOS SDK Developer Guide
 
 Consult the official Jitsi iOS SDK [documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk).
