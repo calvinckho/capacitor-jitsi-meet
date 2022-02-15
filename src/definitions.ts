@@ -5,6 +5,7 @@ export interface JitsiPlugin {
         token?: string;
         channelLastN?: string;
         displayName?: string;
+        subject?: string;
         email?: string;
         avatarURL?: string;
         startWithAudioMuted?: boolean;
@@ -15,12 +16,15 @@ export interface JitsiPlugin {
         recordingEnabled?: boolean;
         liveStreamingEnabled?: boolean;
         screenSharingEnabled?: boolean;
+        featureFlags?: any;
+        configOverrides?: any;
     }): Promise<{
         roomName: string;
         url: string;
         token?: string;
         channelLastN?: string;
         displayName?: string;
+        subject?: string;
         email?: string;
         avatarURL?: string;
         startWithAudioMuted?: boolean;
@@ -31,6 +35,8 @@ export interface JitsiPlugin {
         recordingEnabled?: boolean;
         liveStreamingEnabled?: boolean;
         screenSharingEnabled?: boolean;
+        featureFlags?: any;
+        configOverrides?: any;
     }>;
     leaveConference(options: {}): Promise<{}>;
 }

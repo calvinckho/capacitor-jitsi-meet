@@ -4,6 +4,10 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 2.2.0 (2022-02-25)
+
+- adds the subject, featureFlags, and configOverrides params
+
 # 2.1.3 (2022-02-09)
 
 ## Breaking Changes

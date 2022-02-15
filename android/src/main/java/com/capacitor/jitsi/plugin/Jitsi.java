@@ -1,5 +1,9 @@
 package com.capacitor.jitsi.plugin;
 
+import java.net.URL;
+import java.net.MalformedURLException;
+import java.util.*;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -10,11 +14,14 @@ import com.getcapacitor.annotation.Permission;
 import android.content.IntentFilter;
 import android.content.Intent;
 import android.Manifest;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
-import org.jitsi.meet.sdk.BroadcastIntentHelper;
-
 import timber.log.Timber;
+
+import org.jitsi.meet.sdk.*;
+import org.json.JSONException;
 
 @CapacitorPlugin(
     name= "Jitsi",
@@ -26,24 +33,28 @@ import timber.log.Timber;
 public class Jitsi extends Plugin {
     private static final String TAG = "CapacitorJitsiMeet";
     private JitsiBroadcastReceiver receiver;
+    private JitsiMeetUserInfo userInfo;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @PluginMethod()
-    public void joinConference(PluginCall call) {
-        String url = call.getString("url");
+    public void joinConference(PluginCall call) throws JSONException {
+        URL url = null;
+        try {
+            url = new URL(call.getString("url"));
+        } catch (MalformedURLException e) {
+            call.reject("Must provide an url");
+            e.printStackTrace();
+        }
         String roomName = call.getString("roomName");
         String token = call.getString("token");
         String displayName = call.getString("displayName");
+        String subject = call.getString("subject", " ");
         String email = call.getString("email");
         String avatarURL = call.getString("avatarURL");
         Boolean startWithAudioMuted = call.getBoolean("startWithAudioMuted");
         Boolean startWithVideoMuted = call.getBoolean("startWithVideoMuted");
-        Boolean chatEnabled = call.getBoolean("chatEnabled");
-        Boolean inviteEnabled = call.getBoolean("inviteEnabled");
-        Boolean callIntegrationEnabled = call.getBoolean("callIntegrationEnabled");
-        Boolean recordingEnabled = call.getBoolean("recordingEnabled");
-        Boolean liveStreamingEnabled = call.getBoolean("liveStreamingEnabled");
-        Boolean screenSharingEnabled = call.getBoolean("screenSharingEnabled");
-
+        JSObject featureFlags = call.getObject("featureFlags", new JSObject());
+        JSObject configOverrides = call.getObject("configOverrides", new JSObject());
         receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
         IntentFilter filter = new IntentFilter();
@@ -52,55 +63,104 @@ public class Jitsi extends Plugin {
         filter.addAction("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         getContext().registerReceiver(receiver, filter);
 
-        if(url == null) {
-            call.reject("Must provide an url");
-            return;
-        }
         if(roomName == null) {
             call.reject("Must provide an conference room name");
             return;
         }
-        if(startWithAudioMuted == null) {
-            startWithAudioMuted = false;
+
+        // assign user info
+        userInfo = new JitsiMeetUserInfo();
+        if (displayName != null) {
+            userInfo.setDisplayName(displayName);
         }
-        if(startWithVideoMuted == null) {
-            startWithVideoMuted = false;
+        if (email != null) {
+            userInfo.setEmail(email);
         }
-        if(chatEnabled == null) {
-            chatEnabled = true;
+        if (avatarURL != null) {
+            // try to assign avatar URL
+            try {
+                userInfo.setAvatar(new URL(avatarURL));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
-        if(inviteEnabled == null) {
-            chatEnabled = true;
+        //Timber.tag(TAG).d("display url: " + call.getString("url"));
+
+        JitsiMeetConferenceOptions.Builder builder = new JitsiMeetConferenceOptions.Builder()
+                .setServerURL(url)
+                .setRoom(roomName)
+                .setToken(token)
+                .setSubject(subject)
+                .setUserInfo(userInfo);
+        if(startWithAudioMuted != null){
+            builder.setAudioMuted(startWithAudioMuted);
         }
-        if(callIntegrationEnabled == null) {
-            callIntegrationEnabled = true;
+        if(startWithVideoMuted != null){
+            builder.setVideoMuted(startWithVideoMuted);
         }
 
-        Timber.tag(TAG).v("display url: %s", url);
+        // default PiP is off, but allowing user to overrides it by providing the featureFlag below
+        builder.setFeatureFlag("pip.enabled", false);
 
-        Intent intent = new Intent(getActivity(), JitsiActivity.class);
-        intent.putExtra("url", url);
-        intent.putExtra("token", token);
-        intent.putExtra("roomName", roomName);
-        intent.putExtra("displayName", displayName);
-        intent.putExtra("email", email);
-        intent.putExtra("avatarURL", avatarURL);
-        intent.putExtra("startWithAudioMuted", startWithAudioMuted);
-        intent.putExtra("startWithVideoMuted", startWithVideoMuted);
-        intent.putExtra("chatEnabled", chatEnabled);
-        intent.putExtra("inviteEnabled", inviteEnabled);
-        intent.putExtra("callIntegrationEnabled", callIntegrationEnabled);
-        if(recordingEnabled != null){
-            intent.putExtra("recordingEnabled", recordingEnabled);
+        // general settings can be overridden by subsequent featureFlags settings
+        if(call.getBoolean("chatEnabled") != null){
+            builder.setFeatureFlag("chat.enabled", call.getBoolean("chatEnabled"));
         }
-        if(liveStreamingEnabled != null){
-            intent.putExtra("liveStreamingEnabled", liveStreamingEnabled);
+        if(call.getBoolean("inviteEnabled") != null){
+            builder.setFeatureFlag("invite.enabled", call.getBoolean("inviteEnabled"));
         }
-        if(screenSharingEnabled != null){
-            intent.putExtra("screenSharingEnabled", screenSharingEnabled);
+        if(call.getBoolean("callIntegrationEnabled") != null){
+            builder.setFeatureFlag("call-integration.enabled", call.getBoolean("callIntegrationEnabled"));
+        }
+        if(call.getBoolean("recordingEnabled") != null){
+            builder.setFeatureFlag("recording.enabled", call.getBoolean("recordingEnabled"));
+        }
+        if(call.getBoolean("liveStreamingEnabled") != null){
+            builder.setFeatureFlag("live-streaming.enabled", call.getBoolean("liveStreamingEnabled"));
+        }
+        if(call.getBoolean("screenSharingEnabled") != null){
+            builder.setFeatureFlag("android.screensharing.enabled", call.getBoolean("screenSharingEnabled"));
         }
 
-        getActivity().startActivity(intent);
+        // setfeatureFlag() provides finer control, and will override some of the setFeatureFlag methods above
+        Iterator<String> keys = featureFlags.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            // Can only be bool, int or string according to
+            // the overloads of setFeatureFlag.
+
+            if (featureFlags.get(key) != null) {
+                if (featureFlags.get(key) instanceof Boolean) {
+                    builder.setFeatureFlag(key, (Boolean) featureFlags.get(key));
+                } else if (featureFlags.get(key) instanceof Integer) {
+                    builder.setFeatureFlag(key, (Integer) featureFlags.get(key));
+                } else if (featureFlags.get(key) instanceof String) {
+                    builder.setFeatureFlag(key, (String) featureFlags.get(key));
+                } else {
+                    builder.setFeatureFlag(key, featureFlags.get(key).toString());
+                }
+            }
+        }
+
+        keys = configOverrides.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            // Can only be bool, int or string according to
+            // the overloads of setFeatureFlag.
+            if (configOverrides.get(key) != null) {
+                if (configOverrides.get(key) instanceof Boolean) {
+                    builder.setConfigOverride(key, (Boolean) configOverrides.get(key));
+                } else if (configOverrides.get(key) instanceof Integer) {
+                    builder.setConfigOverride(key, (Integer) configOverrides.get(key));
+                } else if (configOverrides.get(key) instanceof String[]) {
+                    builder.setConfigOverride(key, (String[]) configOverrides.get(key));
+                } else {
+                    builder.setConfigOverride(key, configOverrides.get(key).toString());
+                }
+            }
+        }
+        JitsiMeetConferenceOptions options = builder.build();
+        JitsiActivity.launch(getActivity(), options);
 
         JSObject ret = new JSObject();
         ret.put("success", true);
@@ -119,6 +179,7 @@ public class Jitsi extends Plugin {
 
     public void onEventReceived(String eventName) {
         bridge.triggerWindowJSEvent(eventName);
+        Timber.tag(TAG).d(eventName);
         if(eventName.equals("onConferenceLeft")) {
             if (receiver != null) {
                 getContext().unregisterReceiver(receiver);

@@ -10,6 +10,7 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
         token?: string;
         channelLastN?: string;
         displayName?: string;
+        subject?: string;
         email?: string;
         avatarURL?: string;
         startWithAudioMuted?: boolean;
@@ -20,12 +21,15 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
         recordingEnabled?: boolean;
         liveStreamingEnabled?: boolean;
         screenSharingEnabled?: boolean;
+        featureFlags?: Map<string, any>;
+        configOverrides?: Map<string, any>;
   }): Promise<{
         roomName: string;
         url: string;
         token?: string;
         channelLastN?: string;
         displayName?: string;
+        subject?: string;
         email?: string;
         avatarURL?: string;
         startWithAudioMuted?: boolean;
@@ -36,6 +40,8 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
         recordingEnabled?: boolean;
         liveStreamingEnabled?: boolean;
         screenSharingEnabled?: boolean;
+        featureFlags?: Map<string, any>;
+        configOverrides?: Map<string, any>;
   }> {
       throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };

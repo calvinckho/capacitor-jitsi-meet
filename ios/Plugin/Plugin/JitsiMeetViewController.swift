@@ -8,83 +8,60 @@
 import Foundation
 import UIKit
 import JitsiMeetSDK
+import WebKit
 
-public class JitsiMeetViewController: UIViewController {
+public class JitsiMeetViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    var jitsiMeetView: JitsiMeetView!
-    var url: String = ""
-    var roomName: String = ""
-    var token: String? = nil
-    var startWithAudioMuted: Bool = false
-    var startWithVideoMuted: Bool = false
-    var chatEnabled: Bool = true
-    var inviteEnabled: Bool = true
-    var callIntegrationEnabled: Bool = true
-    var screenSharingEnabled: Bool = false
-    var recordingEnabled: Bool = false
-    var liveStreamingEnabled: Bool? = nil
-    var email: String? = nil
-    var displayName: String? = nil
-    var avatarUrl: String? = nil
-    let userLocale = NSLocale.current as NSLocale
+    fileprivate var jitsiMeetView: UIView?
+    var options: JitsiMeetConferenceOptions? = nil
     weak var delegate: JitsiMeetViewControllerDelegate?
+    fileprivate var pipViewCoordinator: PiPViewCoordinator?
+
+    var webView: WKWebView? = nil;
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewDidLoad");
+        openJitsiMeet();
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated);
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewWillTransition");
+    }
 
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewDidAppear");
+    func openJitsiMeet() {
+        cleanUp()
 
-        jitsiMeetView = view as? JitsiMeetView;
-        jitsiMeetView?.delegate = self
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::openJitsiMeet");
 
-        if  userLocale.countryCode?.contains("CN") ?? false ||
-            userLocale.countryCode?.contains("CHN") ?? false ||
-            userLocale.countryCode?.contains("MO") ?? false ||
-            userLocale.countryCode?.contains("HK") ?? false {
-            print("currentLocale is China so we cannot use CallKit.")
-            callIntegrationEnabled = false
-        }
-
-        let userInfo = JitsiMeetUserInfo()
-        userInfo.displayName = self.displayName
-        userInfo.email = self.email
-        userInfo.avatar = URL(string: self.avatarUrl ?? "")
-
-        let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
-            builder.serverURL = URL(string: self.url)
-            builder.room = self.roomName
-            builder.token = self.token
-            builder.setAudioMuted(self.startWithAudioMuted);
-            builder.setVideoMuted(self.startWithVideoMuted);
-            builder.setFeatureFlag("meeting-name.enabled", withBoolean: false)
-            builder.setFeatureFlag("chat.enabled", withBoolean: self.chatEnabled)
-            builder.setFeatureFlag("invite.enabled", withBoolean: self.inviteEnabled)
-            builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
-            builder.setFeatureFlag("ios.screensharing.enabled", withBoolean: self.screenSharingEnabled)
-            builder.setFeatureFlag("ios.recording.enabled", withBoolean: self.recordingEnabled)
-            if (self.liveStreamingEnabled != nil) {
-                builder.setFeatureFlag("live-streaming.enabled", withBoolean: self.liveStreamingEnabled ?? false)
-            }
-
-            builder.userInfo = userInfo
-        })
+        // create and configure the absorbPointerView and jitsimeet view
+        let jitsiMeetView = JitsiMeetView()
+        jitsiMeetView.delegate = self
+        self.jitsiMeetView = jitsiMeetView
         jitsiMeetView.join(options)
+
+        // Enable jitsimeet view to be a view that can be displayed
+        // on top of all the things, and let the coordinator to manage
+        // the view state and interactions
+        pipViewCoordinator = PiPViewCoordinator(withView: jitsiMeetView)
+        pipViewCoordinator?.configureAsStickyView(withParentView: view)
+
+        // animate in
+        jitsiMeetView.alpha = 1
+        pipViewCoordinator?.show()
     }
 
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::viewDidDisappear");
+        cleanUp();
+    }
 
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::leaveConference");
-
-        jitsiMeetView = view as? JitsiMeetView;
-        jitsiMeetView?.delegate = self
-        jitsiMeetView.leave()
-
+    fileprivate func cleanUp() {
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::cleanUp");
+        jitsiMeetView?.removeFromSuperview()
+        jitsiMeetView = nil
     }
 }
 
@@ -96,14 +73,17 @@ protocol JitsiMeetViewControllerDelegate: AnyObject {
 
 // MARK: JitsiMeetViewDelegate
 extension JitsiMeetViewController: JitsiMeetViewDelegate {
+
     @objc public func conferenceJoined(_ data: [AnyHashable : Any]!) {
         delegate?.onConferenceJoined()
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined. Room name is \(self.roomName)");
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined.");
     }
 
     @objc public func ready(toClose: [AnyHashable : Any]!) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::ready to close");
         delegate?.onConferenceLeft()
+        self.cleanUp()
+
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
 }

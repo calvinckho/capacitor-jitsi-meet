@@ -56,7 +56,7 @@ Follow the [official Capacitor doc to upgrade to Capacitor 3](https://capacitorj
 See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode version.
 
 ## Embedding in web applications
-   
+
 This plugin does not currently support web implementation. We recommend using the Jitsi iFrame API (https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe) for full web implementation.
 
 ## Usage
@@ -81,8 +81,9 @@ const result = await Jitsi.joinConference({
     // required parameters
     roomName: 'room1', // room identifier for the conference
     url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
+    
     // optional parameters
-    token: string, // jwt authentication token
+    subject: string, // name of the video room
     displayName: string, // user's display name
     email: string, // user's email
     avatarURL: string, // user's avatar url
@@ -90,9 +91,16 @@ const result = await Jitsi.joinConference({
     startWithVideoMuted: false, // start with video muted, default: false
     chatEnabled: false, // enable Chat feature, default: true
     inviteEnabled: false, // enable Invitation feature, default: true
+    
+    // advanced settings, optional
+    token: string, // jwt authentication token
+    featureFlags: { 'call-integration.enabled': true, 'live-streaming.enabled': false }, // see list of featureFlags in the official Jitsi Meet SDK documentation
+    configOverrides: { 'p2p.enabled': false }, // see list of config overrides in the official Jitsi Meet SDK documentation
+
+   // advanced settings to be deprecated in 3.0. Use featureFlags and configOverrides instead
     callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
-    recordingEnabled: false, // enable recording feature, default: false, requires adding Dropbox APP_KEY to Info.plist and AndroidManifest.xml
     liveStreamingEnabled: false, // enable live streaming feature, default: auto-detected
+    recordingEnabled: false, // (experimental) enable recording feature, default: false, requires adding Dropbox APP_KEY to Info.plist and AndroidManifest.xml
     screenSharingEnabled: false, // enable screen sharing feature, default: false, iOS requires manually adding the Broadcast Upload Extension
 });
 
@@ -102,8 +110,6 @@ window.addEventListener('onConferenceJoined', () => {
 window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
-
-await Jitsi.leaveConference();
 
 ```
 
@@ -115,6 +121,10 @@ $ npm run build
 
 4. Follow the deployment instructions for [Android](android/README.md) and [iOS](ios/README.md).
 
+## Official Jitsi-Meet SDK Documentation
+
+This plugin uses the Jitsi Meet SDK. See the [Jitsi Meet SDK documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-mobile), and the lists of [feature flags](https://jitsi.github.io/handbook/docs/dev-guide/mobile-feature-flags) and [config overrides](https://github.com/jitsi/jitsi-meet/blob/e2731ce73e9221408d0f4d985affc91eb11fc214/config.js).
+
 ## Sample React App for Android
 
 You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jitsi-meet-sample) which runs the Jitsi meeting on the Android device
@@ -125,4 +135,4 @@ I appreciate those who use this plugin in their production apps and are funding 
 
 ## Acknowledgements
 
-This plugin uses the [Jitsi Meet SDK](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-mobile). It was originally developed by then ESTOS' developer Philipp Hancke who then contributed it to the community where development continues with joint forces!
+This plugin enables web and mobile apps to implement video conferencing feature for free. The Jitsi Meet mobile SDKs are actively maintained by Jitsi. Video bridges for multi-user video conferencing is powered by [Jitsi Meet](https://meet.jit.si), or you can run [your own video bridge](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start).
