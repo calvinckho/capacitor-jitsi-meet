@@ -23,6 +23,7 @@ public class JitsiMeetViewController: UIViewController {
     var screenSharingEnabled: Bool = false
     var recordingEnabled: Bool = false
     var liveStreamingEnabled: Bool? = nil
+    var p2pEnabled: Bool = true
     var email: String? = nil
     var displayName: String? = nil
     var avatarUrl: String? = nil
@@ -67,6 +68,7 @@ public class JitsiMeetViewController: UIViewController {
             builder.setFeatureFlag("call-integration.enabled", withBoolean: self.callIntegrationEnabled)
             builder.setFeatureFlag("ios.screensharing.enabled", withBoolean: self.screenSharingEnabled)
             builder.setFeatureFlag("ios.recording.enabled", withBoolean: self.recordingEnabled)
+            builder.setConfigOverride("p2p.enabled", withBoolean: self.p2pEnabled)
             if (self.liveStreamingEnabled != nil) {
                 builder.setFeatureFlag("live-streaming.enabled", withBoolean: self.liveStreamingEnabled ?? false)
             }
