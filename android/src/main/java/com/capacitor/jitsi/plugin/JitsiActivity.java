@@ -64,6 +64,7 @@ public class JitsiActivity extends JitsiMeetActivity {
         Boolean recordingEnabled = getIntent().getBooleanExtra("recordingEnabled", false);
         Boolean liveStreamingEnabled = getIntent().getBooleanExtra("liveStreamingEnabled", true);
         Boolean screenSharingEnabled = getIntent().getBooleanExtra("screenSharingEnabled", false);
+        Boolean p2pEnabled = getIntent().getBooleanExtra("p2pEnabled", true);
 
         String displayName = getIntent().getStringExtra("displayName");
         String email = getIntent().getStringExtra("email");
@@ -99,6 +100,7 @@ public class JitsiActivity extends JitsiMeetActivity {
                 .setFeatureFlag("recording.enabled", recordingEnabled)
                 .setFeatureFlag("live-streaming.enabled", liveStreamingEnabled)
                 .setFeatureFlag("android.screensharing.enabled", screenSharingEnabled)
+                .setConfigOverride("p2p.enabled", p2pEnabled)
                 .setUserInfo(userInfo)
                 .build();
         view.join(options);

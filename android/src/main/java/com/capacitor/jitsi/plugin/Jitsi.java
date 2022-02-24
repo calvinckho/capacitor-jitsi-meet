@@ -43,6 +43,7 @@ public class Jitsi extends Plugin {
         Boolean recordingEnabled = call.getBoolean("recordingEnabled");
         Boolean liveStreamingEnabled = call.getBoolean("liveStreamingEnabled");
         Boolean screenSharingEnabled = call.getBoolean("screenSharingEnabled");
+        Boolean p2pEnabled = call.getBoolean("p2pEnabled");
 
         receiver = new JitsiBroadcastReceiver();
         receiver.setModule(this);
@@ -98,6 +99,9 @@ public class Jitsi extends Plugin {
         }
         if(screenSharingEnabled != null){
             intent.putExtra("screenSharingEnabled", screenSharingEnabled);
+        }
+        if(p2pEnabled != null){
+            intent.putExtra("p2pEnabled", p2pEnabled);
         }
 
         getActivity().startActivity(intent);

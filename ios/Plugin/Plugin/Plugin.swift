@@ -41,6 +41,7 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController.screenSharingEnabled = call.options["screenSharingEnabled"] as? Bool ?? false
         self.jitsiMeetViewController.recordingEnabled = call.options["recordingEnabled"] as? Bool ?? false
         self.jitsiMeetViewController.liveStreamingEnabled = call.options["liveStreamingEnabled"] as? Bool ?? nil
+        self.jitsiMeetViewController.p2pEnabled = call.options["p2pEnabled"] as? Bool ?? true
         self.jitsiMeetViewController.delegate = self;
 
         DispatchQueue.main.async {
