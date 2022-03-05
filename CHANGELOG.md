@@ -4,8 +4,26 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 2.2.0 (2022-02-25)
+# 2.2.0 (2022-03-04)
 
+## Breaking Changes
+
+The newly introduced featureFlags param provides a lot of flexibility to the developers, as the developers can now directly control ALL featureFlags settings supported by the SDKs, and no longer need to map the plugin params to the SDK featureFlags params, as we have done before.
+
+-with this increased flexibility, the following plugin params will be deprecated in our 3.0 version. Their default values will be reset to following the SDK default values in this current plugin release.
+  - callIntegrationEnabled (plugin default true -> SDK default true)
+  - liveStreamingEnabled (plugin default false -> 4.1.0 SDK default auto-detected)
+  - recordingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
+  - screenSharingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
+
+Going forward, for a stable production build, my recommendation is to add the following featureFlags params in your syntax:
+```
+featureFlags: {
+'recording.enabled': false, // disable as it requires Dropbox integration
+'live-streaming.enabled': false, // 'Sign in with Google' button not yet functional
+'android.screensharing.enabled': false // experimental feature, not fully production ready
+},
+```
 - adds the subject, featureFlags, and configOverrides params
 
 # 2.1.3 (2022-02-09)

@@ -72,7 +72,6 @@ import { Jitsi } from 'capacitor-jitsi-meet';
 // On Capacitor 1 and 2
 import { Plugins } from '@capacitor/core';
 import 'capacitor-jitsi-meet';
-
 const { Jitsi } = Plugins;
 ```
 
@@ -81,7 +80,14 @@ const result = await Jitsi.joinConference({
     // required parameters
     roomName: 'room1', // room identifier for the conference
     url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge
-    
+
+    // recommended settings for production build. see full list of featureFlags in the official Jitsi Meet SDK documentation
+    featureFlags: {
+        'recording.enabled': false, // disable as it requires Dropbox integration
+        'live-streaming.enabled': false, // 'sign in on Google' button not yet functional
+        'android.screensharing.enabled': false // experimental feature, not fully production ready
+    },
+
     // optional parameters
     subject: string, // name of the video room
     displayName: string, // user's display name
@@ -92,16 +98,15 @@ const result = await Jitsi.joinConference({
     chatEnabled: false, // enable Chat feature, default: true
     inviteEnabled: false, // enable Invitation feature, default: true
     
-    // advanced settings, optional
+    // advanced parameters (optional)
     token: string, // jwt authentication token
-    featureFlags: { 'call-integration.enabled': true, 'live-streaming.enabled': false, 'android.screensharing.enabled': false }, // see list of featureFlags in the official Jitsi Meet SDK documentation
     configOverrides: { 'p2p.enabled': false }, // see list of config overrides in the official Jitsi Meet SDK documentation
 
    // advanced settings to be deprecated in 3.0. Use featureFlags and configOverrides instead
-    callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android), default: true
-    liveStreamingEnabled: false, // enable live streaming feature, default: auto-detected
-    recordingEnabled: false, // (experimental) enable recording feature, default: false, requires adding Dropbox APP_KEY to Info.plist and AndroidManifest.xml
-    screenSharingEnabled: false, // enable screen sharing feature, default: false, iOS requires manually adding the Broadcast Upload Extension
+    callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android)
+    liveStreamingEnabled: false, // enable live streaming feature
+    recordingEnabled: false, // (experimental) enable recording feature
+    screenSharingEnabled: false, // (experimental) enable screen sharing feature
 });
 
 window.addEventListener('onConferenceJoined', () => {
@@ -129,9 +134,9 @@ This plugin uses the Jitsi Meet SDK. See the [Jitsi Meet SDK documentation](http
 
 You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jitsi-meet-sample) which runs the Jitsi meeting on the Android device
 
-## Feature Requests and Jitsi SDK Customizations
+## Feature Requests, Jitsi SDK UI Customizations, Picture-In-Picture Mode Implementation
 
-I appreciate those who use this plugin in their production apps and are funding this project as sponsors. Your sponsorship enables me to continue to maintain and roll out releases in a timely manner. Consider joining as a sponsor to get first-class support and consultation. For feature requests, create an issue with a label 'feature request'. I also offer paid consultation service to those needing to modify the Jitsi UI interface. To submit a request, create an issue and add the label 'sdk customization'.
+For feature requests, create an issue with a label 'feature request'. I also offer paid consultation services, such as SDK UI customization, and helping you implement the [Picture-in-Picture mode of the video view](https://ds.ivr.solutions/media/pip_demo.mp4). To submit a request, create an issue and add the label 'sdk customization' or 'pip implementation'.
 
 ## Acknowledgements
 
