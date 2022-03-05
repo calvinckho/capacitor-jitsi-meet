@@ -136,7 +136,7 @@ You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jit
 
 ## Feature Requests, Jitsi SDK UI Customizations, Picture-In-Picture Mode Implementation
 
-For feature requests, create an issue with a label 'feature request'. I also offer paid consultation services, such as SDK UI customization, and helping you implement the [Picture-in-Picture mode of the video view](https://user-images.githubusercontent.com/23274587/156873247-0e27b5aa-1212-444a-a442-6da94041bc76.MP4). To submit a request, create an issue and add the label 'sdk customization' or 'pip implementation'.
+For feature requests, create an issue with a label 'feature request'. I also offer paid consultation services, such as SDK UI customization, and helping you implement the [Picture-in-Picture mode of the video view](https://ds.ivr.solutions/media/pip_demo.mp4). To submit a request, create an issue and add the label 'sdk customization' or 'pip implementation'.
 
 ## Acknowledgements
 
