@@ -101,7 +101,11 @@ See [Jitsi Meet Handbook](https://jitsi.github.io/handbook/docs/dev-guide/dev-gu
 
 ### Screen Sharing Integration
 
-Some users experienced issues on Android. Report your issues [here](https://github.com/calvinckho/capacitor-jitsi-meet/issues/35).
+This is an experimental feature and some users experienced issues on Android. The recommendation is to disable it in production build until a working solution is found.
+```
+featureFlags: { 'android.screensharing.enabled': false }
+```
+Report your working solutions [here](https://github.com/calvinckho/capacitor-jitsi-meet/issues/35).
 
 ### Android SDK Developer Guide
 

@@ -94,7 +94,7 @@ const result = await Jitsi.joinConference({
     
     // advanced settings, optional
     token: string, // jwt authentication token
-    featureFlags: { 'call-integration.enabled': true, 'live-streaming.enabled': false }, // see list of featureFlags in the official Jitsi Meet SDK documentation
+    featureFlags: { 'call-integration.enabled': true, 'live-streaming.enabled': false, 'android.screensharing.enabled': false }, // see list of featureFlags in the official Jitsi Meet SDK documentation
     configOverrides: { 'p2p.enabled': false }, // see list of config overrides in the official Jitsi Meet SDK documentation
 
    // advanced settings to be deprecated in 3.0. Use featureFlags and configOverrides instead
