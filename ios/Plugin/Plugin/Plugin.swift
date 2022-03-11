@@ -108,17 +108,17 @@ public class Jitsi: CAPPlugin {
         self.jitsiMeetViewController?.delegate = self;
 
         DispatchQueue.main.async {
-            self.bridge?.viewController?.present(self.jitsiMeetViewController!, animated: true, completion: nil);
+            self.bridge?.viewController?.present(self.jitsiMeetViewController!, animated: true, completion: { call.resolve(["success": true ]) });
         }
     }
 }
 
 extension Jitsi: JitsiMeetViewControllerDelegate {
     @objc func onConferenceJoined() {
-        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceJoined");
+        self.bridge?.triggerJSEvent(eventName: "onConferenceJoined", target: "window");
     }
 
     @objc func onConferenceLeft() {
-        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceLeft");
+        self.bridge?.triggerJSEvent(eventName: "onConferenceLeft", target: "window");
     }
 }
