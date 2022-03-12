@@ -15,7 +15,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 The newly introduced featureFlags param provides a lot of flexibility to the developers, as the developers can now directly control ALL featureFlags settings supported by the SDKs, and no longer need to map the plugin params to the SDK featureFlags params, as we have done before.
 
--with this increased flexibility, the following plugin params will be deprecated in our 3.0 version. Their default values will be reset to following the SDK default values in this current plugin release.
+- with this increased flexibility, the following plugin params will be deprecated in our 3.0 version. Their default values will be reset to following the SDK default values in this current plugin release.
   - callIntegrationEnabled (plugin default true -> SDK default true)
   - liveStreamingEnabled (plugin default false -> 4.1.0 SDK default auto-detected)
   - recordingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
