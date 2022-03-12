@@ -5,10 +5,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
-import android.os.Bundle;
+import android.net.Uri;
 
-import androidx.annotation.RequiresApi;
+import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import timber.log.Timber;
 
@@ -20,8 +19,20 @@ public class JitsiActivity extends JitsiMeetActivity {
     private BroadcastReceiver broadcastReceiver;
     private static final String TAG = "CapacitorJitsiMeet";
     private static final String ACTION_JITSI_MEET_CONFERENCE = "org.jitsi.meet.CONFERENCE";
+    private static final String JITSI_MEET_CONFERENCE_OPTIONS = "JitsiMeetConferenceOptions";
     private static JitsiMeetConferenceOptions session_options;
 
+    @Override
+    protected void initialize() {
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                onBroadcastReceived(intent);
+            }
+        };
+        registerForBroadcastMessages();
+        join(getConferenceOptions(getIntent()));
+    }
     // this overrides the launch class and runs the extended JitsiActivity class instead
     public static void launch(Context context, JitsiMeetConferenceOptions options) {
         session_options = options;
@@ -34,11 +45,22 @@ public class JitsiActivity extends JitsiMeetActivity {
         context.startActivity(intent);
     }
 
+    private void registerForBroadcastMessages() {
+        IntentFilter intentFilter = new IntentFilter();
+
+        for (BroadcastEvent.Type type : BroadcastEvent.Type.values()) {
+            intentFilter.addAction(type.getAction());
+        }
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, intentFilter);
+    }
+
     private void onBroadcastReceived(Intent intent) {
         JitsiMeetView view = getJitsiView();
+        Timber.tag(TAG).d("CONFERENCE_received");
         if (intent != null) {
             BroadcastEvent event = new BroadcastEvent(intent);
-
+            Timber.tag(TAG).d(event.getType().toString());
             switch (event.getType()) {
                 case CONFERENCE_JOINED:
                     on("onConferenceJoined");
@@ -88,6 +110,22 @@ public class JitsiActivity extends JitsiMeetActivity {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode);
 
         Timber.tag(TAG).d("Is in picture-in-picture mode: " + isInPictureInPictureMode);
+    }
+
+    private @Nullable
+    JitsiMeetConferenceOptions getConferenceOptions(Intent intent) {
+        String action = intent.getAction();
+
+        if (Intent.ACTION_VIEW.equals(action)) {
+            Uri uri = intent.getData();
+            if (uri != null) {
+                return new JitsiMeetConferenceOptions.Builder().setRoom(uri.toString()).build();
+            }
+        } else if (ACTION_JITSI_MEET_CONFERENCE.equals(action)) {
+            return intent.getParcelableExtra(JITSI_MEET_CONFERENCE_OPTIONS);
+        }
+
+        return null;
     }
 
     private static final String ADD_PEOPLE_CONTROLLER_QUERY = null;

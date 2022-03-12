@@ -108,6 +108,7 @@ const result = await Jitsi.joinConference({
     recordingEnabled: false, // (experimental) enable recording feature
     screenSharingEnabled: false, // (experimental) enable screen sharing feature
 });
+console.log(result) // { success: true }
 
 window.addEventListener('onConferenceJoined', () => {
     // do things here
@@ -116,6 +117,8 @@ window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
 
+const result = await Jitsi.leaveConference()
+console.log(result) // { success: true }
 ```
 
 3. Build the project
