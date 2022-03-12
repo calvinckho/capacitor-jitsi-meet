@@ -4,7 +4,12 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 2.2.0 (2022-03-04)
+# 2.2.1 (2022-03-11)
+
+- bug fix: onConferenceJoined and onConferenceLeft not firing
+- bug fix: iOS leaveConference() not working
+
+2.2.0 (2022-03-04)
 
 ## Breaking Changes
 
