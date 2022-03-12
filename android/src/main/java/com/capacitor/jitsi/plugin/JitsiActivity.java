@@ -57,10 +57,8 @@ public class JitsiActivity extends JitsiMeetActivity {
 
     private void onBroadcastReceived(Intent intent) {
         JitsiMeetView view = getJitsiView();
-        Timber.tag(TAG).d("CONFERENCE_received");
         if (intent != null) {
             BroadcastEvent event = new BroadcastEvent(intent);
-            Timber.tag(TAG).d(event.getType().toString());
             switch (event.getType()) {
                 case CONFERENCE_JOINED:
                     on("onConferenceJoined");
