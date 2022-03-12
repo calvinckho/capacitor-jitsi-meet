@@ -9,7 +9,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 - bug fix: onConferenceJoined and onConferenceLeft not firing
 - bug fix: iOS leaveConference() not working
 
-2.2.0 (2022-03-04)
+# 2.2.0 (2022-03-04)
 
 ## Breaking Changes
 
