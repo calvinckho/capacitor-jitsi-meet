@@ -24,29 +24,12 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
         featureFlags?: any;
         configOverrides?: any;
   }): Promise<{
-        roomName: string;
-        url: string;
-        token?: string;
-        channelLastN?: string;
-        displayName?: string;
-        subject?: string;
-        email?: string;
-        avatarURL?: string;
-        startWithAudioMuted?: boolean;
-        startWithVideoMuted?: boolean;
-        chatEnabled?: boolean;
-        inviteEnabled?: boolean;
-        callIntegrationEnabled?: boolean;
-        recordingEnabled?: boolean;
-        liveStreamingEnabled?: boolean;
-        screenSharingEnabled?: boolean;
-        featureFlags?: any;
-        configOverrides?: any;
+        success?: boolean;
   }> {
       throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };
     // @ts-ignore
-  async leaveConference(options: {}): Promise<{}> {
+  async leaveConference(options?: {}): Promise<{ success?: boolean; }> {
       throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
   };
 }

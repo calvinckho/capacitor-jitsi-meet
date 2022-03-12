@@ -111,6 +111,15 @@ public class Jitsi: CAPPlugin {
             self.bridge?.viewController?.present(self.jitsiMeetViewController!, animated: true, completion: { call.resolve(["success": true ]) });
         }
     }
+
+    @objc func leaveConference(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            self.jitsiMeetViewController?.leave();
+            call.resolve([
+                "success": true
+            ])
+        }
+    }
 }
 
 extension Jitsi: JitsiMeetViewControllerDelegate {

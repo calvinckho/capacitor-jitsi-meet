@@ -19,24 +19,7 @@ export interface JitsiPlugin {
         featureFlags?: any;
         configOverrides?: any;
     }): Promise<{
-        roomName: string;
-        url: string;
-        token?: string;
-        channelLastN?: string;
-        displayName?: string;
-        subject?: string;
-        email?: string;
-        avatarURL?: string;
-        startWithAudioMuted?: boolean;
-        startWithVideoMuted?: boolean;
-        chatEnabled?: boolean;
-        inviteEnabled?: boolean;
-        callIntegrationEnabled?: boolean;
-        recordingEnabled?: boolean;
-        liveStreamingEnabled?: boolean;
-        screenSharingEnabled?: boolean;
-        featureFlags?: any;
-        configOverrides?: any;
+        success?: boolean;
     }>;
-    leaveConference(options: {}): Promise<{}>;
+    leaveConference(options?: {}): Promise<{ success?: boolean; }>;
 }

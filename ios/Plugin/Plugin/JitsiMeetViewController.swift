@@ -63,6 +63,13 @@ public class JitsiMeetViewController: UIViewController, UIGestureRecognizerDeleg
         jitsiMeetView?.removeFromSuperview()
         jitsiMeetView = nil
     }
+
+    public func leave() {
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::leave");
+        let jitsiMeetView = JitsiMeetView()
+        self.jitsiMeetView = jitsiMeetView
+        jitsiMeetView.hangUp()
+    }
 }
 
 protocol JitsiMeetViewControllerDelegate: AnyObject {
