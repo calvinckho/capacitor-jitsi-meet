@@ -31,7 +31,7 @@ allprojects {
 }
 ```
 
-6. In your android/app/build.gradle file, add Java 1.8 compatibility support
+7. In your android/app/build.gradle file, add Java 1.8 compatibility support
 
 ```gradle
 android {
@@ -52,7 +52,17 @@ dependencies {
 }
 ```
 
-7. In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
+8. Add uses permissions in the main app's AndroidManifest.xml
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.mycompany.app">
++     <uses-permission android:name="android.permission.CAMERA" />
++     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+</manifest>    
+```
+
+9. In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
 
  Create an android/variables.gradle file with this content
  ```gradle
@@ -75,13 +85,13 @@ dependencies {
 ```
  In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
 
-9. Build it in Android Studio
+10. Build it in Android Studio
 
 ```
 ionic capacitor open android
 ```
 
-10. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
+11. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
 
    a. In Android Studio Go to File -> Invalidate Caches/Restart.
    
