@@ -29,7 +29,20 @@ npx cap sync
    i. Pods -> Project -> Pods -> Build Settings -> Enable Bitcode -> No
    
    ii Pods -> Targets -> CapacitorJitsiMeet -> Build Settings -> Enable Bitcode -> No
-  ``` 
+ ``` 
+
+To automate it during project build, insert these lines of code in the iOS project's Podfile
+```
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+  if target.name == 'CapacitorJitsiMeet' || target.name == 'CapacitorJitsiMeet-Plugin'
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+  end
+end
+```
 
 7. Use Swift 5 for the Capacitor target. In Xcode Project Navigator,
 
