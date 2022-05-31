@@ -66,6 +66,10 @@ public class JitsiActivity extends JitsiMeetActivity {
                 case CONFERENCE_WILL_JOIN:
                     on("onConferenceWillJoin");
                     break;
+                case CONFERENCE_TERMINATED:
+                    finish();
+                    on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+                    break;
                 case READY_TO_CLOSE:
                     finish();
                     on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
