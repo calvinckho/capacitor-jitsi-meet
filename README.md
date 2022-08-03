@@ -108,6 +108,9 @@ console.log(result) // { success: true }
 window.addEventListener('onConferenceJoined', () => {
     // do things here
 });
+window.addEventListener('onConferenceTerminated', () => {
+    // do things here
+});
 window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
