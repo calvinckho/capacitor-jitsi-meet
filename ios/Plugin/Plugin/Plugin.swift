@@ -75,7 +75,9 @@ public class Jitsi: CAPPlugin {
             // setfeatureFlag() provides finer control, and will override some of the settings above
             let featureFlags = call.options["featureFlags"] as? Dictionary<String, Any>
 
+            var featureFlagValue: Any?;
             featureFlags?.forEach { key, value in
+                featureFlagValue = value;
                 if (key == "call-integration.enabled") {
                     let userLocale = NSLocale.current as NSLocale
                     if  userLocale.countryCode?.contains("CN") ?? false ||
@@ -83,10 +85,10 @@ public class Jitsi: CAPPlugin {
                         userLocale.countryCode?.contains("MO") ?? false ||
                         userLocale.countryCode?.contains("HK") ?? false {
                         print("currentLocale is China so we cannot use CallKit.")
-                        value = false
+                        featureFlagValue = false
                     }
                 }
-                builder.setFeatureFlag(key, withValue: value);
+                builder.setFeatureFlag(key, withValue: featureFlagValue!);
             }
 
             let configOverrides = call.options["configOverrides"] as? Dictionary<String, Any>
