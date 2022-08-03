@@ -4,6 +4,54 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 3.0.0-beta.0 (2022-08-02)
+
+## Breaking Changes
+- these params are now deprecated. Use featureFlags instead.
+  - callIntegrationEnabled (plugin default true -> SDK default true)
+  - liveStreamingEnabled (plugin default false -> 4.1.0 SDK default auto-detected)
+  - recordingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
+  - screenSharingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
+- a pre-join page is defaulted to be shown when the user starts a call. To prevent this behavior, set:
+```
+featureFlags: {
+...
+'prejoinpage.enabled': false, // disable the pre-join page
+},
+```
+
+## iOS
+
+- uses Jitsi SDK 5.1.0
+
+## Android
+
+- update Android's main app's AndroidManifest.xml:
+```
+allprojects {
+    repositories {
+        maven {
+            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
+        }
+        google()
+-       jcenter()
++       mavenCentral()
++       maven { url 'https://www.jitpack.io' }
+    }
+}
+```
+- Java 11 is used in the SDK 5+. Update android/variables.gradle file with these version numbers
+ ```gradle
+ ext {
+   minSdkVersion = 23
+   compileSdkVersion = 31
+   targetSdkVersion = 31
+   ...
+   cordovaAndroidVersion =  '10.1.1'
+ }
+```
+- uses Jitsi SDK 5.1.0
+
 # 2.2.1 (2022-03-11)
 
 - bug fix: onConferenceJoined and onConferenceLeft not firing

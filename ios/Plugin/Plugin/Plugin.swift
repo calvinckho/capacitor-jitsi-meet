@@ -61,17 +61,6 @@ public class Jitsi: CAPPlugin {
                 builder.userInfo = JitsiMeetUserInfo(displayName: displayName, andEmail: email, andAvatar: avatarUrl)
             }
 
-            var callIntegrationEnabled = call.options["callIntegrationEnabled"] as? Bool ?? true
-            let userLocale = NSLocale.current as NSLocale
-            if  userLocale.countryCode?.contains("CN") ?? false ||
-                userLocale.countryCode?.contains("CHN") ?? false ||
-                userLocale.countryCode?.contains("MO") ?? false ||
-                userLocale.countryCode?.contains("HK") ?? false {
-                print("currentLocale is China so we cannot use CallKit.")
-                callIntegrationEnabled = false
-            }
-            builder.setFeatureFlag("call-integration.enabled", withBoolean: callIntegrationEnabled)
-
             // default PiP is off as the feature is not fully functioning yet, but allow user to overrides it by providing the featureFlag
             builder.setFeatureFlag("pip.enabled", withBoolean: false)
 
@@ -82,20 +71,21 @@ public class Jitsi: CAPPlugin {
             if let inviteEnabled = call.options["inviteEnabled"] as? Bool {
                 builder.setFeatureFlag("invite.enabled", withBoolean: inviteEnabled)
             }
-            if let screenSharingEnabled = call.options["screenSharingEnabled"] as? Bool {
-                builder.setFeatureFlag("ios.screensharing.enabled", withBoolean: screenSharingEnabled)
-            }
-            if let recordingEnabled = call.options["recordingEnabled"] as? Bool {
-                builder.setFeatureFlag("ios.recording.enabled", withBoolean: recordingEnabled)
-            }
-            if let liveStreamingEnabled = call.options["liveStreamingEnabled"] as? Bool {
-                builder.setFeatureFlag("live-streaming.enabled", withBoolean: liveStreamingEnabled)
-            }
 
             // setfeatureFlag() provides finer control, and will override some of the settings above
             let featureFlags = call.options["featureFlags"] as? Dictionary<String, Any>
 
             featureFlags?.forEach { key, value in
+                if (key == "call-integration.enabled") {
+                    let userLocale = NSLocale.current as NSLocale
+                    if  userLocale.countryCode?.contains("CN") ?? false ||
+                        userLocale.countryCode?.contains("CHN") ?? false ||
+                        userLocale.countryCode?.contains("MO") ?? false ||
+                        userLocale.countryCode?.contains("HK") ?? false {
+                        print("currentLocale is China so we cannot use CallKit.")
+                        value = false
+                    }
+                }
                 builder.setFeatureFlag(key, withValue: value);
             }
 

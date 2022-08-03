@@ -109,18 +109,6 @@ public class Jitsi extends Plugin {
         if(call.getBoolean("inviteEnabled") != null){
             builder.setFeatureFlag("invite.enabled", call.getBoolean("inviteEnabled"));
         }
-        if(call.getBoolean("callIntegrationEnabled") != null){
-            builder.setFeatureFlag("call-integration.enabled", call.getBoolean("callIntegrationEnabled"));
-        }
-        if(call.getBoolean("recordingEnabled") != null){
-            builder.setFeatureFlag("recording.enabled", call.getBoolean("recordingEnabled"));
-        }
-        if(call.getBoolean("liveStreamingEnabled") != null){
-            builder.setFeatureFlag("live-streaming.enabled", call.getBoolean("liveStreamingEnabled"));
-        }
-        if(call.getBoolean("screenSharingEnabled") != null){
-            builder.setFeatureFlag("android.screensharing.enabled", call.getBoolean("screenSharingEnabled"));
-        }
 
         // setfeatureFlag() provides finer control, and will override some of the setFeatureFlag methods above
         Iterator<String> keys = featureFlags.keys();
