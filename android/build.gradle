@@ -4,7 +4,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.2.1'
     }
 }
 
@@ -29,17 +29,16 @@ android {
         abortOnError false
     }
     compileOptions {
-                sourceCompatibility JavaVersion.VERSION_1_8
-                targetCompatibility JavaVersion.VERSION_1_8
+                sourceCompatibility JavaVersion.VERSION_11
+                targetCompatibility JavaVersion.VERSION_11
             }
 }
 
 repositories {
     google()
     mavenCentral()
-    maven {
-        url  "https://dl.bintray.com/ionic-team/capacitor"
-    }
+
+
 }
 
 

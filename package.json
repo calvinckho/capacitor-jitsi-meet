@@ -1,6 +1,6 @@
 {
   "name": "capacitor-jitsi-meet",
-  "version": "3.0.0-beta.1",
+  "version": "2.2.1",
   "description": "This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -18,21 +18,21 @@
   "author": "Calvin Ho",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^3.7.0",
-    "@capacitor/core": "^3.7.0",
-    "@capacitor/ios": "^3.7.0",
+    "@capacitor/android": "^4.1.0",
+    "@capacitor/core": "^4.1.0",
+    "@capacitor/ios": "^4.1.0",
     "@ionic/prettier-config": "^1.0.0",
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
-    "prettier": "^2.7.1",
-    "prettier-plugin-java": "^1.6.2",
+    "prettier": "^2.2.1",
+    "prettier-plugin-java": "^1.0.2",
     "rimraf": "^3.0.0",
-    "rollup": "^2.77.2",
+    "rollup": "^2.36.1",
     "swiftlint": "^1.0.1",
     "typescript": "~3.8.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^3.2.4"
+    "@capacitor/core": "^4.1.0"
   },
   "files": [
     "dist/",
