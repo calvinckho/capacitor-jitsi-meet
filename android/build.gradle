@@ -48,7 +48,6 @@ dependencies {
     implementation ('org.jitsi.react:jitsi-meet-sdk:5.1.0') { transitive = true }
 
     // Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
 
     testImplementation "junit:junit:$junitVersion"
