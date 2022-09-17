@@ -15,13 +15,24 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
   <tbody>
     <tr>
       <td>
-        v3
+        v4
       </td>
       <td>
-        >= 2.0.0
+        >= 3.0.0
       </td>
       <td>
         current
+      </td>
+    </tr>
+    <tr>
+      <td>
+        v3
+      </td>
+      <td>
+        <= 2.3.0
+      </td>
+      <td>
+        until Dec 31, 2022
       </td>
     </tr>
     <tr>
@@ -49,7 +60,7 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
   </tbody>
 </table>
 
-Follow the [official Capacitor doc to upgrade to Capacitor 3](https://capacitorjs.com/docs/updating/3-0).
+Follow the [official Capacitor doc to upgrade to Capacitor 4](https://next.capacitorjs.com/docs/updating/4-0).
 
 ## iOS Compatible Versions
 
