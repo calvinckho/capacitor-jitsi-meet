@@ -22,11 +22,12 @@ npx cap sync
 ```gradle
 allprojects {
     repositories {
-        google()
-        jcenter()
         maven {
             url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
         }
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
     }
 }
 ```
@@ -68,8 +69,8 @@ dependencies {
  ```gradle
  ext {
    minSdkVersion = 23
-   compileSdkVersion = 29
-   targetSdkVersion = 29
+   compileSdkVersion = 31
+   targetSdkVersion = 31
    androidxAppCompatVersion = '1.1.0'
    androidxCoreVersion =  '1.2.0'
    androidxMaterialVersion =  '1.1.0-rc02'
@@ -80,7 +81,7 @@ dependencies {
    junitVersion =  '4.12'
    androidxJunitVersion =  '1.1.1'
    androidxEspressoCoreVersion =  '3.2.0'
-   cordovaAndroidVersion =  '7.0.0'
+   cordovaAndroidVersion =  '10.1.1'
  }
 ```
  In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).

@@ -83,9 +83,10 @@ const result = await Jitsi.joinConference({
 
     // recommended settings for production build. see full list of featureFlags in the official Jitsi Meet SDK documentation
     featureFlags: {
+        'prejoinpage.enabled': false, // go straight to the meeting and do not show the pre-join page
         'recording.enabled': false, // disable as it requires Dropbox integration
         'live-streaming.enabled': false, // 'sign in on Google' button not yet functional
-        'android.screensharing.enabled': false // experimental feature, not fully production ready
+        'android.screensharing.enabled': false, // experimental feature, not fully production ready
     },
 
     // optional parameters
@@ -101,16 +102,13 @@ const result = await Jitsi.joinConference({
     // advanced parameters (optional)
     token: string, // jwt authentication token
     configOverrides: { 'p2p.enabled': false }, // see list of config overrides in the official Jitsi Meet SDK documentation
-
-   // advanced settings to be deprecated in 3.0. Use featureFlags and configOverrides instead
-    callIntegrationEnabled: true, // enable call integration (CallKit on iOS, ConnectionService on Android)
-    liveStreamingEnabled: false, // enable live streaming feature
-    recordingEnabled: false, // (experimental) enable recording feature
-    screenSharingEnabled: false, // (experimental) enable screen sharing feature
 });
 console.log(result) // { success: true }
 
 window.addEventListener('onConferenceJoined', () => {
+    // do things here
+});
+window.addEventListener('onConferenceTerminated', () => {
     // do things here
 });
 window.addEventListener('onConferenceLeft', () => {
