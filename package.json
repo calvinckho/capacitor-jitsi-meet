@@ -18,9 +18,9 @@
   "author": "Calvin Ho",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^3.2.4",
-    "@capacitor/core": "^3.2.4",
-    "@capacitor/ios": "^3.2.4",
+    "@capacitor/android": "^4.1.0",
+    "@capacitor/core": "^4.1.0",
+    "@capacitor/ios": "^4.1.0",
     "@ionic/prettier-config": "^1.0.0",
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
@@ -32,7 +32,7 @@
     "typescript": "~3.8.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^3.2.4"
+    "@capacitor/core": "^4.1.0"
   },
   "files": [
     "dist/",
