@@ -77,7 +77,7 @@ This plugin does not currently support web implementation. We recommend using th
 2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app)
 
 ```javascript
-// On Capacitor 3
+// On Capacitor 3 and 4
 import { Jitsi } from 'capacitor-jitsi-meet';
 
 // On Capacitor 1 and 2
