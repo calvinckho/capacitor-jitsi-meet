@@ -9,6 +9,10 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 ## Breaking Changes
 - adapted plugin for Capacitor 4
 
+## Android and iOS
+- follow [Ionic's upgrade guide](https://next.capacitorjs.com/docs/updating/4-0?__hstc=13779304.3e890f8e256246a902c09676ab9a7969.1663365289582.1663365289582.1663365289582.1&__hssc=13779304.1.1663365289583&__hsfp=2827422901&_gl=1*78o4kk*_ga*OTIzMzgwNjIwLjE2NjMzNjUyODg.*_ga_REH9TJF6KF*MTY2MzM2NTI4OC4xLjAuMTY2MzM2NTI4OC4wLjAuMA..#plugins) to upgrade project to Capacitor 4
+
+
 # 2.3.0 (2022-09-15)
 
 ## Breaking Changes

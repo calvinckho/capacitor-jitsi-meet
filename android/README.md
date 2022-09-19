@@ -38,19 +38,10 @@ allprojects {
 android {
     ...
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     ...
-```
-
-In older capacitor versions, replace the line implementation 'ionic-team:capacitor-android:1+' with:
-
-```gradle
-dependencies {
-    // (other dependencies)
-    implementation project(':capacitor-android')
-}
 ```
 
 8. Add uses permissions in the main app's AndroidManifest.xml
@@ -63,28 +54,30 @@ dependencies {
 </manifest>    
 ```
 
-9. In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables.
-
- Create an android/variables.gradle file with this content
+9. Update android/variables.gradle file with this content
  ```gradle
  ext {
-   minSdkVersion = 23
-   compileSdkVersion = 31
-   targetSdkVersion = 31
-   androidxAppCompatVersion = '1.1.0'
-   androidxCoreVersion =  '1.2.0'
-   androidxMaterialVersion =  '1.1.0-rc02'
-   androidxBrowserVersion =  '1.2.0'
-   androidxLocalbroadcastmanagerVersion =  '1.0.0'
-   firebaseMessagingVersion =  '20.1.2'
-   playServicesLocationVersion =  '17.0.0'
-   junitVersion =  '4.12'
-   androidxJunitVersion =  '1.1.1'
-   androidxEspressoCoreVersion =  '3.2.0'
-   cordovaAndroidVersion =  '10.1.1'
+    minSdkVersion = 23
+    compileSdkVersion = 32
+    targetSdkVersion = 32
+    androidxActivityVersion = '1.4.0'
+    androidxAppCompatVersion = '1.4.2'
+    androidxCoordinatorLayoutVersion = '1.2.0'
+    androidxMaterialVersion = '1.6.1'
+    androidxExifInterfaceVersion = '1.3.3'
+    firebaseMessagingVersion = '23.0.5'
+    playServicesLocationVersion = '20.0.0'
+    androidxCoreVersion = '1.8.0'
+    androidxFragmentVersion = '1.4.1'
+    junitVersion = '4.13.2'
+    androidxJunitVersion = '1.1.3'
+    androidxEspressoCoreVersion = '3.4.0'
+    cordovaAndroidVersion = '10.1.1'
+    coreSplashScreenVersion = '1.0.0-rc01'
+    androidxWebkitVersion = '1.4.0'
  }
 ```
- In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
+In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables. In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
 
 10. Build it in Android Studio
 
