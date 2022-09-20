@@ -4,14 +4,26 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 3.0.0-beta.4 (2022-09-15)
+# 3.0.0 (2022-09-20)
 
 ## Breaking Changes
-- adapted plugin for Capacitor 4
+- adapted plugin for Capacitor 4. Follow [Ionic's upgrade guide](https://next.capacitorjs.com/docs/updating/4-0?__hstc=13779304.3e890f8e256246a902c09676ab9a7969.1663365289582.1663365289582.1663365289582.1&__hssc=13779304.1.1663365289583&__hsfp=2827422901&_gl=1*78o4kk*_ga*OTIzMzgwNjIwLjE2NjMzNjUyODg.*_ga_REH9TJF6KF*MTY2MzM2NTI4OC4xLjAuMTY2MzM2NTI4OC4wLjAuMA..#plugins) to upgrade project to Capacitor 4
+- a pre-join page is defaulted to be shown when the user starts a call. To prevent this behavior, set:
+```
+featureFlags: {
+  ...
+  'prejoinpage.enabled': false, // disable the pre-join page
+},
+```
+- uses Jitsi SDK 6.1.0
 
-## Android and iOS
-- follow [Ionic's upgrade guide](https://next.capacitorjs.com/docs/updating/4-0?__hstc=13779304.3e890f8e256246a902c09676ab9a7969.1663365289582.1663365289582.1663365289582.1&__hssc=13779304.1.1663365289583&__hsfp=2827422901&_gl=1*78o4kk*_ga*OTIzMzgwNjIwLjE2NjMzNjUyODg.*_ga_REH9TJF6KF*MTY2MzM2NTI4OC4xLjAuMTY2MzM2NTI4OC4wLjAuMA..#plugins) to upgrade project to Capacitor 4
+### Android
 
+- Create notification icons in the Android App project
+  - In Android Studio, right click on the res folder in the android project -> New -> Image Asset
+  - create icon with following config
+    Icon Type: Notification Icons
+    Name: ic_notification
 
 # 2.3.0 (2022-09-15)
 
@@ -21,13 +33,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
   - liveStreamingEnabled (plugin default false -> 4.1.0 SDK default auto-detected)
   - recordingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
   - screenSharingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
-- a pre-join page is defaulted to be shown when the user starts a call. To prevent this behavior, set:
-```
-featureFlags: {
-...
-'prejoinpage.enabled': false, // disable the pre-join page
-},
-```
+
 
 ## iOS
 
@@ -59,6 +65,7 @@ allprojects {
    cordovaAndroidVersion =  '10.1.1'
  }
 ```
+
 - uses Jitsi SDK 5.1.0
 
 # 2.2.1 (2022-03-11)
