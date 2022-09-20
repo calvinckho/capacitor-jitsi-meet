@@ -32,7 +32,7 @@ allprojects {
 }
 ```
 
-7. In your android/app/build.gradle file, add Java 1.8 compatibility support
+7. In your android/app/build.gradle file, add Java 11 compatibility support
 
 ```gradle
 android {
