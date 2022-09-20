@@ -34,7 +34,6 @@ featureFlags: {
   - recordingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
   - screenSharingEnabled (plugin default false -> 4.1.0 Android SDK true, 4.1.0 iOS SDK false)
 
-
 ## iOS
 
 - uses Jitsi SDK 5.1.0
