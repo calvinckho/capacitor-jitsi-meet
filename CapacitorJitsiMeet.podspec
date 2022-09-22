@@ -13,7 +13,7 @@
         'ios/Plugin/Plugin/*.storyboard'
         ]
     }
-    s.ios.deployment_target  = '12.0'
+    s.ios.deployment_target  = '13.0'
     s.dependency 'Capacitor'
     s.dependency 'JitsiMeetSDK', '6.1.0'
   end
