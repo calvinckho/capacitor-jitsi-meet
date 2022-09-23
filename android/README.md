@@ -85,6 +85,7 @@ In older capacitor versions, if not already created, follow the [Ionic doc](http
         - Icon Type: Notification Icons
         - Name: ic_notification
       
+
 11. Build it in Android Studio
 
 ```
