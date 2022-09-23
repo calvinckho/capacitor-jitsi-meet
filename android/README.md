@@ -79,13 +79,19 @@ android {
 ```
 In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables. In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
 
-10. Build it in Android Studio
+10. Create notification icons in the Android App project
+    - In Android Studio, right click on the res folder in the android project -> New -> Image Asset
+    - create icon in the main res directory, with following config:
+        - Icon Type: Notification Icons
+        - Name: ic_notification
+      
+11. Build it in Android Studio
 
 ```
 ionic capacitor open android
 ```
 
-11. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
+12. If upgrading from previous versions of this plugin you may receive this error: `Error: Unfortunately you can't have non-Gradle Java modules and > Android-Gradle modules in one project`. Follow these steps to resolve it:
 
    a. In Android Studio Go to File -> Invalidate Caches/Restart.
    

@@ -21,9 +21,11 @@ featureFlags: {
 
 - Create notification icons in the Android App project
   - In Android Studio, right click on the res folder in the android project -> New -> Image Asset
-  - create icon with following config
-    Icon Type: Notification Icons
-    Name: ic_notification
+  - create icon in the main res directory, with following config
+    - Icon Type: Notification Icons
+    - Name: ic_notification
+
+- ProGuard rules is now necessary for a successful Android Play Store deployment. While the debug APK runs fine, the proguard rules will avoid necessary code being stripped from the release build APK. Add the following to your project's rules file: https://github.com/jitsi/jitsi-meet/blob/master/android/app/proguard-rules.pro
 
 # 2.3.0 (2022-09-15)
 
