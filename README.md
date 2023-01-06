@@ -73,19 +73,20 @@ This plugin does not currently support web implementation. We recommend using th
 
 ## Usage
 
-1. npm install capacitor-jitsi-meet
+1. Install the plugin
 
-2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app)
-
-```javascript
-// On Capacitor 3 and 4
-import { Jitsi } from 'capacitor-jitsi-meet';
-
-// On Capacitor 1 and 2
-import { Plugins } from '@capacitor/core';
-import 'capacitor-jitsi-meet';
-const { Jitsi } = Plugins;
+Install from NPM (release build):
 ```
+npm install capacitor-jitsi-meet
+```
+Install from Github. Make sure you insert the branch name at the end:
+```
+npm i git+ssh://git@github.com:calvinckho/capacitor-jitsi-meet#[branch name]
+```
+2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app). See below for Capacitor 3 and 4 usage. For older versions of Capacitor, see [here](https://github.com/calvinckho/capacitor-jitsi-meet/blob/7321356fcae47228d250aec1e9acba3796835769/README.md).
+```javascript
+
+import { Jitsi } from 'capacitor-jitsi-meet';
 
 ```javascript
 const result = await Jitsi.joinConference({
@@ -150,6 +151,25 @@ You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jit
 ## Feature Requests, Jitsi SDK UI Customizations, Picture-In-Picture Mode Implementation
 
 For feature requests, create an issue with a label 'feature request'. I also offer paid consultation services, such as SDK UI customization, and helping you implement the [Picture-in-Picture mode of the video view](https://ds.ivr.solutions/media/pip_demo.mp4). To submit a request, create an issue and add the label 'sdk customization' or 'pip implementation'.
+
+## Using the Latest SDK Version
+
+Jitsi releases new SDK versions fairly frequently. Help is appreciated to update the plugin to use the latest SDKs, and to test it on actual projects. Follow the instructions below to update the plugin, then create a PR. I will release it on NPM once it is thoroughly tested.
+
+### iOS folder:
+
+in /CapacitorJitsiMeet.podspec, change s.dependency 'JitsiMeetSDK' with the latest version number
+
+in /ios/Plugin/Podfile, update line 10 and line 25 with the latest version number
+
+
+### Android folder:
+
+in /capacitor-jitsi-meet/android/build.gradle, update line 50 with the latest version number
+```
+implementation ('org.jitsi.react:jitsi-meet-sdk:[version number]') { transitive = true }
+```
+
 
 ## Acknowledgements
 

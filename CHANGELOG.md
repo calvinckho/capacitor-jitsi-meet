@@ -7,6 +7,10 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 # 3.1.0 (2023-01-03)
 
 - uses Jitsi SDK 7.0.1
+- BREAKING: legacy signalling support has been removed in SDK 7, thus this plugin version will stop working with very old Jitsi Meet instances
+
+## iOS
+- built with XCode 14
 
 # 3.0.0 (2022-09-20)
 
