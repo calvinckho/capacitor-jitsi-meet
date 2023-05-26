@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.capacitor.jitsi.plugin.capacitorjitsimeet">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
   <application android:theme="@style/AppTheme">
     <activity android:name="com.capacitor.jitsi.plugin.JitsiActivity"
               android:excludeFromRecents="true"

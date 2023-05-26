@@ -4,6 +4,13 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 4.0.0 (2023-05-25)
+
+## Breaking Changes
+- adapted plugin for Capacitor 5. Follow [Updating from Capacitor 4 to Capacitor 5](https://capacitorjs.com/docs/updating/5-0) to upgrade your project.
+- Capacitor 5 requires Xcode 14.1+
+- Capacitor 5 requires Android Studio Flamingo | 2022.2.1 or newer because of the usage of Gradle 8, that requires Java JDK 17
+
 # 3.1.0 (2023-01-03)
 
 - uses Jitsi SDK 7.0.1
