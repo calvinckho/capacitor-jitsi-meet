@@ -89,6 +89,10 @@ public class Jitsi: CAPPlugin {
                 }
                 builder.setFeatureFlag(key, withValue: readValue);
             }
+            #if DEBUG
+                builder.setFeatureFlag("call-integration.enabled", withValue: false);
+                print("disable CallKit in debug mode to prevent call from disconnecting in simulators.")
+            #endif
 
             let configOverrides = call.options["configOverrides"] as? Dictionary<String, Any>
             configOverrides?.forEach { key, value in
