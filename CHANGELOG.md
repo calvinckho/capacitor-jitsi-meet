@@ -1,10 +1,10 @@
 # Capacitor Plugin Changelog
 
-Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if your local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the corresponding plugin version.  
+Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if your local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the corresponding plugin version.
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 4.0.0-beta.0 (2023-05-25)
+# 4.0.0 (2023-11-10)
 
 ## Breaking Changes
 - adapted plugin for Capacitor 5. Follow [Updating from Capacitor 4 to Capacitor 5](https://capacitorjs.com/docs/updating/5-0) to upgrade your project.
