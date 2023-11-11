@@ -94,7 +94,7 @@ Install from Github. Make sure you insert the branch name at the end:
 ```
 npm i git+ssh://git@github.com:calvinckho/capacitor-jitsi-meet#[branch name]
 ```
-2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app). See below for Capacitor 3 and 4 usage. For older versions of Capacitor, see [here](https://github.com/calvinckho/capacitor-jitsi-meet/blob/7321356fcae47228d250aec1e9acba3796835769/README.md).
+2. use it as a [Capacitor Plugin](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-your-app). See below for Capacitor 3+ usage. For older versions of Capacitor, see [here](https://github.com/calvinckho/capacitor-jitsi-meet/blob/7321356fcae47228d250aec1e9acba3796835769/README.md).
 ```javascript
 
 import { Jitsi } from 'capacitor-jitsi-meet';
@@ -122,7 +122,7 @@ const result = await Jitsi.joinConference({
     startWithVideoMuted: false, // start with video muted, default: false
     chatEnabled: false, // enable Chat feature, default: true
     inviteEnabled: false, // enable Invitation feature, default: true
-    
+
     // advanced parameters (optional)
     token: string, // jwt authentication token
     configOverrides: { 'p2p.enabled': false }, // see list of config overrides in the official Jitsi Meet SDK documentation
