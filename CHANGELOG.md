@@ -6,7 +6,6 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 # 4.1.0 (2024-01-15)
 
-## Breaking Changes
 - uses Jitsi SDK 8.6.0
 
 # 4.0.0 (2023-11-10)

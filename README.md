@@ -153,7 +153,7 @@ $ npm run build
 
 ## Official Jitsi-Meet SDK Documentation
 
-This plugin uses the Jitsi Meet SDK. See the [Jitsi Meet SDK documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-mobile), and the lists of [feature flags](https://jitsi.github.io/handbook/docs/dev-guide/mobile-feature-flags) and [config overrides](https://github.com/jitsi/jitsi-meet/blob/e2731ce73e9221408d0f4d985affc91eb11fc214/config.js).
+This plugin uses the Jitsi Meet SDK. See the [Jitsi Meet SDK documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk), and the lists of [feature flags](https://jitsi.github.io/handbook/docs/dev-guide/mobile-feature-flags) and [config overrides](https://github.com/jitsi/jitsi-meet/blob/master/config.js).
 
 ## Sample React App for Android
 
@@ -176,7 +176,7 @@ in /ios/Plugin/Podfile, update line 10 and line 25 with the latest version numbe
 
 ### Android folder:
 
-in /capacitor-jitsi-meet/android/build.gradle, update line 50 with the latest version number
+in /capacitor-jitsi-meet/android/build.gradle, update line 55 with the latest version number
 ```
 implementation ('org.jitsi.react:jitsi-meet-sdk:[version number]') { transitive = true }
 ```
