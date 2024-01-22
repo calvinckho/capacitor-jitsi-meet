@@ -181,6 +181,25 @@ in /capacitor-jitsi-meet/android/build.gradle, update line 55 with the latest ve
 implementation ('org.jitsi.react:jitsi-meet-sdk:[version number]') { transitive = true }
 ```
 
+## Production Jitsi Server Configuration
+https://meet.jitsi.si is designed for testing purposes when used with the Jitsi API. According to Jitsi, it is not intended for production use. Meetings created with this server will be limited to 5 minutes. In addition, also note that fully anonymous meetings are no longer possible under the Jitsi Meet API when using this server (see authentication post below).
+
+The examples here use `url: 'https://meet.jit.si'` for the Jitsi server, but this server is only intended for test usage.
+
+For production usage, one should either use a self-hosted server, or use [JaaS](https://jaas.8x8.vc/), Jitsi-as-a-Service. This latter service can be found at https://jaas.8x8.vc/.
+
+To use JaaS with this plugin use: `url: 'https://8x8.vc/'` when initializing via the start() function. For embedding in web applications (a browser), use the iFrame API, not this plugin. You will need to load the iFrame javascript from `https://8x8.vc/libs/external_api.min.js'`. 
+
+The usage of JaaS requires an account and a payment method. At the time of this writing, 25 users are permitted per month for free, and after that one must pay.
+
+Further information:
+
+https://jitsi.org/api/
+
+https://jitsi.org/blog/authentication-on-meet-jit-si/
+
+https://community.jitsi.org/t/authentication-on-meet-jit-si/125922/53
+
 
 ## Acknowledgements
 
