@@ -2,6 +2,7 @@
 android/capacitor-jitsi-meet/build/
 android/.idea
 android/build
+android/.gradle
 .idea/
 
 /dist/
