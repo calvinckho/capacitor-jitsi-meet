@@ -15,5 +15,5 @@
     }
     s.ios.deployment_target  = '13.0'
     s.dependency 'Capacitor'
-    s.dependency 'JitsiMeetSDK', '8.6.2'
+    s.dependency 'JitsiMeetSDK', '8.6.1'
   end
