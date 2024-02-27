@@ -23,7 +23,7 @@ npx cap update
 npx cap sync
 ```
 
-6. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
+6. This step is optional if you are using Xcode 14 or later. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
 
 ```
    i. Pods -> Project -> Pods -> Build Settings -> Enable Bitcode -> No
@@ -50,7 +50,9 @@ end
     i. Pods -> Targets -> Capacitor -> Build Settings -> Swift Language Version -> Swift 5
 ```
 
-8. In order for app to properly work in the background, select the "audio" and "voip" background modes.
+8. Add keys `NSCameraUsageDescription` and `NSMicrophoneUsageDescription` to Info.plist with a description on how your app uses Camera and Microphone.
+
+9. In order for app to properly work in the background, select the "audio" and "voip" background modes.
 
 ```
 <key>UIBackgroundModes</key>
@@ -60,7 +62,7 @@ end
 	</array>
 ```
 
-9. Build it in Xcode and deploy it to your device
+10. Build it in Xcode and deploy it to your device
 
 ```
 ionic capacitor open ios
