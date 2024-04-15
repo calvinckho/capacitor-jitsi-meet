@@ -8,10 +8,12 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 
 - uses Jitsi SDK 9.2.0
 
-## iOS
-- iOS min deployment target raised to 13.4
-- built with XCode 15.3
+## Android
+- set target SDK to 34
 
+## iOS
+- set min deployment target to 13.4
+- built with XCode 15.3
 
 # 4.1.1 (2024-02-25)
 
