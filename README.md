@@ -19,7 +19,7 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
         v5
       </td>
       <td>
-        >= 4.0.0
+        <= 5.0.0
       </td>
       <td>
         current
