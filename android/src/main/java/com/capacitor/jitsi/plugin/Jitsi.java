@@ -23,6 +23,8 @@ import timber.log.Timber;
 import org.jitsi.meet.sdk.*;
 import org.json.JSONException;
 
+import static android.content.Context.RECEIVER_EXPORTED;
+
 @CapacitorPlugin(
     name= "Jitsi",
     permissions={
@@ -61,8 +63,9 @@ public class Jitsi extends Plugin {
         filter.addAction("onConferenceWillJoin");
         filter.addAction("onConferenceJoined");
         filter.addAction("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
-        getContext().registerReceiver(receiver, filter);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getContext().registerReceiver(receiver, filter, RECEIVER_EXPORTED);
+        }
         if(roomName == null) {
             call.reject("Must provide an conference room name");
             return;
