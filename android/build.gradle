@@ -53,6 +53,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation ('org.jitsi.react:jitsi-meet-sdk:9.2.0') { transitive = true }
+    implementation 'androidx.activity:activity:1.2.3'
 
     // Firebase
     implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
