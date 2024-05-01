@@ -65,7 +65,10 @@ public class Jitsi extends Plugin {
         filter.addAction("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             getContext().registerReceiver(receiver, filter, RECEIVER_EXPORTED);
+        } else {
+            getContext().registerReceiver(receiver, filter);
         }
+
         if(roomName == null) {
             call.reject("Must provide an conference room name");
             return;
