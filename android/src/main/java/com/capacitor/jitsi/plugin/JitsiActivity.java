@@ -12,8 +12,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import timber.log.Timber;
 
 import com.facebook.react.bridge.UiThreadUtil;
-
 import org.jitsi.meet.sdk.*;
+import org.json.JSONObject;
 
 public class JitsiActivity extends JitsiMeetActivity {
     private BroadcastReceiver broadcastReceiver;
@@ -61,35 +61,40 @@ public class JitsiActivity extends JitsiMeetActivity {
             BroadcastEvent event = new BroadcastEvent(intent);
             switch (event.getType()) {
                 case CONFERENCE_JOINED:
-                    on("onConferenceJoined");
+                    on("onConferenceJoined", null);
                     break;
                 case CONFERENCE_WILL_JOIN:
-                    on("onConferenceWillJoin");
+                    on("onConferenceWillJoin", null);
                     break;
-                case CONFERENCE_TERMINATED:
+                case CONFERENCE_TERMINATED, READY_TO_CLOSE:
                     finish();
-                    on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
-                    break;
-                case READY_TO_CLOSE:
-                    finish();
-                    on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+                    on("onConferenceLeft", null); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
                     break;
                 case PARTICIPANT_JOINED:
-                    on("onParticipantJoined");
+                    on("onParticipantJoined", null);
                     break;
                 case PARTICIPANT_LEFT:
-                    on("onParticipantLeft");
+                    on("onParticipantLeft", null);
+                    break;
+                case CHAT_MESSAGE_RECEIVED:
+                    on("onChatMessageReceived", event);
+                    break;
+                case PARTICIPANTS_INFO_RETRIEVED:
+                    on("onParticipantsInfoRetrieved", event);
                     break;
             }
         }
     }
 
-    private void on(String name) {
+    private void on(String eventName, BroadcastEvent event) {
         UiThreadUtil.assertOnUiThread();
-        Timber.tag(TAG).d(JitsiMeetView.class.getSimpleName() + ": " + name);
-
-        Intent intent = new Intent(name);
-        intent.putExtra("eventName", name);
+        Intent intent = new Intent(eventName);
+        intent.putExtra("eventName", eventName);
+        if (event != null) {
+            JSONObject json = new JSONObject(event.getData());
+            intent.putExtra("data", json.toString());
+            Timber.tag(TAG).d(JitsiMeetView.class.getSimpleName() + ": " + eventName + ", " + json);
+        }
         sendBroadcast(intent);
     }
 
@@ -101,9 +106,26 @@ public class JitsiActivity extends JitsiMeetActivity {
         Timber.tag(TAG).d("onStop %s", session_options.getFeatureFlags().getBoolean("pip.enabled"));
         if (session_options.getFeatureFlags().getBoolean("pip.enabled")) { //TODO: also check the CapacitorJitsiMeet's AndroidManifest.xml file and ensure android:supportsPictureInPicture="true"
             finish();
-            on("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+            on("onConferenceLeft", null); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
         }
         super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        // Here we are trying to handle the following corner case: an application using the SDK
+        // is using this Activity for displaying meetings, but there is another "main" Activity
+        // with other content. If this Activity is "swiped out" from the recent list we will get
+        // Activity#onDestroy() called without warning. At this point we can try to leave the
+        // current meeting, but when our view is detached from React the JS <-> Native bridge won't
+        // be operational so the external API won't be able to notify the native side that the
+        // conference terminated. Thus, try our best to clean up.
+        leave();
+        finish();
+        JitsiMeetOngoingConferenceService.abort(this);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
+        JitsiMeetActivityDelegate.onHostDestroy(this);
+        super.onDestroy();
     }
 
     // for logging entering and leaving PIP only

@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import timber.log.Timber;
+
 public class JitsiBroadcastReceiver extends BroadcastReceiver {
 
     private static final String TAG = "JitsiBroadcastReceiver";
@@ -14,9 +16,11 @@ public class JitsiBroadcastReceiver extends BroadcastReceiver {
     }
 
     public void onReceive(Context context, Intent intent) {
-        String eventName = (String) intent.getSerializableExtra("eventName");
+        String actionName = (String) intent.getSerializableExtra("eventName");
+        String data = (String) intent.getSerializableExtra("data");
+        // Timber.tag(TAG).d("JitsiMeetView: " + actionName + ", " + data);
         if (jitsi != null) {
-            jitsi.onEventReceived(eventName);
+            jitsi.onEventReceived(actionName, data);
         }
     }
 }

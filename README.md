@@ -149,6 +149,14 @@ window.addEventListener('onConferenceTerminated', () => {
 window.addEventListener('onConferenceLeft', () => {
     // do things here
 });
+window.addEventListener('onChatMessageReceived', (data: any) => {
+    // console.log("message", JSON.stringify(data))
+    // {"isTrusted":false,"senderId":"00b50123","isPrivate":"false","message":"this is the message","timestamp":"2024-09-16T18:53:34Z"}
+});
+window.addEventListener('onParticipantsInfoRetrieved', (data: any) => {
+    // console.log("participant info", JSON.stringify(data));
+    //{"isTrusted":false,"participantsInfo":"[{participantId=00b50123, name=My Name, role=moderator, avatarUrl=https://xxx.png, isLocal=true}
+});
 
 const result = await Jitsi.leaveConference()
 console.log(result) // { success: true }

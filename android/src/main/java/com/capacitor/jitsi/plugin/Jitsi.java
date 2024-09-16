@@ -16,28 +16,26 @@ import android.content.Intent;
 import android.Manifest;
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import timber.log.Timber;
 
 import org.jitsi.meet.sdk.*;
 import org.json.JSONException;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static android.content.Context.RECEIVER_NOT_EXPORTED;
 
 @CapacitorPlugin(
-    name= "Jitsi",
-    permissions={
-        @Permission(strings = {Manifest.permission.RECORD_AUDIO}),
-        @Permission(strings = {Manifest.permission.CAMERA}),
-      }
-  )
+        name= "Jitsi",
+        permissions={
+                @Permission(strings = {Manifest.permission.RECORD_AUDIO}),
+                @Permission(strings = {Manifest.permission.CAMERA}),
+        }
+)
 public class Jitsi extends Plugin {
     private static final String TAG = "CapacitorJitsiMeet";
     private JitsiBroadcastReceiver receiver;
     private JitsiMeetUserInfo userInfo;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @PluginMethod()
     public void joinConference(PluginCall call) throws JSONException {
         URL url = null;
@@ -63,12 +61,14 @@ public class Jitsi extends Plugin {
         filter.addAction("onConferenceWillJoin");
         filter.addAction("onConferenceJoined");
         filter.addAction("onConferenceLeft"); // intentionally uses the obsolete onConferenceLeft in order to be consistent with iOS deployment and broadcast to JS listeners
+        filter.addAction("onChatMessageReceived");
+        filter.addAction("onParticipantsInfoRetrieved");
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            getContext().registerReceiver(receiver, filter, RECEIVER_EXPORTED);
+            getContext().registerReceiver(receiver, filter, RECEIVER_NOT_EXPORTED);
         } else {
             getContext().registerReceiver(receiver, filter);
         }
-
         if(roomName == null) {
             call.reject("Must provide an conference room name");
             return;
@@ -171,9 +171,12 @@ public class Jitsi extends Plugin {
         call.resolve(ret);
     }
 
-    public void onEventReceived(String eventName) {
-        bridge.triggerWindowJSEvent(eventName);
-        Timber.tag(TAG).d(eventName);
+    public void onEventReceived(String eventName, String data) {
+        bridge.triggerWindowJSEvent(eventName, data);
+        if(eventName.equals("onConferenceJoined")) {
+            Intent retrieveParticipantsIntent = BroadcastIntentHelper.buildRetrieveParticipantsInfo("retrieveSelfInfo");
+            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(retrieveParticipantsIntent);
+        }
         if(eventName.equals("onConferenceLeft")) {
             if (receiver != null) {
                 getContext().unregisterReceiver(receiver);

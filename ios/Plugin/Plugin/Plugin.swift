@@ -119,10 +119,18 @@ public class Jitsi: CAPPlugin {
 
 extension Jitsi: JitsiMeetViewControllerDelegate {
     @objc func onConferenceJoined() {
-        self.bridge?.triggerJSEvent(eventName: "onConferenceJoined", target: "window");
+        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceJoined");
     }
 
     @objc func onConferenceLeft() {
-        self.bridge?.triggerJSEvent(eventName: "onConferenceLeft", target: "window");
+        self.bridge?.triggerWindowJSEvent(eventName: "onConferenceLeft");
+    }
+
+    @objc func onChatMessageReceived(_ dataString: String) {
+        self.bridge?.triggerWindowJSEvent(eventName: "onChatMessageReceived", data: dataString);
+    }
+
+    @objc func onParticipantsInfoRetrieved(_ dataString: String) {
+        self.bridge?.triggerWindowJSEvent(eventName: "onParticipantsInfoRetrieved", data: dataString);
     }
 }

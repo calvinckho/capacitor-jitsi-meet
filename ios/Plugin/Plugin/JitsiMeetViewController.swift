@@ -74,16 +74,33 @@ public class JitsiMeetViewController: UIViewController, UIGestureRecognizerDeleg
 
 protocol JitsiMeetViewControllerDelegate: AnyObject {
     func onConferenceJoined()
-
     func onConferenceLeft()
+    func onChatMessageReceived(_ dataString: String)
+    func onParticipantsInfoRetrieved(_ dataString: String)
 }
 
 // MARK: JitsiMeetViewDelegate
 extension JitsiMeetViewController: JitsiMeetViewDelegate {
 
-    @objc public func conferenceJoined(_ data: [AnyHashable : Any]!) {
+    @objc public func conferenceJoined(_ data: NSDictionary) {
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined");
         delegate?.onConferenceJoined()
-        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference joined.");
+        Task {
+            // print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::retrieveParticipantsInfo");
+            let jitsiMeetView = JitsiMeetView()
+            self.jitsiMeetView = jitsiMeetView
+            await jitsiMeetView.retrieveParticipantsInfo({ (_ data: Any) -> Void in
+                if let theJSONData = try?  JSONSerialization.data(
+                      withJSONObject: data,
+                      options: .prettyPrinted
+                      ),
+                      let theJSONText = String(data: theJSONData,
+                                           encoding: String.Encoding.ascii) {
+                      print("JSON string = \n\(theJSONText)")
+                    self.delegate?.onParticipantsInfoRetrieved(theJSONText)
+                }
+            });
+        }
     }
 
     @objc public func ready(toClose: [AnyHashable : Any]!) {
@@ -94,11 +111,25 @@ extension JitsiMeetViewController: JitsiMeetViewDelegate {
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
 
-    @objc public func conferenceTerminated(_ data: [AnyHashable : Any]!) {
+    @objc public func conferenceTerminated(_ data: NSDictionary) {
         print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::conference terminated");
         delegate?.onConferenceLeft()
         self.cleanUp()
 
         self.dismiss(animated: true, completion: nil); // e.g. user ends the call. This is preferred over conferenceLeft to shorten the white screen while exiting the room
     }
+
+    @objc public func chatMessageReceived(_ data: NSDictionary) {
+        print("[Jitsi Plugin Native iOS]: JitsiMeetViewController::chat message received");
+        if let theJSONData = try?  JSONSerialization.data(
+              withJSONObject: data,
+              options: .prettyPrinted
+              ),
+              let theJSONText = String(data: theJSONData,
+                                   encoding: String.Encoding.ascii) {
+              print("JSON string = \n\(theJSONText)")
+            delegate?.onChatMessageReceived(theJSONText)
+        }
+    }
+
 }
