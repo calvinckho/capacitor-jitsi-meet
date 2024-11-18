@@ -82,7 +82,7 @@ public class Jitsi extends Plugin {
         if (email != null) {
             userInfo.setEmail(email);
         }
-        if (avatarURL != null) {
+        if (avatarURL != null && !avatarURL.isBlank()) {
             // try to assign avatar URL
             try {
                 userInfo.setAvatar(new URL(avatarURL));

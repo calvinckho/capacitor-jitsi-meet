@@ -4,7 +4,7 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 6.2.0 (2024-09-17)
+# 6.2.0 (2024-11-18)
 
 - uses Jitsi SDK 10.1.2
 - adds JS event listeners: onChatMessageReceived, onParticipantsInfoRetrieved 
