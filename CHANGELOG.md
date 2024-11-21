@@ -4,6 +4,11 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 6.2.1 (2024-11-21)
+
+- uses Jitsi SDK 10.1.2
+- fix broadcast receivers not working in Android 14
+
 # 6.2.0 (2024-11-18)
 
 - uses Jitsi SDK 10.1.2
