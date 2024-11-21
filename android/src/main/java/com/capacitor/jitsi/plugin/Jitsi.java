@@ -22,7 +22,7 @@ import timber.log.Timber;
 import org.jitsi.meet.sdk.*;
 import org.json.JSONException;
 
-import static android.content.Context.RECEIVER_NOT_EXPORTED;
+import static android.content.Context.RECEIVER_EXPORTED;
 
 @CapacitorPlugin(
         name= "Jitsi",
@@ -65,7 +65,7 @@ public class Jitsi extends Plugin {
         filter.addAction("onParticipantsInfoRetrieved");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            getContext().registerReceiver(receiver, filter, RECEIVER_NOT_EXPORTED);
+            getContext().registerReceiver(receiver, filter, RECEIVER_EXPORTED);
         } else {
             getContext().registerReceiver(receiver, filter);
         }
