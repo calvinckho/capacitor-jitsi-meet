@@ -4,6 +4,17 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
+# 6.3.0-beta.0 (2024-12-10)
+
+- uses Jitsi SDK 10.3.0
+
+## Android
+- fix Android camera/audio mute button bug in Android 13+ in 10.1.2
+
+## iOS
+- Update GIPHY SDK
+- Use Xcode 16 as the new baseline
+
 # 6.2.1 (2024-11-21)
 
 - uses Jitsi SDK 10.1.2
