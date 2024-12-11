@@ -14,6 +14,7 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 ## iOS
 - Update GIPHY SDK
 - Use Xcode 16 as the new baseline
+- iOS 15.1+ is required
 
 # 6.2.1 (2024-11-21)
 
