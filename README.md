@@ -83,7 +83,7 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
   </tbody>
 </table>
 
-Follow the [official Capacitor doc to upgrade to Capacitor 5](https://capacitorjs.com/docs/updating/5-0).
+Follow the [Capacitor doc to upgrade to the latest Capacitor version](https://capacitorjs.com/docs).
 
 ## iOS Compatible Versions
 
