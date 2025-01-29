@@ -4,7 +4,7 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 6.3.0-beta.0 (2024-12-10)
+# 6.3.0 (2025-1-28)
 
 - uses Jitsi SDK 10.3.0
 
