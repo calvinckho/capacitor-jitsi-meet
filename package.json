@@ -1,34 +1,37 @@
 {
   "name": "capacitor-jitsi-meet",
-  "version": "6.3.0",
+  "version": "7.0.0",
   "description": "This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java"
   },
   "author": "Calvin Ho",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/cli": "^6.0.0",
-    "@capacitor/core": "^6.0.0"
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
   },
   "devDependencies": {
-    "@capacitor/android": "^6.0.0",
-    "@capacitor/ios": "^6.0.0",
-    "@ionic/prettier-config": "^1.0.0",
-    "@ionic/swiftlint-config": "^1.0.0",
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
+    "@capacitor/docgen": "^0.3.0",
+    "@ionic/eslint-config": "^0.4.0",
+    "@ionic/prettier-config": "^4.0.0",
+    "@ionic/swiftlint-config": "^2.0.0",
     "@rollup/plugin-node-resolve": "^15.3.0",
-    "prettier": "^2.7.1",
-    "prettier-plugin-java": "^1.6.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^4.22.4",
-    "swiftlint": "^1.0.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-java": "^2.6.6",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.30.1",
+    "swiftlint": "^2.0.0",
     "typescript": "~4.8.4"
   },
   "files": [
