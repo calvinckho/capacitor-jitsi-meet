@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
+    "build": "npm run clean && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepare": "npm run build",
@@ -22,7 +22,6 @@
   "devDependencies": {
     "@capacitor/android": "^7.0.0",
     "@capacitor/ios": "^7.0.0",
-    "@capacitor/docgen": "^0.3.0",
     "@ionic/eslint-config": "^0.4.0",
     "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^2.0.0",
