@@ -9,6 +9,9 @@ See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes
 ## Breaking Changes
 - adapted plugin for Capacitor 7. Follow [upgrade guide](https://capacitorjs.com/docs/updating/7-0) to upgrade project.
 
+## iOS
+- make sure to raise iOS Deployment Target to 14.0 as a part of the Capacitor upgrade process. Otherwise [pod update](https://github.com/calvinckho/capacitor-jitsi-meet/issues/124#issuecomment-2634967603) will fail.
+
 # 6.3.0 (2025-1-28)
 
 - uses Jitsi SDK 10.3.0
