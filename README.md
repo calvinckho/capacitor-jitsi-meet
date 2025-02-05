@@ -1,7 +1,7 @@
 # Jitsi Meet Capacitor Plugin for Ionic Apps
 <img src="https://img.shields.io/npm/v/capacitor-jitsi-meet?style=flat-square" />
 
-This Ionic Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.
+This Capacitor plugin is created to make video calls through the free, open-sourced Jitsi video platform (https://meet.jit.si) on iOS and Android.
 
 ## Compatibility to Capacitor Versions
 
@@ -94,7 +94,7 @@ This Ionic Capacitor plugin is created to make video calls through the free, ope
   </tbody>
 </table>
 
-Follow the [Capacitor doc to upgrade to the latest Capacitor version](https://capacitorjs.com/docs).
+Follow the [Capacitor doc to upgrade to the latest Capacitor version](https://capacitorjs.com/docs). Read the [Jitsi Meet developer doc](https://jitsi.github.io/handbook/docs/category/developer-guide) for additional information on self-hosting your own videobridge and other SDK features.
 
 ## iOS Compatible Versions
 
@@ -212,7 +212,7 @@ implementation ('org.jitsi.react:jitsi-meet-sdk:[version number]') { transitive 
 ```
 
 ## Production Jitsi Server Configuration
-https://meet.jitsi.si is designed for testing purposes when used with the Jitsi API. According to Jitsi, it is not intended for production use. Meetings created with this server will be limited to 5 minutes. In addition, also note that fully anonymous meetings are no longer possible under the Jitsi Meet API when using this server (see authentication post below).
+https://meet.jitsi.si is designed for testing purposes when used with the Jitsi API. According to Jitsi, it is not intended for production use. Meetings created with this server will be limited to 5 minutes. In addition, also note that [fully anonymous meetings are no longer possible](https://jitsi.org/blog/authentication-on-meet-jit-si/) under the Jitsi Meet API when using this server.
 
 The examples here use `url: 'https://meet.jit.si'` for the Jitsi server, but this server is only intended for test usage.
 

@@ -4,7 +4,7 @@ This plugin uses the Jitsi SDK.
 
 ## Xcode and iOS SDK Compatibility
 
-Each version of the jitsi capacitor plugin uses the latest Jitsi SDK version published by Jitsi. In iOS deployment, the SDK version is important because later SDKs compiled using the latest Xcode would not work if you local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the plugin version that uses the compatible SDK version.  
+Each version of the plugin uses the latest Jitsi SDK version published by Jitsi. In iOS deployment, the SDK version is important because new SDKs compiled using the latest Xcode would not work if you local Xcode is older. So for iOS deployment, make sure you check your Xcode version and install the appropriate plugin version or upgrade your XCode.  
 
 See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode
 
