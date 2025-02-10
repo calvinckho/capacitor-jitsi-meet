@@ -4,13 +4,13 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 7.0.0-beta.0 (2025-2-3)
+# 7.0.0 (2025-2-10)
 
 ## Breaking Changes
 - adapted plugin for Capacitor 7. Follow [upgrade guide](https://capacitorjs.com/docs/updating/7-0) to upgrade project.
 
 ## iOS
-- make sure to raise iOS Deployment Target to 14.0 as a part of the Capacitor upgrade process. Otherwise [pod update](https://github.com/calvinckho/capacitor-jitsi-meet/issues/124#issuecomment-2634967603) will fail.
+- make sure to raise iOS Deployment Target to 15.1 as required by the Jitsi SDK. Otherwise [pod update](https://github.com/calvinckho/capacitor-jitsi-meet/issues/124#issuecomment-2634967603) will fail.
 
 # 6.3.0 (2025-1-28)
 
