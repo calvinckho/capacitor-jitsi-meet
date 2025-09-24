@@ -4,7 +4,15 @@ Each version of the capacitor plugin uses a specific Jitsi SDK version. In iOS d
 
 See Jitsi-meet SDK [changelog](https://github.com/jitsi/jitsi-meet-release-notes/blob/master/CHANGELOG-MOBILE-SDKS.md)
 
-# 7.1.0-beta.0 (2025-4-2)
+# 7.2.0-beta.0 (2025-9-24)
+
+- uses Jitsi SDK 11.5.1
+
+## Android
+- Build targeting API level 35
+- SDK now supports Android 16kb page size requirement.
+
+# 7.1.0 (2025-4-2)
 
 - uses Jitsi SDK 11.1.0
 
