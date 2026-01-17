@@ -52,7 +52,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
-    implementation ('org.jitsi.react:jitsi-meet-sdk:11.5.1') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:11.6.3') { transitive = true }
     implementation 'androidx.activity:activity:1.2.3'
 
     // Firebase
