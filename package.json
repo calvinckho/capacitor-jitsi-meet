@@ -16,7 +16,7 @@
   "author": "Calvin Ho",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/cli": "^7.0.0",
+    "@capacitor/cli": "^8.0.2",
     "@capacitor/core": "^7.0.0"
   },
   "devDependencies": {
