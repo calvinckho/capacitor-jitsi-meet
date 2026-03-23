@@ -16,13 +16,24 @@ This Capacitor plugin is created to make video calls through the free, open-sour
   <tbody>
     <tr>
       <td>
+        v8
+      </td>
+      <td>
+        >= 8.0.0
+      </td>
+      <td>
+        current
+      </td>
+    </tr>
+    <tr>
+      <td>
         v7
       </td>
       <td>
         >= 7.0.0
       </td>
       <td>
-        current
+        until Mar 31, 2026
       </td>
     </tr>
     <tr>
@@ -33,7 +44,7 @@ This Capacitor plugin is created to make video calls through the free, open-sour
         >= 6.0.0
       </td>
       <td>
-        until Feb 30, 2024
+        until Feb 30, 2025
       </td>
     </tr>
     <tr>
