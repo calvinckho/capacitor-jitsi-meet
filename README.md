@@ -109,7 +109,7 @@ Follow the [Capacitor doc to upgrade to the latest Capacitor version](https://ca
 
 ## iOS Compatible Versions
 
-See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/master/CHANGELOG.md) for plugin versions that are compatible to your local Xcode version.
+See the plugin [changelog](https://github.com/calvinckho/capacitor-jitsi-meet/blob/HEAD/CHANGELOG.md) for plugin versions that are compatible to your local Xcode version.
 
 ## Embedding in web applications
 
