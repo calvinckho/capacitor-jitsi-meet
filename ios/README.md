@@ -22,6 +22,10 @@ npx cap update
 ```
 npx cap sync
 ```
+If the above commands fail, follow the prompt to update the Cocoapods source repos. If it still does not work, you may need to cd into your project's ios/App directory and run the following:
+```
+pod update
+```
 
 6. This step is optional if you are using Xcode 14 or later. Turn off Bitcode in the app target as well as the pod targets. In xcode Project Navigator,
 
