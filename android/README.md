@@ -54,27 +54,23 @@ android {
 </manifest>    
 ```
 
-9. Update android/variables.gradle file with this content
+9. Update android/variables.gradle file with this content (or newer) depending on your Capacitor version. The following settings is for Capacitor 8.
  ```gradle
  ext {
-    minSdkVersion = 23
-    compileSdkVersion = 32
-    targetSdkVersion = 32
-    androidxActivityVersion = '1.4.0'
-    androidxAppCompatVersion = '1.4.2'
-    androidxCoordinatorLayoutVersion = '1.2.0'
-    androidxMaterialVersion = '1.6.1'
-    androidxExifInterfaceVersion = '1.3.3'
-    firebaseMessagingVersion = '23.0.5'
-    playServicesLocationVersion = '20.0.0'
-    androidxCoreVersion = '1.8.0'
-    androidxFragmentVersion = '1.4.1'
+    minSdkVersion = 26
+    compileSdkVersion = 36
+    targetSdkVersion = 36
+    androidxActivityVersion = '1.11.0'
+    androidxAppCompatVersion = '1.7.1'
+    androidxCoordinatorLayoutVersion = '1.3.0'
+    androidxCoreVersion = '1.17.0'
+    androidxFragmentVersion = '1.8.9'
+    coreSplashScreenVersion = '1.2.0'
+    androidxWebkitVersion = '1.14.0'
     junitVersion = '4.13.2'
-    androidxJunitVersion = '1.1.3'
-    androidxEspressoCoreVersion = '3.4.0'
-    cordovaAndroidVersion = '10.1.1'
-    coreSplashScreenVersion = '1.0.0-rc01'
-    androidxWebkitVersion = '1.4.0'
+    androidxJunitVersion = '1.3.0'
+    androidxEspressoCoreVersion = '3.7.0'
+    cordovaAndroidVersion = '14.0.1'
  }
 ```
 In older capacitor versions, if not already created, follow the [Ionic doc](https://capacitorjs.com/docs/android/updating#from-1-5-1-to-2-0-0) to create common variables. In android/build.gradle file, add apply from: "variables.gradle" as shown [here](https://github.com/ionic-team/capacitor/blob/master/android-template/build.gradle#L18).
