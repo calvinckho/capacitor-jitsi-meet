@@ -196,9 +196,9 @@ $ npm run build
 
 This plugin uses the Jitsi Meet SDK. See the [Jitsi Meet SDK documentation](https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-ios-sdk), and the lists of [feature flags](https://jitsi.github.io/handbook/docs/dev-guide/mobile-feature-flags) and [config overrides](https://github.com/jitsi/jitsi-meet/blob/master/config.js).
 
-## Sample React App for Android
+## Sample React App for Android and iOS
 
-You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jitsi-meet-sample) which runs the Jitsi meeting on the Android device
+You can see a [React Demo App](https://github.com/calvinckho/react-capacitor-jitsi-meet-sample) which runs the Jitsi meeting on both Android and iOS devices
 
 ## Feature Requests, Jitsi SDK UI Customizations, Picture-In-Picture Mode Implementation
 
