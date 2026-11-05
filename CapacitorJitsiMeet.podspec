@@ -7,10 +7,10 @@
     s.homepage = 'https://github.com/calvinckho/capacitor-jitsi-meet'
     s.author = 'Calvin Ho'
     s.source = { :git => 'https://github.com/calvinckho/capacitor-jitsi-meet', :tag => s.version.to_s }
-    s.source_files = 'ios/Plugin/Plugin/**/*.{swift,h,m,c,cc,mm,cpp}'
+    s.source_files = 'ios/Sources/CapacitorJitsiMeet/**/*.{swift,h,m,c,cc,mm,cpp}'
     s.resource_bundles = {
         'Plugin' => [
-        'ios/Plugin/Plugin/*.storyboard'
+        'ios/Sources/CapacitorJitsiMeet/*.storyboard'
         ]
     }
     s.ios.deployment_target = '15.1'

@@ -37,6 +37,7 @@
     "dist/",
     "ios/",
     "android/",
+    "Package.swift",
     "CapacitorJitsiMeet.podspec"
   ],
   "keywords": [

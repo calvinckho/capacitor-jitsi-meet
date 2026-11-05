@@ -1,3 +1,8 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
 /node_modules/
 android/capacitor-jitsi-meet/build/
 android/.idea
